@@ -1,0 +1,7 @@
+
+==========
+Contact us
+==========
+
+You may raise an issue on `GitHub <https://github.com/NVIDIA/TensorRT-Model-Optimizer/issues>`_
+for any questions or issues you may have.
