@@ -39,7 +39,7 @@ utils
    .. autosummary::
       :nosignatures:
    
-      duplicate_shared_linear_weights
+      duplicate_shared_constants
       find_lowest_common_ancestor
       gen_random_inputs
       get_all_input_names
@@ -64,6 +64,7 @@ utils
       remove_weights_data
       save_onnx
       save_onnx_bytes_to_dir
+      udpate_domain
       validate_batch_size
       validate_onnx
    

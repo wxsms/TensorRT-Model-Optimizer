@@ -4,10 +4,10 @@ Quantization
 ModelOpt quantization toolkit supports quantization for NVIDIA's hardware and software stack.
 Currently ModelOpt supports quantization in PyTorch and ONNX frameworks.
 
-ModelOpt is based on simulated quantization in the original precision to simulate, test and optimize
-for the best trade-off between the accuracy of the model and different low-precision formats. To
-achieve actual speedups and memory savings, the model with simulated quantization can be exported to
-deployment frameworks, like TensorRT or TensorRT-LLM. Please refer to the
+ModelOpt is based on simulated quantization in the original precision to simulate, test, and
+optimize for the best trade-off between the accuracy of the model and different low-precision
+formats. To achieve actual speedups and memory savings, the model with simulated quantization can be
+exported to deployment frameworks, like TensorRT or TensorRT-LLM. Please refer to the
 `TensorRT-Model-Optimizer GitHub repository <https://github.com/NVIDIA/TensorRT-Model-Optimizer>`_
 for more details and examples.
 

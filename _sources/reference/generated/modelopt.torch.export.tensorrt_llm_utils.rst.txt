@@ -41,6 +41,8 @@ tensorrt\_llm\_utils
    
       convert_to_tensorrt_llm_config
       is_tensorrt_llm_0_8_or_9
+      prepare_enc_dec_decoder_layer
+      prepare_enc_dec_export_dir
       weights_to_npz
    
    

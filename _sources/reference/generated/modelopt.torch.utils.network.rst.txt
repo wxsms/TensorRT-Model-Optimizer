@@ -51,6 +51,7 @@ network
       param_num
       param_num_from_forward
       remove_bn
+      run_forward_loop
       set_submodule
       standardize_model_args
       standardize_model_like_tuple
@@ -58,6 +59,6 @@ network
       standardize_constructor_args
       unwrap_model
       zero_grad
-      run_forward_loop
+      create_param_grad_clear_hook
    
    

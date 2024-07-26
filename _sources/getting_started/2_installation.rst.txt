@@ -7,17 +7,19 @@ System requirements
 
 Model Optimizer (``nvidia-modelopt``) currently has the following system requirements:
 
-+----------------------+-----------------------------+
-| OS                   |  Linux, Windows             |
-+----------------------+-----------------------------+
-| Architecture         |  x86_64, aarch64, win_amd64 |
-+----------------------+-----------------------------+
-| Python               |  >=3.8,<3.12                |
-+----------------------+-----------------------------+
-| PyTorch              |  >=1.11                     |
-+----------------------+-----------------------------+
-| CUDA                 |  >=11.8 (Recommended)       |
-+----------------------+-----------------------------+
++-------------------------+-----------------------------+
+| OS                      |  Linux                      |
++-------------------------+-----------------------------+
+| Architecture            |  x86_64                     |
++-------------------------+-----------------------------+
+| Python                  |  >=3.8,<3.13                |
++-------------------------+-----------------------------+
+| CUDA                    |  >=11.8 (Recommended)       |
++-------------------------+-----------------------------+
+| PyTorch (Optional)      |  >=1.11                     |
++-------------------------+-----------------------------+
+| TensorRT-LLM (Optional) |  0.11                       |
++-------------------------+-----------------------------+
 
 Install Model Optimizer
 =======================
@@ -34,11 +36,11 @@ license terms of ModelOpt and any dependencies before use.
     **Setting up a virtual environment**
 
     We recommend setting up a virtual environment if you don't have one already. Run the following
-    command to set up and activate a ``conda`` virtual environment named ``modelopt`` with Python 3.11:
+    command to set up and activate a ``conda`` virtual environment named ``modelopt`` with Python 3.12:
 
     .. code-block:: bash
 
-        conda create -n modelopt python=3.11 pip
+        conda create -n modelopt python=3.12 pip
 
     .. code-block:: bash
 
@@ -89,11 +91,14 @@ license terms of ModelOpt and any dependencies before use.
         * - ``transformers`` (Huggingface)
           - ``[hf]``
 
+    If you want to install only partial dependencies, please replace ``[all]`` with the desired
+    optional dependencies for the below ``pip`` installation command.
+
 **Install Model Optimizer** (``nvidia-modelopt``)
 
 .. code-block:: bash
 
-    pip install "nvidia-modelopt[all]" --no-cache-dir --extra-index-url https://pypi.nvidia.com
+    pip install "nvidia-modelopt[all]" --extra-index-url https://pypi.nvidia.com
 
 Check installation
 ==================
@@ -103,7 +108,7 @@ Check installation
     When you use ModelOpt's PyTorch quantization APIs for the first time, it will compile the fast quantization kernels
     using your installed torch and CUDA if available.
     This may take a few minutes but subsequent quantization calls will be much faster.
-    To invoke the compilation now and check if it is successful, run the following command:
+    To invoke the compilation and check if it is successful or pre-compile for docker builds, run the following command:
 
     .. code-block:: bash
 

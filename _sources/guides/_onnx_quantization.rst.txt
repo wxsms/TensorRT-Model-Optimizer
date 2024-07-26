@@ -8,7 +8,7 @@ ModelOpt provides ONNX quantization that works together with `TensorRT Explicit 
 #. White-box design allowing expert users to customize the quantization process.
 #. Better support for vision transformers.
 
-Currently ONNX quantization only supports INT8 quantization.
+Currently ONNX quantization supports INT4 and INT8 quantization.
 
 .. note::
 
@@ -18,7 +18,7 @@ Currently ONNX quantization only supports INT8 quantization.
 Requirements
 ============
 
-#. TensorRT >= 8.6 ( >= 9.1 preferred). Please refer to `TensorRT 9.1 download link <https://developer.nvidia.com/downloads/compute/machine-learning/tensorrt/secure/9.1.0/tars/tensorrt-9.1.0.4.linux.x86_64-gnu.cuda-12.2.tar.gz>`_.
+#. TensorRT >= 8.6 ( >= 10.0 preferred). Please refer to `TensorRT 10.0 download link <https://developer.nvidia.com/downloads/compute/machine-learning/tensorrt/10.0.1/tars/TensorRT-10.0.1.6.Linux.x86_64-gnu.cuda-12.4.tar.gz>`_.
 
 
 
@@ -29,11 +29,7 @@ PTQ should be done with a calibration dataset. If calibration dataset is not pro
 
 Prepare calibration dataset
 ---------------------------
-ModelOpt supports two types of calibration data format: image directory or numpy file.
-
-Image directory only works for single-input ONNX models.
-
-Numpy file works for both single-input and multi-input ONNX models. In the case of multi-input ONNX models, the numpy file should be a dictionary with keys as input names and values as numpy arrays.
+ModelOpt supports npz/npy file as calibration data format and that numpy file should be a dictionary with keys as model input names and values as numpy arrays.
 
 .. code-block:: python
 

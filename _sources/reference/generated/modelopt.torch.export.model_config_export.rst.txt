@@ -39,6 +39,7 @@ model\_config\_export
    .. autosummary::
       :nosignatures:
    
+      export_hf_checkpoint
       export_tensorrt_llm_checkpoint
       torch_to_tensorrt_llm_checkpoint
    

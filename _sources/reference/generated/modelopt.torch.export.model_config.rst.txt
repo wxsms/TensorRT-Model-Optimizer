@@ -34,15 +34,20 @@ model\_config
       :nosignatures:
    
       AttentionConfig
+      ConvConfig
       DecoderLayerConfig
       EmbeddingConfig
       ExpertConfig
       LayernormConfig
+      LinearActConfig
       LinearConfig
       MLPConfig
       MOEConfig
+      MedusaHeadConfig
       ModelConfig
       QKVConfig
+      RecurrentConfig
+      RgLruConfig
    
    
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation &mdash; Model Optimizer 0.11.2</title>
+  <title>Installation &mdash; Model Optimizer 0.15.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -13,11 +13,11 @@
       <link rel="stylesheet" type="text/css" href="../_static/autodoc_pydantic.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=d10054b6" />
 
-
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-
+  
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=5929fcd5"></script>
@@ -37,22 +37,22 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Quick Start: Quantization" href="3_quantization.html" />
-    <link rel="prev" title="Overview" href="1_overview.html" />
+    <link rel="prev" title="Overview" href="1_overview.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
 
-
-
+          
+          
           <a href="../index.html" class="icon icon-home">
             TensorRT Model Optimizer
           </a>
               <div class="version">
-                0.11.2
+                0.15.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -72,11 +72,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="3_quantization.html">Quick Start: Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_distillation.html">Quick Start: Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="6_sparsity.html">Quick Start: Sparsity</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Optimization Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guides/1_quantization.html">Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/4_distillation.html">Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/5_sparsity.html">Sparsity</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deployment</span></p>
@@ -85,11 +87,11 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../examples/0_all_examples.html">All ModelOpt Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/0_all_examples.html">GitHub Examples</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../reference/0_versions.html">Model Optimizer Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/0_versions.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference/1_modelopt_api.html">modelopt API</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Support</span></p>
@@ -121,7 +123,7 @@
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-
+             
   <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
 <section id="system-requirements">
@@ -130,19 +132,22 @@
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p>OS</p></td>
-<td><p>Linux, Windows</p></td>
+<td><p>Linux</p></td>
 </tr>
 <tr class="row-even"><td><p>Architecture</p></td>
-<td><p>x86_64, aarch64, win_amd64</p></td>
+<td><p>x86_64</p></td>
 </tr>
 <tr class="row-odd"><td><p>Python</p></td>
-<td><p>&gt;=3.8,&lt;3.12</p></td>
+<td><p>&gt;=3.8,&lt;3.13</p></td>
 </tr>
-<tr class="row-even"><td><p>PyTorch</p></td>
+<tr class="row-even"><td><p>CUDA</p></td>
+<td><p>&gt;=11.8 (Recommended)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PyTorch (Optional)</p></td>
 <td><p>&gt;=1.11</p></td>
 </tr>
-<tr class="row-odd"><td><p>CUDA</p></td>
-<td><p>&gt;=11.8 (Recommended)</p></td>
+<tr class="row-even"><td><p>TensorRT-LLM (Optional)</p></td>
+<td><p>0.11</p></td>
 </tr>
 </tbody>
 </table>
@@ -157,8 +162,8 @@ license terms of ModelOpt and any dependencies before use.</p>
 <input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">Detailed instructions</label><div class="tab-content docutils container">
 <p><strong>Setting up a virtual environment</strong></p>
 <p>We recommend setting up a virtual environment if you don’t have one already. Run the following
-command to set up and activate a <code class="docutils literal notranslate"><span class="pre">conda</span></code> virtual environment named <code class="docutils literal notranslate"><span class="pre">modelopt</span></code> with Python 3.11:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>modelopt<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span>pip
+command to set up and activate a <code class="docutils literal notranslate"><span class="pre">conda</span></code> virtual environment named <code class="docutils literal notranslate"><span class="pre">modelopt</span></code> with Python 3.12:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>modelopt<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.12<span class="w"> </span>pip
 </pre></div>
 </div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>modelopt
@@ -219,10 +224,12 @@ need to be installed to correctly use the corresponding modules:</p>
 </tr>
 </tbody>
 </table>
+<p>If you want to install only partial dependencies, please replace <code class="docutils literal notranslate"><span class="pre">[all]</span></code> with the desired
+optional dependencies for the below <code class="docutils literal notranslate"><span class="pre">pip</span></code> installation command.</p>
 </div>
 </div>
 <p><strong>Install Model Optimizer</strong> (<code class="docutils literal notranslate"><span class="pre">nvidia-modelopt</span></code>)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;nvidia-modelopt[all]&quot;</span><span class="w"> </span>--no-cache-dir<span class="w"> </span>--extra-index-url<span class="w"> </span>https://pypi.nvidia.com
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;nvidia-modelopt[all]&quot;</span><span class="w"> </span>--extra-index-url<span class="w"> </span>https://pypi.nvidia.com
 </pre></div>
 </div>
 </section>
@@ -233,7 +240,7 @@ need to be installed to correctly use the corresponding modules:</p>
 <p>When you use ModelOpt’s PyTorch quantization APIs for the first time, it will compile the fast quantization kernels
 using your installed torch and CUDA if available.
 This may take a few minutes but subsequent quantization calls will be much faster.
-To invoke the compilation now and check if it is successful, run the following command:</p>
+To invoke the compilation and check if it is successful or pre-compile for docker builds, run the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import modelopt.torch.quantization.extensions as ext; print(ext.cuda_ext); print(ext.cuda_ext_fp8)&quot;</span>
 </pre></div>
 </div>
@@ -258,7 +265,7 @@ To invoke the compilation now and check if it is successful, run the following c
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-
+   
 
 </footer>
         </div>
@@ -269,7 +276,7 @@ To invoke the compilation now and check if it is successful, run the following c
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
+  </script> 
 
 </body>
 </html>

@@ -17,9 +17,6 @@ llm
    modelopt.deploy.llm.generate
 
 
-   modelopt.deploy.llm.model_config_trt
-
-
    modelopt.deploy.llm.nemo_utils
 
 

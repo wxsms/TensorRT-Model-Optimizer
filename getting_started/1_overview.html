@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Overview &mdash; Model Optimizer 0.11.2</title>
+  <title>Overview &mdash; Model Optimizer 0.15.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -13,11 +13,11 @@
       <link rel="stylesheet" type="text/css" href="../_static/autodoc_pydantic.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=d10054b6" />
 
-
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-
+  
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=5929fcd5"></script>
@@ -37,22 +37,22 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Installation" href="2_installation.html" />
-    <link rel="prev" title="Welcome to Model Optimizer (ModelOpt) documentation!" href="../index.html" />
+    <link rel="prev" title="Welcome to Model Optimizer (ModelOpt) documentation!" href="../index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
 
-
-
+          
+          
           <a href="../index.html" class="icon icon-home">
             TensorRT Model Optimizer
           </a>
               <div class="version">
-                0.11.2
+                0.15.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -77,11 +77,13 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="2_installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_quantization.html">Quick Start: Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_distillation.html">Quick Start: Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="6_sparsity.html">Quick Start: Sparsity</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Optimization Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guides/1_quantization.html">Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/4_distillation.html">Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/5_sparsity.html">Sparsity</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deployment</span></p>
@@ -90,11 +92,11 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../examples/0_all_examples.html">All ModelOpt Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/0_all_examples.html">GitHub Examples</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../reference/0_versions.html">Model Optimizer Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/0_versions.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference/1_modelopt_api.html">modelopt API</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Support</span></p>
@@ -126,7 +128,7 @@
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-
+             
   <section id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h1>
 <section id="nvidia-tensorrt-model-optimizer">
@@ -134,15 +136,15 @@
 <p>Minimizing inference costs presents a significant challenge as generative AI models continue to grow in complexity and size.
 The <a class="reference external" href="https://github.com/NVIDIA/TensorRT-Model-Optimizer" rel="noopener noreferrer" target="_blank">NVIDIA TensorRT Model Optimizer</a> (referred to as Model Optimizer, or ModelOpt)
 is a library comprising state-of-the-art model optimization techniques including quantization and sparsity to compress model.
-It accepts a torch or ONNX model as inputs and provides Python APIs for users to easily stack different model optimization
-techniques to produce quantized checkpoint. Seamlessly integrated within the NVIDIA AI software ecosystem, the quantized
+It accepts a torch or ONNX model as input and provides Python APIs for users to easily stack different model optimization
+techniques to produce optimized &amp; quantized checkpoints. Seamlessly integrated within the NVIDIA AI software ecosystem, the quantized
 checkpoint generated from Model Optimizer is ready for deployment in downstream inference frameworks like
 <a class="reference external" href="https://github.com/NVIDIA/TensorRT-LLM/tree/main/examples/quantization" rel="noopener noreferrer" target="_blank">TensorRT-LLM</a> or <a class="reference external" href="https://github.com/NVIDIA/TensorRT" rel="noopener noreferrer" target="_blank">TensorRT</a>.
 Further integrations are planned for <a class="reference external" href="https://github.com/NVIDIA/NeMo" rel="noopener noreferrer" target="_blank">NVIDIA NeMo</a> and <a class="reference external" href="https://github.com/NVIDIA/Megatron-LM" rel="noopener noreferrer" target="_blank">Megatron-LM</a>
 for training-in-the-loop optimization techniques. For enterprise users, the 8-bit quantization with Stable Diffusion is also available on
 <a class="reference external" href="https://developer.nvidia.com/blog/nvidia-nim-offers-optimized-inference-microservices-for-deploying-ai-models-at-scale/" rel="noopener noreferrer" target="_blank">NVIDIA NIM</a>.</p>
 <p>Model Optimizer is available for free for all developers on <a class="reference external" href="https://pypi.org/project/nvidia-modelopt/" rel="noopener noreferrer" target="_blank">NVIDIA PyPI</a>.
-Visit <a class="reference external" href="https://github.com/NVIDIA/TensorRT-Model-Optimizer" rel="noopener noreferrer" target="_blank">/NVIDIA/TensorRT-Model-Optimizer repository</a> for end-to-end
+Visit the <a class="reference external" href="https://github.com/NVIDIA/TensorRT-Model-Optimizer" rel="noopener noreferrer" target="_blank">TensorRT Model Optimizer GitHub repository</a> for end-to-end
 example scripts and recipes optimized for NVIDIA GPUs.</p>
 <section id="techniques">
 <h3>Techniques<a class="headerlink" href="#techniques" title="Link to this heading"></a></h3>
@@ -158,11 +160,14 @@ for list of formats supported.</p>
 <section id="sparsity">
 <h4>Sparsity<a class="headerlink" href="#sparsity" title="Link to this heading"></a></h4>
 <p>Sparsity is a technique to further reduce the memory footprint of deep learning models and accelerate the inference.
-Model Optimizer provides Python API <a class="reference internal" href="../reference/generated/modelopt.torch.sparsity.sparsification.html#modelopt.torch.sparsity.sparsification.sparsify" title="modelopt.torch.sparsity.sparsification.sparsify"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mts.sparsify()</span></code></a> to apply
-weight sparsity to a given model. The <code class="docutils literal notranslate"><span class="pre">mts.sparsify()</span></code> API supports <a class="reference external" href="https://arxiv.org/pdf/2104.0837" rel="noopener noreferrer" target="_blank">NVIDIA 2:4</a>
-sparsity pattern and various sparsification methods, such as NVIDIA <a class="reference external" href="https://github.com/NVIDIA/apex/tree/master/apex/contrib/sparsity" rel="noopener noreferrer" target="_blank">ASP</a>
-and <a class="reference external" href="https://arxiv.org/abs/2301.00774" rel="noopener noreferrer" target="_blank">SparseGPT</a>. It supports both post-training sparsity and sparsity with fine-tuning.
-The latter workflow is recommended to minimize accuracy degradation.</p>
+Model Optimizer provides the Python API <a class="reference internal" href="../reference/generated/modelopt.torch.sparsity.sparsification.html#modelopt.torch.sparsity.sparsification.sparsify" title="modelopt.torch.sparsity.sparsification.sparsify"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mts.sparsify()</span></code></a> to
+automatically apply weight sparsity to a given model. The
+<a class="reference internal" href="../reference/generated/modelopt.torch.sparsity.sparsification.html#modelopt.torch.sparsity.sparsification.sparsify" title="modelopt.torch.sparsity.sparsification.sparsify"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mts.sparsify()</span></code></a> API supports
+<a class="reference external" href="https://arxiv.org/pdf/2104.0837" rel="noopener noreferrer" target="_blank">NVIDIA 2:4</a> sparsity pattern and various sparsification methods,
+such as <a class="reference external" href="https://github.com/NVIDIA/apex/tree/master/apex/contrib/sparsity" rel="noopener noreferrer" target="_blank">NVIDIA ASP</a> and
+<a class="reference external" href="https://arxiv.org/abs/2301.00774" rel="noopener noreferrer" target="_blank">SparseGPT</a>. It supports both post-training sparsity (PTS) and
+sparsity-aware training (SAT). The latter workflow is recommended to minimize accuracy
+degradation.</p>
 </section>
 </section>
 </section>
@@ -185,7 +190,7 @@ The latter workflow is recommended to minimize accuracy degradation.</p>
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-
+   
 
 </footer>
         </div>
@@ -196,7 +201,7 @@ The latter workflow is recommended to minimize accuracy degradation.</p>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
+  </script> 
 
 </body>
 </html>

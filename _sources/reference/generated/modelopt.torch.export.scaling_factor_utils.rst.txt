@@ -39,6 +39,7 @@ scaling\_factor\_utils
    .. autosummary::
       :nosignatures:
    
+      adjust_attn_amax_values
       get_weights_scaling_factor
       resmooth_and_get_scale
    

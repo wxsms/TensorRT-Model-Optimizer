@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ONNX Quantization (Beta) &mdash; Model Optimizer 0.11.2</title>
+  <title>ONNX Quantization (Beta) &mdash; Model Optimizer 0.15.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -13,11 +13,11 @@
       <link rel="stylesheet" type="text/css" href="../_static/autodoc_pydantic.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=d10054b6" />
 
-
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-
+  
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=5929fcd5"></script>
@@ -36,23 +36,23 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Sparsity" href="5_sparsity.html" />
-    <link rel="prev" title="PyTorch Quantization" href="_pytorch_quantization.html" />
+    <link rel="next" title="Distillation" href="4_distillation.html" />
+    <link rel="prev" title="PyTorch Quantization" href="_pytorch_quantization.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
 
-
-
+          
+          
           <a href="../index.html" class="icon icon-home">
             TensorRT Model Optimizer
           </a>
               <div class="version">
-                0.11.2
+                0.15.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -67,6 +67,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/1_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/2_installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/3_quantization.html">Quick Start: Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/5_distillation.html">Quick Start: Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/6_sparsity.html">Quick Start: Sparsity</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Optimization Guides</span></p>
@@ -88,6 +89,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="4_distillation.html">Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="5_sparsity.html">Sparsity</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deployment</span></p>
@@ -96,11 +98,11 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../examples/0_all_examples.html">All ModelOpt Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/0_all_examples.html">GitHub Examples</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../reference/0_versions.html">Model Optimizer Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/0_versions.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference/1_modelopt_api.html">modelopt API</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Support</span></p>
@@ -133,7 +135,7 @@
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-
+             
   <section id="onnx-quantization-beta">
 <h1>ONNX Quantization (Beta)<a class="headerlink" href="#onnx-quantization-beta" title="Link to this heading"></a></h1>
 <p>ModelOpt provides ONNX quantization that works together with <a class="reference external" href="https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#explicit-implicit-quantization" rel="noopener noreferrer" target="_blank">TensorRT Explicit Quantization (EQ)</a>. The key advantages offered by ModelOpt’s ONNX quantization:</p>
@@ -142,7 +144,7 @@
 <li><p>White-box design allowing expert users to customize the quantization process.</p></li>
 <li><p>Better support for vision transformers.</p></li>
 </ol>
-<p>Currently ONNX quantization only supports INT8 quantization.</p>
+<p>Currently ONNX quantization supports INT4 and INT8 quantization.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>ModelOpt ONNX quantization generates new ONNX models with QDQ nodes following TensorRT rules.
@@ -151,7 +153,7 @@ For real speedup, the generated ONNX should be compiled into TensorRT engine.</p
 <section id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
-<li><p>TensorRT &gt;= 8.6 ( &gt;= 9.1 preferred). Please refer to <a class="reference external" href="https://developer.nvidia.com/downloads/compute/machine-learning/tensorrt/secure/9.1.0/tars/tensorrt-9.1.0.4.linux.x86_64-gnu.cuda-12.2.tar.gz" rel="noopener noreferrer" target="_blank">TensorRT 9.1 download link</a>.</p></li>
+<li><p>TensorRT &gt;= 8.6 ( &gt;= 10.0 preferred). Please refer to <a class="reference external" href="https://developer.nvidia.com/downloads/compute/machine-learning/tensorrt/10.0.1/tars/TensorRT-10.0.1.6.Linux.x86_64-gnu.cuda-12.4.tar.gz" rel="noopener noreferrer" target="_blank">TensorRT 10.0 download link</a>.</p></li>
 </ol>
 </section>
 <section id="apply-post-training-quantization-ptq">
@@ -159,9 +161,7 @@ For real speedup, the generated ONNX should be compiled into TensorRT engine.</p
 <p>PTQ should be done with a calibration dataset. If calibration dataset is not provided, ModelOpt will use random scales for the QDQ nodes.</p>
 <section id="prepare-calibration-dataset">
 <h3>Prepare calibration dataset<a class="headerlink" href="#prepare-calibration-dataset" title="Link to this heading"></a></h3>
-<p>ModelOpt supports two types of calibration data format: image directory or numpy file.</p>
-<p>Image directory only works for single-input ONNX models.</p>
-<p>Numpy file works for both single-input and multi-input ONNX models. In the case of multi-input ONNX models, the numpy file should be a dictionary with keys as input names and values as numpy arrays.</p>
+<p>ModelOpt supports npz/npy file as calibration data format and that numpy file should be a dictionary with keys as model input names and values as numpy arrays.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example numpy file for single-input ONNX</span>
 <span class="n">calib_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;calib_data.npy&quot;</span><span class="p">,</span> <span class="n">calib_data</span><span class="p">)</span>
@@ -197,7 +197,7 @@ For real speedup, the generated ONNX should be compiled into TensorRT engine.</p
 <span class="w">    </span>--quantize_mode<span class="w"> </span>int8
 </pre></div>
 </div>
-<p>By default, after running the calibraton, the quantization tool will insert the QDQ nodes by following TensorRT friendly QDQ insertion algorithm. Users can change the default quantization behavior by tweaking the API params like op_types_to_quantize, op_types_to_exclude etc. See the <a class="reference internal" href="../reference/generated/modelopt.onnx.quantization.quantize.html#module-modelopt.onnx.quantization.quantize" title="modelopt.onnx.quantization.quantize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">modelopt.onnx.quantization.quantize()</span></code></a> for details.</p>
+<p>By default, after running the calibraton, the quantization tool will insert the QDQ nodes by following TensorRT friendly QDQ insertion algorithm. Users can change the default quantization behavior by tweaking the API params like op_types_to_quantize, op_types_to_exclude etc. See the <a class="reference internal" href="../reference/generated/modelopt.onnx.quantization.quantize.html#modelopt.onnx.quantization.quantize" title="modelopt.onnx.quantization.quantize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">modelopt.onnx.quantization.quantize()</span></code></a> for details.</p>
 </section>
 </section>
 <section id="deploy-quantized-onnx-model">
@@ -225,7 +225,7 @@ For real speedup, the generated ONNX should be compiled into TensorRT engine.</p
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="_pytorch_quantization.html" class="btn btn-neutral float-left" title="PyTorch Quantization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="5_sparsity.html" class="btn btn-neutral float-right" title="Sparsity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="4_distillation.html" class="btn btn-neutral float-right" title="Distillation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
@@ -237,7 +237,7 @@ For real speedup, the generated ONNX should be compiled into TensorRT engine.</p
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-
+   
 
 </footer>
         </div>
@@ -248,7 +248,7 @@ For real speedup, the generated ONNX should be compiled into TensorRT engine.</p
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
+  </script> 
 
 </body>
 </html>

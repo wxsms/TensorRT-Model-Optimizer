@@ -1,5 +1,5 @@
-All ModelOpt Examples
-=====================
+GitHub Examples
+===============
 
-Please visit the `TensorRT-Model-Optimizer GitHub repository <https://github.com/NVIDIA/TensorRT-Model-Optimizer>`_
-for all ModelOpt examples.
+All examples can be accessed from the ModelOpt GitHub repository at
+`github.com/NVIDIA/TensorRT-Model-Optimizer <https://github.com/NVIDIA/TensorRT-Model-Optimizer/>`_.

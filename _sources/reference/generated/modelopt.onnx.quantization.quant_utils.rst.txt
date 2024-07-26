@@ -39,6 +39,7 @@ quant\_utils
    .. autosummary::
       :nosignatures:
    
+      pack_float32_to_4bit_cpp_based
       pack_float32_to_4bit_optimized
    
    

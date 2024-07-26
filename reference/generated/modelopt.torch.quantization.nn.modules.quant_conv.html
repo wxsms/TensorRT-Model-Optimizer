@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>quant_conv &mdash; Model Optimizer 0.11.2</title>
+  <title>quant_conv &mdash; Model Optimizer 0.15.0</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -13,11 +13,11 @@
       <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=d10054b6" />
 
-
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-
+  
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
@@ -37,22 +37,22 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="quant_instancenorm" href="modelopt.torch.quantization.nn.modules.quant_instancenorm.html" />
-    <link rel="prev" title="quant_batchnorm" href="modelopt.torch.quantization.nn.modules.quant_batchnorm.html" />
+    <link rel="prev" title="quant_batchnorm" href="modelopt.torch.quantization.nn.modules.quant_batchnorm.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
 
-
-
+          
+          
           <a href="../../index.html" class="icon icon-home">
             TensorRT Model Optimizer
           </a>
               <div class="version">
-                0.11.2
+                0.15.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -67,11 +67,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/1_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/2_installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/3_quantization.html">Quick Start: Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/5_distillation.html">Quick Start: Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/6_sparsity.html">Quick Start: Sparsity</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Optimization Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/1_quantization.html">Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/4_distillation.html">Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/5_sparsity.html">Sparsity</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deployment</span></p>
@@ -80,18 +82,20 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../examples/0_all_examples.html">All ModelOpt Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/0_all_examples.html">GitHub Examples</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_versions.html">Model Optimizer Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_versions.html">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../1_modelopt_api.html">modelopt API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelopt.deploy.html">deploy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modelopt.onnx.html">onnx</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="modelopt.torch.html">torch</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.distill.html">distill</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.export.html">export</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.opt.html">opt</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="modelopt.torch.quantization.html">quantization</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.algorithms.html">algorithms</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.calib.html">calib</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.config.html">config</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.conversion.html">conversion</a></li>
@@ -102,6 +106,7 @@
 <li class="toctree-l4 current"><a class="reference internal" href="modelopt.torch.quantization.nn.html">nn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.optim.html">optim</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.plugins.html">plugins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.qtensor.html">qtensor</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.quant_modules.html">quant_modules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.tensor_quant.html">tensor_quant</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.utils.html">utils</a></li>
@@ -148,7 +153,7 @@
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-
+             
   <section id="quant-conv">
 <h1>quant_conv<a class="headerlink" href="#quant-conv" title="Link to this heading"></a></h1>
 <p id="module-modelopt.torch.quantization.nn.modules.quant_conv">Quantized convolution.</p>
@@ -236,7 +241,7 @@
 <p>Quantized 1D convolution.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="modelopt.torch.quantization.nn.modules.quant_conv.QuantConv1d.default_quant_desc_weight">
-<span class="sig-name descname"><span class="pre">default_quant_desc_weight</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;modelopt.torch.quantization.tensor_quant.ScaledQuantDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#modelopt.torch.quantization.nn.modules.quant_conv.QuantConv1d.default_quant_desc_weight" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">default_quant_desc_weight</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">QuantizerAttributeConfig(enable=True,</span> <span class="pre">num_bits=8,</span> <span class="pre">axis=0,</span> <span class="pre">fake_quant=True,</span> <span class="pre">unsigned=False,</span> <span class="pre">narrow_range=False,</span> <span class="pre">learn_amax=False,</span> <span class="pre">type='static',</span> <span class="pre">block_sizes=None,</span> <span class="pre">trt_high_precision_dtype='Float',</span> <span class="pre">calibrator='max')</span></em><a class="headerlink" href="#modelopt.torch.quantization.nn.modules.quant_conv.QuantConv1d.default_quant_desc_weight" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -248,7 +253,7 @@
 <p>Quantized 2D convolution.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="modelopt.torch.quantization.nn.modules.quant_conv.QuantConv2d.default_quant_desc_weight">
-<span class="sig-name descname"><span class="pre">default_quant_desc_weight</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;modelopt.torch.quantization.tensor_quant.ScaledQuantDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#modelopt.torch.quantization.nn.modules.quant_conv.QuantConv2d.default_quant_desc_weight" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">default_quant_desc_weight</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">QuantizerAttributeConfig(enable=True,</span> <span class="pre">num_bits=8,</span> <span class="pre">axis=0,</span> <span class="pre">fake_quant=True,</span> <span class="pre">unsigned=False,</span> <span class="pre">narrow_range=False,</span> <span class="pre">learn_amax=False,</span> <span class="pre">type='static',</span> <span class="pre">block_sizes=None,</span> <span class="pre">trt_high_precision_dtype='Float',</span> <span class="pre">calibrator='max')</span></em><a class="headerlink" href="#modelopt.torch.quantization.nn.modules.quant_conv.QuantConv2d.default_quant_desc_weight" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -260,7 +265,7 @@
 <p>Quantized 3D convolution.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="modelopt.torch.quantization.nn.modules.quant_conv.QuantConv3d.default_quant_desc_weight">
-<span class="sig-name descname"><span class="pre">default_quant_desc_weight</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;modelopt.torch.quantization.tensor_quant.ScaledQuantDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#modelopt.torch.quantization.nn.modules.quant_conv.QuantConv3d.default_quant_desc_weight" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">default_quant_desc_weight</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">QuantizerAttributeConfig(enable=True,</span> <span class="pre">num_bits=8,</span> <span class="pre">axis=0,</span> <span class="pre">fake_quant=True,</span> <span class="pre">unsigned=False,</span> <span class="pre">narrow_range=False,</span> <span class="pre">learn_amax=False,</span> <span class="pre">type='static',</span> <span class="pre">block_sizes=None,</span> <span class="pre">trt_high_precision_dtype='Float',</span> <span class="pre">calibrator='max')</span></em><a class="headerlink" href="#modelopt.torch.quantization.nn.modules.quant_conv.QuantConv3d.default_quant_desc_weight" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -272,7 +277,7 @@
 <p>Quantized 1D transposed convolution.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="modelopt.torch.quantization.nn.modules.quant_conv.QuantConvTranspose1d.default_quant_desc_weight">
-<span class="sig-name descname"><span class="pre">default_quant_desc_weight</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;modelopt.torch.quantization.tensor_quant.ScaledQuantDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#modelopt.torch.quantization.nn.modules.quant_conv.QuantConvTranspose1d.default_quant_desc_weight" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">default_quant_desc_weight</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">QuantizerAttributeConfig(enable=True,</span> <span class="pre">num_bits=8,</span> <span class="pre">axis=0,</span> <span class="pre">fake_quant=True,</span> <span class="pre">unsigned=False,</span> <span class="pre">narrow_range=False,</span> <span class="pre">learn_amax=False,</span> <span class="pre">type='static',</span> <span class="pre">block_sizes=None,</span> <span class="pre">trt_high_precision_dtype='Float',</span> <span class="pre">calibrator='max')</span></em><a class="headerlink" href="#modelopt.torch.quantization.nn.modules.quant_conv.QuantConvTranspose1d.default_quant_desc_weight" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -284,7 +289,7 @@
 <p>Quantized 2D transposed convolution.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="modelopt.torch.quantization.nn.modules.quant_conv.QuantConvTranspose2d.default_quant_desc_weight">
-<span class="sig-name descname"><span class="pre">default_quant_desc_weight</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;modelopt.torch.quantization.tensor_quant.ScaledQuantDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#modelopt.torch.quantization.nn.modules.quant_conv.QuantConvTranspose2d.default_quant_desc_weight" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">default_quant_desc_weight</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">QuantizerAttributeConfig(enable=True,</span> <span class="pre">num_bits=8,</span> <span class="pre">axis=0,</span> <span class="pre">fake_quant=True,</span> <span class="pre">unsigned=False,</span> <span class="pre">narrow_range=False,</span> <span class="pre">learn_amax=False,</span> <span class="pre">type='static',</span> <span class="pre">block_sizes=None,</span> <span class="pre">trt_high_precision_dtype='Float',</span> <span class="pre">calibrator='max')</span></em><a class="headerlink" href="#modelopt.torch.quantization.nn.modules.quant_conv.QuantConvTranspose2d.default_quant_desc_weight" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -296,7 +301,7 @@
 <p>Quantized 3D transposed convolution.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="modelopt.torch.quantization.nn.modules.quant_conv.QuantConvTranspose3d.default_quant_desc_weight">
-<span class="sig-name descname"><span class="pre">default_quant_desc_weight</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;modelopt.torch.quantization.tensor_quant.ScaledQuantDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#modelopt.torch.quantization.nn.modules.quant_conv.QuantConvTranspose3d.default_quant_desc_weight" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">default_quant_desc_weight</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">QuantizerAttributeConfig(enable=True,</span> <span class="pre">num_bits=8,</span> <span class="pre">axis=0,</span> <span class="pre">fake_quant=True,</span> <span class="pre">unsigned=False,</span> <span class="pre">narrow_range=False,</span> <span class="pre">learn_amax=False,</span> <span class="pre">type='static',</span> <span class="pre">block_sizes=None,</span> <span class="pre">trt_high_precision_dtype='Float',</span> <span class="pre">calibrator='max')</span></em><a class="headerlink" href="#modelopt.torch.quantization.nn.modules.quant_conv.QuantConvTranspose3d.default_quant_desc_weight" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -320,7 +325,7 @@
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-
+   
 
 </footer>
         </div>
@@ -331,7 +336,7 @@
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
+  </script> 
 
 </body>
 </html>

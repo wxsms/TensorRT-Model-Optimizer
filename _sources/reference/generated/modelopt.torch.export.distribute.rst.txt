@@ -46,11 +46,7 @@ distribute
    .. autosummary::
       :nosignatures:
    
-      barrier
       get_configs_parallel
-      get_group
-      get_rank
       get_tensors_parallel
-      get_world_size
    
    

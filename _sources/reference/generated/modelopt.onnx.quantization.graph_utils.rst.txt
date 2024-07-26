@@ -39,12 +39,18 @@ graph\_utils
    .. autosummary::
       :nosignatures:
    
+      add_fp16_fp32_cast
       build_non_residual_input_map
       classify_partition_nodes
       filter_quantizable_kgen_heads
+      find_fp8_mha_partitions
+      find_mha_partitions
+      find_nodes_to_exclude
       get_fusible_backbone
       has_const_input
       has_path_type
+      insert_fp8_mha_casts
+      insert_matmul_casts
       is_const_input
       print_stat
       remove_partial_input_qdq

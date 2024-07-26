@@ -39,6 +39,7 @@ utils
    .. autosummary::
       :nosignatures:
    
+      get_hparam
       is_configurable
       is_dynamic
       named_hparams

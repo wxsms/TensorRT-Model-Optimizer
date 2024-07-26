@@ -39,6 +39,8 @@ ort\_utils
    .. autosummary::
       :nosignatures:
    
+      configure_ort
       create_inference_session
+      get_quantizable_op_types
    
    

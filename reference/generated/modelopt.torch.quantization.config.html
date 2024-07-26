@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>config &mdash; Model Optimizer 0.11.2</title>
+  <title>config &mdash; Model Optimizer 0.15.0</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -13,11 +13,11 @@
       <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=d10054b6" />
 
-
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-
+  
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
@@ -37,22 +37,22 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="conversion" href="modelopt.torch.quantization.conversion.html" />
-    <link rel="prev" title="max" href="modelopt.torch.quantization.calib.max.html" />
+    <link rel="prev" title="max" href="modelopt.torch.quantization.calib.max.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
 
-
-
+          
+          
           <a href="../../index.html" class="icon icon-home">
             TensorRT Model Optimizer
           </a>
               <div class="version">
-                0.11.2
+                0.15.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -67,11 +67,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/1_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/2_installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/3_quantization.html">Quick Start: Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/5_distillation.html">Quick Start: Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/6_sparsity.html">Quick Start: Sparsity</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Optimization Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/1_quantization.html">Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/4_distillation.html">Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/5_sparsity.html">Sparsity</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deployment</span></p>
@@ -80,18 +82,20 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../examples/0_all_examples.html">All ModelOpt Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/0_all_examples.html">GitHub Examples</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_versions.html">Model Optimizer Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_versions.html">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../1_modelopt_api.html">modelopt API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelopt.deploy.html">deploy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modelopt.onnx.html">onnx</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="modelopt.torch.html">torch</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.distill.html">distill</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.export.html">export</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.opt.html">opt</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="modelopt.torch.quantization.html">quantization</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.algorithms.html">algorithms</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.calib.html">calib</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">config</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.conversion.html">conversion</a></li>
@@ -102,6 +106,7 @@
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.nn.html">nn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.optim.html">optim</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.plugins.html">plugins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.qtensor.html">qtensor</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.quant_modules.html">quant_modules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.tensor_quant.html">tensor_quant</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.utils.html">utils</a></li>
@@ -146,7 +151,7 @@
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-
+             
   <section id="config">
 <h1>config<a class="headerlink" href="#config" title="Link to this heading"></a></h1>
 <p id="module-modelopt.torch.quantization.config">This document lists the quantization formats supported by Model Optimizer and example quantization configs.</p>
@@ -189,16 +194,21 @@ is supported. Please use quantization config <code class="docutils literal notra
 <p>Quantization config is dictionary specifying the values for keys <code class="docutils literal notranslate"><span class="pre">&quot;quant_cfg&quot;</span></code> and
 <code class="docutils literal notranslate"><span class="pre">&quot;algorithm&quot;</span></code>. The <code class="docutils literal notranslate"><span class="pre">&quot;quant_cfg&quot;</span></code> key specifies the quantization configurations. The
 <code class="docutils literal notranslate"><span class="pre">&quot;algorithm&quot;</span></code> key specifies the <code class="docutils literal notranslate"><span class="pre">algorithm</span></code> argument to
-<a class="reference internal" href="modelopt.torch.quantization.model_calib.html#modelopt.torch.quantization.model_calib.calibrate" title="modelopt.torch.quantization.model_calib.calibrate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calibrate</span></code></a>.</p>
-<p>Quantization configurations is a dictionary mapping wildcards or filter functions
-to its quantizer attributes. The wildcards or filter functions  are matched
+<a class="reference internal" href="modelopt.torch.quantization.model_calib.html#modelopt.torch.quantization.model_calib.calibrate" title="modelopt.torch.quantization.model_calib.calibrate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calibrate</span></code></a>. Please see <a class="reference internal" href="#modelopt.torch.quantization.config.QuantizeConfig" title="modelopt.torch.quantization.config.QuantizeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizeConfig</span></code></a>
+for the quantization config definition.</p>
+<p>‘Quantization configurations’ is a dictionary mapping wildcards or filter functions
+to its ‘quantizer attributes’. The wildcards or filter functions  are matched
 against the quantizer module names. The quantizer modules have names ending with
 <code class="docutils literal notranslate"><span class="pre">weight_quantizer</span></code> and <code class="docutils literal notranslate"><span class="pre">input_quantizer</span></code> and they perform weight quantization and
 input quantization (or activation quantization) respectively. The quantizer modules are generally
 instances of
-<a class="reference internal" href="modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer" title="modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">TensorQuantizer</span></code></a> and
-the specified quantizer attributes describe its quantization behavior. Quantizer attributes is a
-dictionary mapping quantizer attribute names to their values.</p>
+<a class="reference internal" href="modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer" title="modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">TensorQuantizer</span></code></a>.
+The quantizer attributes are defined by <a class="reference internal" href="#modelopt.torch.quantization.config.QuantizerAttributeConfig" title="modelopt.torch.quantization.config.QuantizerAttributeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizerAttributeConfig</span></code></a>. See <a class="reference internal" href="#modelopt.torch.quantization.config.QuantizerAttributeConfig" title="modelopt.torch.quantization.config.QuantizerAttributeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizerAttributeConfig</span></code></a>
+for details on the quantizer attributes and their values.</p>
+<p>The key <cite>“default”</cite> from the quantization configuration dictionary is applied if no other wildcard or filter functions
+match the quantizer module name.</p>
+<p>The quantizer attributes are applied in the order they are specified. For the missing attributes, the default attributes
+as defined by <a class="reference internal" href="#modelopt.torch.quantization.config.QuantizerAttributeConfig" title="modelopt.torch.quantization.config.QuantizerAttributeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizerAttributeConfig</span></code></a> are used.</p>
 <p>Quantizer attributes can also be a list of dictionaries. In this case, the matched quantizer module
 is replaced with a
 <a class="reference internal" href="modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.SequentialQuantizer" title="modelopt.torch.quantization.nn.modules.tensor_quantizer.SequentialQuantizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">SequentialQuantizer</span></code></a>
@@ -206,14 +216,42 @@ module which is used to quantize a tensor in multiple formats sequentially. Each
 dictionary in the list specifies the quantization formats for each quantization step of the
 sequential quantizer. For example, <cite>SequentialQuantizer</cite> is used in ‘INT4 Weights, FP8 Activations’
 quantization in which the weights are quantized in INT4 followed by FP8.</p>
-<p id="example-quantization-configs">Here are examples quantization configs from Model Optimizer:</p>
+<p>In addition, the dictionary entries could also be pytorch module class names mapping the class specific
+quantization configurations. The pytorch modules should have a quantized equivalent.</p>
+<p>To get the string representation of a module class, do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">modelopt.torch.quantization.nn</span> <span class="kn">import</span> <span class="n">QuantModuleRegistry</span>
+
+<span class="c1"># Get the class name for nn.Conv2d</span>
+<span class="n">class_name</span> <span class="o">=</span> <span class="n">QuantModuleRegistry</span><span class="o">.</span><span class="n">get_key</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here is an example of a quantization config:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MY_QUANT_CFG</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;quant_cfg&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="c1"># Quantizer wildcard strings mapping to quantizer attributes</span>
+        <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
+        <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
+
+        <span class="c1"># Module class names mapping to quantizer configurations</span>
+        <span class="s2">&quot;nn.LeakyReLU&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;*input_quantizer&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="example-quantization-configurations">
+<span id="example-quantization-configs"></span><h2>Example Quantization Configurations<a class="headerlink" href="#example-quantization-configurations" title="Link to this heading"></a></h2>
+<p>Here are the recommended quantization configs from Model Optimizer for
+quantization formats such as FP8, INT8, INT4, etc.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INT8_DEFAULT_CFG</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;quant_cfg&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
     <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
     <span class="s2">&quot;*lm_head*&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
     <span class="s2">&quot;*block_sparse_moe.gate*&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>  <span class="c1"># Skip the MOE router</span>
-    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
+    <span class="s2">&quot;*router*&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>  <span class="c1"># Skip the MOE router</span>
+    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
     <span class="p">},</span>
     <span class="s2">&quot;algorithm&quot;</span><span class="p">:</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span>
 <span class="p">}</span>
@@ -224,7 +262,12 @@ quantization in which the weights are quantized in INT4 followed by FP8.</p>
     <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">},</span>
     <span class="s2">&quot;*lm_head*&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
     <span class="s2">&quot;*block_sparse_moe.gate*&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>  <span class="c1"># Skip the MOE router</span>
-    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
+    <span class="s2">&quot;*router*&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>  <span class="c1"># Skip the MOE router</span>
+    <span class="s2">&quot;nn.Conv2d&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
+        <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
     <span class="p">},</span>
     <span class="s2">&quot;algorithm&quot;</span><span class="p">:</span> <span class="s2">&quot;smoothquant&quot;</span><span class="p">,</span>
 <span class="p">}</span>
@@ -234,7 +277,8 @@ quantization in which the weights are quantized in INT4 followed by FP8.</p>
     <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
     <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
     <span class="s2">&quot;*block_sparse_moe.gate*&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>  <span class="c1"># Skip the MOE router</span>
-    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
+    <span class="s2">&quot;*router*&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>  <span class="c1"># Skip the MOE router</span>
+    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
     <span class="p">},</span>
     <span class="s2">&quot;algorithm&quot;</span><span class="p">:</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span>
 <span class="p">}</span>
@@ -245,6 +289,7 @@ quantization in which the weights are quantized in INT4 followed by FP8.</p>
     <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
     <span class="s2">&quot;*lm_head*&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
     <span class="s2">&quot;*block_sparse_moe.gate*&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>  <span class="c1"># Skip the MOE router</span>
+    <span class="s2">&quot;*router*&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>  <span class="c1"># Skip the MOE router</span>
     <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
     <span class="p">},</span>
     <span class="s2">&quot;algorithm&quot;</span><span class="p">:</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span>
@@ -256,6 +301,7 @@ quantization in which the weights are quantized in INT4 followed by FP8.</p>
     <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
     <span class="s2">&quot;*lm_head*&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
     <span class="s2">&quot;*block_sparse_moe.gate*&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>  <span class="c1"># Skip the MOE router</span>
+    <span class="s2">&quot;*router*&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>  <span class="c1"># Skip the MOE router</span>
     <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
     <span class="p">},</span>
     <span class="s2">&quot;algorithm&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;awq_lite&quot;</span><span class="p">,</span> <span class="s2">&quot;alpha_step&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span>
@@ -272,6 +318,7 @@ quantization in which the weights are quantized in INT4 followed by FP8.</p>
     <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
     <span class="s2">&quot;*lm_head*&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
     <span class="s2">&quot;*block_sparse_moe.gate*&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>  <span class="c1"># Skip the MOE router</span>
+    <span class="s2">&quot;*router*&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>  <span class="c1"># Skip the MOE router</span>
     <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
 <span class="p">},</span>
 <span class="s2">&quot;algorithm&quot;</span><span class="p">:</span> <span class="s2">&quot;awq_lite&quot;</span><span class="p">,</span>
@@ -297,6 +344,204 @@ the layer named <code class="docutils literal notranslate"><span class="pre">lm_
 </div>
 </section>
 <dl class="py class pydantic_model">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.AWQClipCalibConfig">
+<em class="property"><span class="pre">ModeloptConfig</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AWQClipCalibConfig</span></span><a class="headerlink" href="#modelopt.torch.quantization.config.AWQClipCalibConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#modelopt.torch.quantization.config.QuantizeAlgorithmConfig" title="modelopt.torch.quantization.config.QuantizeAlgorithmConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizeAlgorithmConfig</span></code></a></p>
+<p>The config for <code class="docutils literal notranslate"><span class="pre">awq_clip</span></code> (AWQ clip) algorithm.</p>
+<p>AWQ clip searches clipped amax for per-group quantization, This search requires much more compute
+compared to AWQ lite. To avoid any OOM, the linear layer weights are batched along the <code class="docutils literal notranslate"><span class="pre">out_features</span></code>
+dimension of batch size <code class="docutils literal notranslate"><span class="pre">max_co_batch_size</span></code>. AWQ clip calibration also takes longer than AWQ lite.</p>
+<p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show default config as JSON</summary><dl class="field-list simple">
+<dt class="field-odd">Default config (JSON)<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;max_co_batch_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;max_tokens_per_batch&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;min_clip_ratio&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;shrink_step&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;debug&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details></p><dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.AWQClipCalibConfig.debug">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">debug</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.AWQClipCalibConfig.debug" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>If True, module’s search metadata will be kept as a module attribute named <code class="docutils literal notranslate"><span class="pre">awq_clip</span></code>.</p>
+</details></p></dd></dl>
+
+<dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.AWQClipCalibConfig.max_co_batch_size">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_co_batch_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.AWQClipCalibConfig.max_co_batch_size" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>Reduce this number if CUDA Out of Memory error occurs.</p>
+</details></p></dd></dl>
+
+<dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.AWQClipCalibConfig.max_tokens_per_batch">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_tokens_per_batch</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.AWQClipCalibConfig.max_tokens_per_batch" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>The total tokens used for clip search would be <code class="docutils literal notranslate"><span class="pre">max_tokens_per_batch</span> <span class="pre">*</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">batches</span></code>.
+Original AWQ uses a total of 512 tokens to search for clip values.</p>
+</details></p></dd></dl>
+
+<dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.AWQClipCalibConfig.min_clip_ratio">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">min_clip_ratio</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.AWQClipCalibConfig.min_clip_ratio" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>It should be in (0, 1.0). Clip will search for the optimal clipping value in the range
+<code class="docutils literal notranslate"><span class="pre">[original</span> <span class="pre">block</span> <span class="pre">amax</span> <span class="pre">*</span> <span class="pre">min_clip_ratio,</span> <span class="pre">original</span> <span class="pre">block</span> <span class="pre">amax]</span></code>.</p>
+</details></p><dl class="field-list simple">
+<dt class="field-odd">Constraints<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gt</strong> = 0.0</p></li>
+<li><p><strong>lt</strong> = 1.0</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.AWQClipCalibConfig.shrink_step">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shrink_step</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.AWQClipCalibConfig.shrink_step" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>It should be in range (0, 1.0]. The clip ratio will be searched from <code class="docutils literal notranslate"><span class="pre">min_clip_ratio</span></code> to 1
+with the step size specified.</p>
+</details></p><dl class="field-list simple">
+<dt class="field-odd">Constraints<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gt</strong> = 0.0</p></li>
+<li><p><strong>le</strong> = 1.0</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class pydantic_model">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.AWQFullCalibConfig">
+<em class="property"><span class="pre">ModeloptConfig</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AWQFullCalibConfig</span></span><a class="headerlink" href="#modelopt.torch.quantization.config.AWQFullCalibConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#modelopt.torch.quantization.config.AWQLiteCalibConfig" title="modelopt.torch.quantization.config.AWQLiteCalibConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">AWQLiteCalibConfig</span></code></a>, <a class="reference internal" href="#modelopt.torch.quantization.config.AWQClipCalibConfig" title="modelopt.torch.quantization.config.AWQClipCalibConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">AWQClipCalibConfig</span></code></a></p>
+<p>The config for <code class="docutils literal notranslate"><span class="pre">awq</span></code> or <code class="docutils literal notranslate"><span class="pre">awq_full</span></code> algorithm (AWQ full).</p>
+<p>AWQ full performs <code class="docutils literal notranslate"><span class="pre">awq_lite</span></code> followed by <code class="docutils literal notranslate"><span class="pre">awq_clip</span></code>.</p>
+<p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show default config as JSON</summary><dl class="field-list simple">
+<dt class="field-odd">Default config (JSON)<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;max_co_batch_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;max_tokens_per_batch&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;min_clip_ratio&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;shrink_step&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;debug&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;alpha_step&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details></p><dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.AWQFullCalibConfig.debug">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">debug</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.AWQFullCalibConfig.debug" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>If True, module’s search metadata will be kept as module attributes named <code class="docutils literal notranslate"><span class="pre">awq_lite</span></code> and <code class="docutils literal notranslate"><span class="pre">awq_clip</span></code>.</p>
+</details></p></dd></dl>
+
+</dd></dl>
+
+<dl class="py class pydantic_model">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.AWQLiteCalibConfig">
+<em class="property"><span class="pre">ModeloptConfig</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AWQLiteCalibConfig</span></span><a class="headerlink" href="#modelopt.torch.quantization.config.AWQLiteCalibConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#modelopt.torch.quantization.config.QuantizeAlgorithmConfig" title="modelopt.torch.quantization.config.QuantizeAlgorithmConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizeAlgorithmConfig</span></code></a></p>
+<p>The config for <code class="docutils literal notranslate"><span class="pre">awq_lite</span></code> (AWQ lite) algorithm.</p>
+<p>AWQ lite applies a channel-wise scaling factor which minimizes the output difference after quantization.
+See <a class="reference external" href="https://arxiv.org/pdf/2306.00978" rel="noopener noreferrer" target="_blank">AWQ paper</a> for more details.</p>
+<p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show default config as JSON</summary><dl class="field-list simple">
+<dt class="field-odd">Default config (JSON)<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;alpha_step&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;debug&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details></p><dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.AWQLiteCalibConfig.alpha_step">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">alpha_step</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.AWQLiteCalibConfig.alpha_step" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>The alpha will be searched from 0 to 1 with the step size specified.</p>
+</details></p><dl class="field-list simple">
+<dt class="field-odd">Constraints<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gt</strong> = 0.0</p></li>
+<li><p><strong>le</strong> = 1.0</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.AWQLiteCalibConfig.debug">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">debug</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.AWQLiteCalibConfig.debug" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>If True, module’s search metadata will be kept as a module attribute named <cite>awq_lite</cite>.</p>
+</details></p></dd></dl>
+
+</dd></dl>
+
+<dl class="py class pydantic_model">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.MaxCalibConfig">
+<em class="property"><span class="pre">ModeloptConfig</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MaxCalibConfig</span></span><a class="headerlink" href="#modelopt.torch.quantization.config.MaxCalibConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#modelopt.torch.quantization.config.QuantizeAlgorithmConfig" title="modelopt.torch.quantization.config.QuantizeAlgorithmConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizeAlgorithmConfig</span></code></a></p>
+<p>The config for max calibration algorithm.</p>
+<p>Max calibration estimates max values of activations or weights and use this max values
+to set the quantization scaling factor.
+See <a class="reference external" href="https://arxiv.org/pdf/2004.09602" rel="noopener noreferrer" target="_blank">Integer Quantization</a> for the concepts.</p>
+<p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show default config as JSON</summary><dl class="field-list simple">
+<dt class="field-odd">Default config (JSON)<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details></p></dd></dl>
+
+<dl class="py class pydantic_model">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.QuantizeAlgorithmConfig">
+<em class="property"><span class="pre">ModeloptConfig</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">QuantizeAlgorithmConfig</span></span><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizeAlgorithmConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="modelopt.torch.opt.config.html#modelopt.torch.opt.config.ModeloptBaseConfig" title="modelopt.torch.opt.config.ModeloptBaseConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModeloptBaseConfig</span></code></a></p>
+<p>Calibration algorithm config base.</p>
+<p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show default config as JSON</summary><dl class="field-list simple">
+<dt class="field-odd">Default config (JSON)<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details></p><dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.QuantizeAlgorithmConfig.method">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">method</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizeAlgorithmConfig.method" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>The algorithm used for calibration. Supported algorithms include
+<code class="docutils literal notranslate"><span class="pre">&quot;max&quot;,</span> <span class="pre">&quot;smoothquant&quot;,</span> <span class="pre">&quot;awq_lite&quot;,</span> <span class="pre">&quot;awq_full&quot;,</span> <span class="pre">and</span> <span class="pre">&quot;awq_clip&quot;</span></code>.</p>
+</details></p></dd></dl>
+
+</dd></dl>
+
+<dl class="py class pydantic_model">
 <dt class="sig sig-object py" id="modelopt.torch.quantization.config.QuantizeConfig">
 <em class="property"><span class="pre">ModeloptConfig</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">QuantizeConfig</span></span><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizeConfig" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="modelopt.torch.opt.config.html#modelopt.torch.opt.config.ModeloptBaseConfig" title="modelopt.torch.opt.config.ModeloptBaseConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModeloptBaseConfig</span></code></a></p>
@@ -319,13 +564,231 @@ the layer named <code class="docutils literal notranslate"><span class="pre">lm_
 </div>
 </details></p><dl class="py attribute pydantic_field">
 <dt class="sig sig-object py" id="modelopt.torch.quantization.config.QuantizeConfig.algorithm">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">algorithm</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizeConfig.algorithm" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">algorithm</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#modelopt.torch.quantization.config.MaxCalibConfig" title="modelopt.torch.quantization.config.MaxCalibConfig"><span class="pre">MaxCalibConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#modelopt.torch.quantization.config.SmoothQuantCalibConfig" title="modelopt.torch.quantization.config.SmoothQuantCalibConfig"><span class="pre">SmoothQuantCalibConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#modelopt.torch.quantization.config.AWQLiteCalibConfig" title="modelopt.torch.quantization.config.AWQLiteCalibConfig"><span class="pre">AWQLiteCalibConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#modelopt.torch.quantization.config.AWQClipCalibConfig" title="modelopt.torch.quantization.config.AWQClipCalibConfig"><span class="pre">AWQClipCalibConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#modelopt.torch.quantization.config.AWQFullCalibConfig" title="modelopt.torch.quantization.config.AWQFullCalibConfig"><span class="pre">AWQFullCalibConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#modelopt.torch.quantization.config.RealQuantizeConfig" title="modelopt.torch.quantization.config.RealQuantizeConfig"><span class="pre">RealQuantizeConfig</span></a></em><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizeConfig.algorithm" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute pydantic_field">
 <dt class="sig sig-object py" id="modelopt.torch.quantization.config.QuantizeConfig.quant_cfg">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">quant_cfg</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizeConfig.quant_cfg" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">quant_cfg</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#modelopt.torch.quantization.config.QuantizerAttributeConfig" title="modelopt.torch.quantization.config.QuantizerAttributeConfig"><span class="pre">QuantizerAttributeConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#modelopt.torch.quantization.config.QuantizerAttributeConfig" title="modelopt.torch.quantization.config.QuantizerAttributeConfig"><span class="pre">QuantizerAttributeConfig</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#modelopt.torch.quantization.config.QuantizerAttributeConfig" title="modelopt.torch.quantization.config.QuantizerAttributeConfig"><span class="pre">QuantizerAttributeConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#modelopt.torch.quantization.config.QuantizerAttributeConfig" title="modelopt.torch.quantization.config.QuantizerAttributeConfig"><span class="pre">QuantizerAttributeConfig</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizeConfig.quant_cfg" title="Link to this definition"></a></dt>
 <dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class pydantic_model">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.QuantizerAttributeConfig">
+<em class="property"><span class="pre">ModeloptConfig</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">QuantizerAttributeConfig</span></span><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizerAttributeConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="modelopt.torch.opt.config.html#modelopt.torch.opt.config.ModeloptBaseConfig" title="modelopt.torch.opt.config.ModeloptBaseConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModeloptBaseConfig</span></code></a></p>
+<p>Quantizer attribute type.</p>
+<p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show default config as JSON</summary><dl class="field-list simple">
+<dt class="field-odd">Default config (JSON)<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;enable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;num_bits&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;axis&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;fake_quant&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;unsigned&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;narrow_range&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;learn_amax&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;static&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;block_sizes&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;trt_high_precision_dtype&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Float&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;calibrator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details></p><dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.QuantizerAttributeConfig.axis">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">axis</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizerAttributeConfig.axis" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>The specified axis/axes will have its own amax for
+computing scaling factor. If None (the default), use per tensor scale. Must be in the
+range [-rank(input_tensor), rank(input_tensor)). E.g. For a KCRS weight tensor,
+<code class="docutils literal notranslate"><span class="pre">quant_axis=(0)</span></code> will yield per channel scaling.</p>
+</details></p></dd></dl>
+
+<dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.QuantizerAttributeConfig.block_sizes">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">block_sizes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizerAttributeConfig.block_sizes" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>The keys are the axes for block quantization and the
+values are block sizes for quantization along the respective axes. Keys must be in the
+range <code class="docutils literal notranslate"><span class="pre">[-tensor.dim(),</span> <span class="pre">tensor.dim())</span></code>. Values, which are the block sizes
+for quantization must be positive integers.</p>
+<p>In addition, there can be special string keys <code class="docutils literal notranslate"><span class="pre">&quot;type&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;scale_bits&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;scale_block_sizes&quot;</span></code>.</p>
+<p>Key <code class="docutils literal notranslate"><span class="pre">&quot;type&quot;</span></code> should map to <code class="docutils literal notranslate"><span class="pre">&quot;dynamic&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;static&quot;</span></code> where <code class="docutils literal notranslate"><span class="pre">&quot;dynamic&quot;</span></code>
+indicates dynamic block quantization and “static”
+indicates static calibrated block quantization. By default, the type is <code class="docutils literal notranslate"><span class="pre">&quot;static&quot;</span></code>.</p>
+<p>Key <code class="docutils literal notranslate"><span class="pre">&quot;scale_bits&quot;</span></code> specify the quantization bits for the per-block quantization scale factor
+(i.e a double quantization scheme).</p>
+<p>Key <code class="docutils literal notranslate"><span class="pre">&quot;scale_block_sizes&quot;</span></code> specify the block size for double quantization.
+By default per-block quantization scale is not quantized.</p>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">block_sizes</span> <span class="pre">=</span> <span class="pre">{-1:</span> <span class="pre">32}</span></code> will quantize the last axis of the input tensor in
+blocks of size 32 with static calibration and <code class="docutils literal notranslate"><span class="pre">block_sizes</span> <span class="pre">=</span> <span class="pre">{-1:</span> <span class="pre">32,</span> <span class="pre">&quot;type&quot;:</span> <span class="pre">&quot;dynamic&quot;}</span></code>
+will perform dynamic block quantization. If None, block
+quantization is not performed. <code class="docutils literal notranslate"><span class="pre">axis</span></code> must be None when <code class="docutils literal notranslate"><span class="pre">block_sizes</span></code> is not None.</p>
+</details></p></dd></dl>
+
+<dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.QuantizerAttributeConfig.calibrator">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calibrator</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Callable</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizerAttributeConfig.calibrator" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>The calibrator can be a string from <code class="docutils literal notranslate"><span class="pre">[&quot;max&quot;,</span> <span class="pre">&quot;histogram&quot;]</span></code> or a constructor
+to create a calibrator which subclasses <code class="xref py py-class docutils literal notranslate"><span class="pre">_Calibrator</span></code>.
+See <a class="reference internal" href="modelopt.torch.utils.network.html#modelopt.torch.utils.network.standardize_constructor_args" title="modelopt.torch.utils.network.standardize_constructor_args"><code class="xref py py-meth docutils literal notranslate"><span class="pre">standardize_constructor_args</span></code></a>
+for more information on how to specify the constructor.</p>
+</details></p></dd></dl>
+
+<dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.QuantizerAttributeConfig.enable">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizerAttributeConfig.enable" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>If True, enables the quantizer. If False, by-pass the quantizer and returns the input tensor.</p>
+</details></p></dd></dl>
+
+<dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.QuantizerAttributeConfig.fake_quant">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fake_quant</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizerAttributeConfig.fake_quant" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>If True, enable fake quantization.</p>
+</details></p></dd></dl>
+
+<dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.QuantizerAttributeConfig.learn_amax">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">learn_amax</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizerAttributeConfig.learn_amax" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>If True, enable learning amax.</p>
+</details></p></dd></dl>
+
+<dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.QuantizerAttributeConfig.narrow_range">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">narrow_range</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizerAttributeConfig.narrow_range" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>If True, enable narrow range quantization. Used only for integer quantization.</p>
+</details></p></dd></dl>
+
+<dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.QuantizerAttributeConfig.num_bits">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_bits</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizerAttributeConfig.num_bits" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p><cite>num_bits</cite> can be:</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>A positive integer argument for integer quantization. <cite>num_bits</cite> specify</dt><dd><p>the number of bits used for integer quantization.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Constant integer tuple (E,M) for floating point quantization emulating</dt><dd><p>Nvidia’s FPx quantization. E is the number of exponent bits and M is the number
+of mantissa bits. Supported FPx quantization formats: FP8 with (E=4, M=3).</p>
+</dd>
+</dl>
+</li>
+</ol>
+</details></p></dd></dl>
+
+<dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.QuantizerAttributeConfig.trt_high_precision_dtype">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trt_high_precision_dtype</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizerAttributeConfig.trt_high_precision_dtype" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>The value is a string from <code class="docutils literal notranslate"><span class="pre">[&quot;Float&quot;,</span> <span class="pre">&quot;Half&quot;,</span> <span class="pre">&quot;BFloat16&quot;]</span></code>.
+The QDQs will be assigned the appropriate data type, and this variable will only be
+used when the user is exporting the quantized ONNX model.</p>
+</details></p><dl class="field-list simple">
+<dt class="field-odd">Constraints<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pattern</strong> = ^Float$|^Half$|^BFloat16$</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.QuantizerAttributeConfig.type">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizerAttributeConfig.type" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>The value is a string from <code class="docutils literal notranslate"><span class="pre">[&quot;static&quot;,</span> <span class="pre">&quot;dynamic&quot;]</span></code>.
+If <code class="docutils literal notranslate"><span class="pre">&quot;dynamic&quot;</span></code>, dynamic quantization will be enabled which does not collect any statistics during
+calibration.</p>
+</details></p><dl class="field-list simple">
+<dt class="field-odd">Constraints<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pattern</strong> = ^static$|^dynamic$</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.QuantizerAttributeConfig.unsigned">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unsigned</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizerAttributeConfig.unsigned" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>If True, enable unsigned quantization. Used only for integer quantization.</p>
+</details></p></dd></dl>
+
+</dd></dl>
+
+<dl class="py class pydantic_model">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.RealQuantizeConfig">
+<em class="property"><span class="pre">ModeloptConfig</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RealQuantizeConfig</span></span><a class="headerlink" href="#modelopt.torch.quantization.config.RealQuantizeConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#modelopt.torch.quantization.config.QuantizeAlgorithmConfig" title="modelopt.torch.quantization.config.QuantizeAlgorithmConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizeAlgorithmConfig</span></code></a></p>
+<p>The config for real quantization config.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">additional_algorithm</span></code> will be used for calibration before quantizing weights into low precision.</p>
+<p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show default config as JSON</summary><dl class="field-list simple">
+<dt class="field-odd">Default config (JSON)<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;additional_algorithm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details></p><dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.RealQuantizeConfig.additional_algorithm">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">additional_algorithm</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#modelopt.torch.quantization.config.AWQLiteCalibConfig" title="modelopt.torch.quantization.config.AWQLiteCalibConfig"><span class="pre">AWQLiteCalibConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#modelopt.torch.quantization.config.AWQClipCalibConfig" title="modelopt.torch.quantization.config.AWQClipCalibConfig"><span class="pre">AWQClipCalibConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#modelopt.torch.quantization.config.AWQFullCalibConfig" title="modelopt.torch.quantization.config.AWQFullCalibConfig"><span class="pre">AWQFullCalibConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.RealQuantizeConfig.additional_algorithm" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>The algorithm used for calibration. Supported algorithms include
+<code class="docutils literal notranslate"><span class="pre">&quot;awq_lite&quot;,</span> <span class="pre">&quot;awq_full&quot;,</span> <span class="pre">and</span> <span class="pre">&quot;awq_clip&quot;</span></code>.</p>
+</details></p></dd></dl>
+
+</dd></dl>
+
+<dl class="py class pydantic_model">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.SmoothQuantCalibConfig">
+<em class="property"><span class="pre">ModeloptConfig</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SmoothQuantCalibConfig</span></span><a class="headerlink" href="#modelopt.torch.quantization.config.SmoothQuantCalibConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#modelopt.torch.quantization.config.QuantizeAlgorithmConfig" title="modelopt.torch.quantization.config.QuantizeAlgorithmConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizeAlgorithmConfig</span></code></a></p>
+<p>The config for <code class="docutils literal notranslate"><span class="pre">smoothquant</span></code> algorithm (SmoothQuant).</p>
+<p>SmoothQuant applies a smoothing factor which balances the scale of outliers in weights and activations.
+See <a class="reference external" href="https://arxiv.org/pdf/2211.10438" rel="noopener noreferrer" target="_blank">SmoothQuant paper</a> for more details.</p>
+<p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show default config as JSON</summary><dl class="field-list simple">
+<dt class="field-odd">Default config (JSON)<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;alpha&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details></p><dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.SmoothQuantCalibConfig.alpha">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.SmoothQuantCalibConfig.alpha" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>This hyper-parameter controls the migration strength.The migration strength is within [0, 1], a larger value migrates more quantization difficulty to weights.</p>
+</details></p><dl class="field-list simple">
+<dt class="field-odd">Constraints<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ge</strong> = 0.0</p></li>
+<li><p><strong>le</strong> = 1.0</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -348,7 +811,7 @@ the layer named <code class="docutils literal notranslate"><span class="pre">lm_
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-
+   
 
 </footer>
         </div>
@@ -359,7 +822,7 @@ the layer named <code class="docutils literal notranslate"><span class="pre">lm_
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
+  </script> 
 
 </body>
 </html>

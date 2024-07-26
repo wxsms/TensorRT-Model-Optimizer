@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>searcher &mdash; Model Optimizer 0.11.2</title>
+  <title>searcher &mdash; Model Optimizer 0.15.0</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -13,11 +13,11 @@
       <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=d10054b6" />
 
-
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-
+  
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
@@ -37,22 +37,22 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="utils" href="modelopt.torch.opt.utils.html" />
-    <link rel="prev" title="plugins" href="modelopt.torch.opt.plugins.html" />
+    <link rel="prev" title="plugins" href="modelopt.torch.opt.plugins.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
 
-
-
+          
+          
           <a href="../../index.html" class="icon icon-home">
             TensorRT Model Optimizer
           </a>
               <div class="version">
-                0.11.2
+                0.15.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -67,11 +67,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/1_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/2_installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/3_quantization.html">Quick Start: Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/5_distillation.html">Quick Start: Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/6_sparsity.html">Quick Start: Sparsity</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Optimization Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/1_quantization.html">Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/4_distillation.html">Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/5_sparsity.html">Sparsity</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deployment</span></p>
@@ -80,15 +82,16 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../examples/0_all_examples.html">All ModelOpt Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/0_all_examples.html">GitHub Examples</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_versions.html">Model Optimizer Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_versions.html">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../1_modelopt_api.html">modelopt API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelopt.deploy.html">deploy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modelopt.onnx.html">onnx</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="modelopt.torch.html">torch</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.distill.html">distill</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.export.html">export</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="modelopt.torch.opt.html">opt</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.opt.config.html">config</a></li>
@@ -141,7 +144,7 @@
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-
+             
   <section id="searcher">
 <h1>searcher<a class="headerlink" href="#searcher" title="Link to this heading"></a></h1>
 <p id="module-modelopt.torch.opt.searcher">Standard interface to implement a searcher algorithm.</p>
@@ -209,7 +212,7 @@ loading logic and defines a minimal workflow to follow.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelopt.torch.opt.searcher.BaseSearcher.construct_forward_loop">
-<span class="sig-name descname"><span class="pre">construct_forward_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.opt.searcher.BaseSearcher.construct_forward_loop" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">construct_forward_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar_msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter_data_loader</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_process_fn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.opt.searcher.BaseSearcher.construct_forward_loop" title="Link to this definition"></a></dt>
 <dd><p>Get runnable forward loop on the model using the provided configs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -229,6 +232,11 @@ loading logic and defines a minimal workflow to follow.</p>
 <em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default_state_dict</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelopt.torch.opt.searcher.BaseSearcher.default_state_dict" title="Link to this definition"></a></dt>
 <dd><p>Return default state dict.</p>
 </dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelopt.torch.opt.searcher.BaseSearcher.deployment">
+<span class="sig-name descname"><span class="pre">deployment</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.opt.searcher.BaseSearcher.deployment" title="Link to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="modelopt.torch.opt.searcher.BaseSearcher.dummy_input">
@@ -322,7 +330,7 @@ loading logic and defines a minimal workflow to follow.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelopt.torch.opt.searcher.BaseSearcher.search">
-<em class="property"><span class="pre">final</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dummy_input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.opt.searcher.BaseSearcher.search" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">final</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dummy_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.opt.searcher.BaseSearcher.search" title="Link to this definition"></a></dt>
 <dd><p>Search a given prunable model for the best sub-net and return the search model.</p>
 <p>The best sub-net maximizes the score given by <code class="docutils literal notranslate"><span class="pre">score_func</span></code> while satisfying the
 <code class="docutils literal notranslate"><span class="pre">constraints</span></code>.</p>
@@ -332,7 +340,7 @@ loading logic and defines a minimal workflow to follow.</p>
 <li><p><strong>model</strong> (<em>Module</em>) – The converted model to be searched.</p></li>
 <li><p><strong>constraints</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em> | </em><em>float</em><em> | </em><em>None</em><em>]</em>) – The dictionary from constraint name to upper bound the searched model has
 to satisfy.</p></li>
-<li><p><strong>dummy_input</strong> (<em>Any</em><em> | </em><em>Tuple</em>) – Arguments of <code class="docutils literal notranslate"><span class="pre">model.forward()</span></code>. This is used for exporting and
+<li><p><strong>dummy_input</strong> (<em>Any</em><em> | </em><em>Tuple</em><em> | </em><em>None</em>) – Arguments of <code class="docutils literal notranslate"><span class="pre">model.forward()</span></code>. This is used for exporting and
 calculating inference-based metrics, such as latency/FLOPs. The format of
 <code class="docutils literal notranslate"><span class="pre">dummy_inputs</span></code> follows the convention of the <code class="docutils literal notranslate"><span class="pre">args</span></code> argument in
 <a class="reference external" href="https://pytorch.org/docs/stable/onnx.html#torch.onnx.export" rel="noopener noreferrer" target="_blank">torch.onnx.export</a>.</p></li>
@@ -382,7 +390,7 @@ fine-tuning, state_dict contains the history and detailed stats of the search pr
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-
+   
 
 </footer>
         </div>
@@ -393,7 +401,7 @@ fine-tuning, state_dict contains the history and detailed stats of the search pr
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
+  </script> 
 
 </body>
 </html>

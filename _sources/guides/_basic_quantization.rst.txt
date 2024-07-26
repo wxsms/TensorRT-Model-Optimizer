@@ -10,7 +10,7 @@ Precision format
 ****************
 The precision format defines the bit-width of the quantized values. Generally, there are integer
 formats (sign bit + mantissa bits) and floating-point formats (sign bit + exponent bits + mantissa
-bits). `FP8 FORMATS FOR DEEP LEARNING <https://arxiv.org/pdf/2209.05433>`_ provides a detailed
+bits). `Fp8 Formats for Deep Learning <https://arxiv.org/pdf/2209.05433>`_ provides a detailed
 explanation of the floating-point formats.
 
 Scaling factor

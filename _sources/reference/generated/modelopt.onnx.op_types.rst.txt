@@ -39,7 +39,6 @@ op\_types
    .. autosummary::
       :nosignatures:
    
-      get_quantizable_op_types
       is_binary_op
       is_control_flow_op
       is_conversion_op

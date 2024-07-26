@@ -49,9 +49,9 @@ int4
       dq_tensor
       find_scales
       quant_tensor
-      quantize_int4
-      quantize_int4_awq_clip
-      quantize_int4_rtn
+      quantize
+      quantize_awq_clip
+      quantize_rtn
       rtn
    
    

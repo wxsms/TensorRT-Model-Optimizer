@@ -7,8 +7,8 @@ Overview
 Minimizing inference costs presents a significant challenge as generative AI models continue to grow in complexity and size.
 The `NVIDIA TensorRT Model Optimizer <https://github.com/NVIDIA/TensorRT-Model-Optimizer>`_ (referred to as Model Optimizer, or ModelOpt)
 is a library comprising state-of-the-art model optimization techniques including quantization and sparsity to compress model.
-It accepts a torch or ONNX model as inputs and provides Python APIs for users to easily stack different model optimization
-techniques to produce quantized checkpoint. Seamlessly integrated within the NVIDIA AI software ecosystem, the quantized
+It accepts a torch or ONNX model as input and provides Python APIs for users to easily stack different model optimization
+techniques to produce optimized & quantized checkpoints. Seamlessly integrated within the NVIDIA AI software ecosystem, the quantized
 checkpoint generated from Model Optimizer is ready for deployment in downstream inference frameworks like
 `TensorRT-LLM <https://github.com/NVIDIA/TensorRT-LLM/tree/main/examples/quantization>`_ or `TensorRT <https://github.com/NVIDIA/TensorRT>`_.
 Further integrations are planned for `NVIDIA NeMo <https://github.com/NVIDIA/NeMo>`_ and `Megatron-LM <https://github.com/NVIDIA/Megatron-LM>`_
@@ -16,7 +16,7 @@ for training-in-the-loop optimization techniques. For enterprise users, the 8-bi
 `NVIDIA NIM <https://developer.nvidia.com/blog/nvidia-nim-offers-optimized-inference-microservices-for-deploying-ai-models-at-scale/>`_.
 
 Model Optimizer is available for free for all developers on `NVIDIA PyPI <https://pypi.org/project/nvidia-modelopt/>`_.
-Visit `/NVIDIA/TensorRT-Model-Optimizer repository <https://github.com/NVIDIA/TensorRT-Model-Optimizer>`_ for end-to-end
+Visit the `TensorRT Model Optimizer GitHub repository <https://github.com/NVIDIA/TensorRT-Model-Optimizer>`_ for end-to-end
 example scripts and recipes optimized for NVIDIA GPUs.
 
 Techniques
@@ -34,8 +34,11 @@ for list of formats supported.
 Sparsity
 ^^^^^^^^
 Sparsity is a technique to further reduce the memory footprint of deep learning models and accelerate the inference.
-Model Optimizer provides Python API :meth:`mts.sparsify() <modelopt.torch.sparsity.sparsification.sparsify>` to apply
-weight sparsity to a given model. The ``mts.sparsify()`` API supports `NVIDIA 2:4 <https://arxiv.org/pdf/2104.0837>`_
-sparsity pattern and various sparsification methods, such as NVIDIA `ASP <https://github.com/NVIDIA/apex/tree/master/apex/contrib/sparsity>`_
-and `SparseGPT <https://arxiv.org/abs/2301.00774>`_. It supports both post-training sparsity and sparsity with fine-tuning.
-The latter workflow is recommended to minimize accuracy degradation.
+Model Optimizer provides the Python API :meth:`mts.sparsify() <modelopt.torch.sparsity.sparsification.sparsify>` to
+automatically apply weight sparsity to a given model. The
+:meth:`mts.sparsify() <modelopt.torch.sparsity.sparsification.sparsify>` API supports
+`NVIDIA 2:4 <https://arxiv.org/pdf/2104.0837>`_ sparsity pattern and various sparsification methods,
+such as `NVIDIA ASP <https://github.com/NVIDIA/apex/tree/master/apex/contrib/sparsity>`_ and
+`SparseGPT <https://arxiv.org/abs/2301.00774>`_. It supports both post-training sparsity (PTS) and
+sparsity-aware training (SAT). The latter workflow is recommended to minimize accuracy
+degradation.

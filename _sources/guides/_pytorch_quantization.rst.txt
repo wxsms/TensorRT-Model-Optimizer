@@ -2,8 +2,6 @@
 PyTorch Quantization
 ====================
 
-ModelOpt PyTorch quantization is refactored based on `pytorch_quantization <https://docs.nvidia.com/deeplearning/tensorrt/pytorch-quantization-toolkit/docs/index.html>`_.
-
 Key advantages offered by ModelOpt's PyTorch quantization:
 
 #. Support advanced quantization formats, e.g., Block-wise Int4 and FP8.
@@ -69,7 +67,7 @@ To verify that the quantizer nodes are placed correctly in the model, let's prin
 
     # Print quantization summary after successfully quantizing the model with mtq.quantize
     # This will show the quantizers inserted in the model and their configurations
-    mtq.print_quantization_summary(model)
+    mtq.print_quant_summary(model)
 
 
 After PTQ, the model can be exported to ONNX with the normal PyTorch ONNX export flow.
@@ -167,23 +165,30 @@ Under the hood, ModelOpt :meth:`mtq.quantize() <modelopt.torch.quantization.mode
 :class:`TensorQuantizer <modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer>`
 (quantizer modules) into the model layers like linear layer, conv layer etc. and patches their forward method to perform quantization.
 
-To create :class:`TensorQuantizer` instance, you need to specify :class:`QuantDescriptor <modelopt.torch.quantization.tensor_quant.QuantDescriptor>`, which
-describes the quantization parameters like quantization bits, axis etc.
+The quantization parameters are as described in :class:`QuantizerAttributeConfig <modelopt.torch.quantization.config.QuantizerAttributeConfig>`.
+They can be set at initialization by passing :class:`QuantizerAttributeConfig <modelopt.torch.quantization.config.QuantizerAttributeConfig>`
+or later by calling  :meth:`TensorQuantizer.set_from_attribute_config() <modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer.set_from_attribute_config>`.
+If the quantization parameters are not set explicitly, the quantizer will use the default values.
 
 Here is an example of creating a quantizer module:
 
 .. code-block:: python
 
-    from modelopt.torch.quantization.tensor_quant import QuantDescriptor
+    from modelopt.torch.quantization.config import QuantizerAttributeConfig
     from modelopt.torch.quantization.nn import TensorQuantizer
 
-    # Create quantizer descriptor
-    quant_desc = QuantDescriptor(num_bits=8, axis=(-1,), unsigned=True)
-
-    # Create quantizer module
-    quantizer = TensorQuantizer(quant_desc)
+    # Create quantizer module with default quantization parameters
+    quantizer = TensorQuantizer()
 
     quant_x = quantizer(x)  # Quantize input x
+
+    # Create quantizer module with custom quantization parameters
+    # Example setting for INT4 block-wise quantization
+    quantizer_custom = TensorQuantizer(QuantizerAttributeConfig(num_bits=4, block_sizes={-1: 128}))
+
+    # Quantize input with custom quantization parameters
+    quant_x = quantizer_custom(x)  # Quantize input x
+
 
 .. _customize_quantizer_config:
 
@@ -276,3 +281,12 @@ Weight folding avoids repeated quantization of weights during each inferece forw
 .. note::
 
     After weight folding, the model can no longer be exported to ONNX or fine-tuned with QAT.
+
+Migrate from pytorch_quantization
+=================================
+
+ModelOpt PyTorch quantization is refactored from and extends upon
+`pytorch_quantization <https://docs.nvidia.com/deeplearning/tensorrt/pytorch-quantization-toolkit/docs/index.html>`_.
+
+Previous users of ``pytorch_quantization`` can simply migrate to ``modelopt.torch.quantization`` by
+replacing the import statements.

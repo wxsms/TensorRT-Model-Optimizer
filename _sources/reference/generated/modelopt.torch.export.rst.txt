@@ -17,6 +17,9 @@ export
    modelopt.torch.export.distribute
 
 
+   modelopt.torch.export.hf_config_map
+
+
    modelopt.torch.export.layer_utils
 
 
@@ -39,6 +42,9 @@ export
 
 
    modelopt.torch.export.transformer_engine
+
+
+   modelopt.torch.export.vllm
 
 
 

@@ -1,7 +1,7 @@
 .. From https://github.com/sphinx-doc/sphinx/blob/5.x/sphinx/ext/autosummary/templates/autosummary/module.rst
 
-model\_config\_trt
-==================
+mode
+====
 
 .. List the submodules
 
@@ -17,7 +17,7 @@ model\_config\_trt
    __module__ should be manually overridden -- i.e. in the ``__init__.py`` which contains ``from xxx import YYY``,
    add in ``YYY.__module__ = __name__``.
 
-.. automodule:: modelopt.deploy.llm.model_config_trt
+.. automodule:: modelopt.torch.distill.mode
    :members:
    :undoc-members:
 
@@ -28,18 +28,18 @@ model\_config\_trt
    .. Overview table of available classes in the module
    
    
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      ExportStudentModeDescriptor
+      KnowledgeDistillationModeDescriptor
+   
    
 
 
    .. Overview table of available functions in the module
    
-   
-   .. rubric:: Functions
-
-   .. autosummary::
-      :nosignatures:
-   
-      build_tensorrt_llm
-      build_tensorrt_llm_rank
    
    

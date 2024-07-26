@@ -36,9 +36,7 @@ tensor\_quant
       FakeAffineTensorQuantFunction
       FakeTensorQuantFunction
       LegacyFakeTensorQuantFunction
-      QuantDescriptor
       ScaledE4M3Function
-      ScaledQuantDescriptor
       TensorQuantFunction
    
    

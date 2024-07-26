@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>graph_utils &mdash; Model Optimizer 0.11.2</title>
+  <title>graph_utils &mdash; Model Optimizer 0.15.0</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -13,11 +13,11 @@
       <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=d10054b6" />
 
-
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-
+  
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
@@ -37,22 +37,22 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="gs_patching" href="modelopt.onnx.quantization.gs_patching.html" />
-    <link rel="prev" title="calib_utils" href="modelopt.onnx.quantization.calib_utils.html" />
+    <link rel="prev" title="fp8" href="modelopt.onnx.quantization.fp8.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
 
-
-
+          
+          
           <a href="../../index.html" class="icon icon-home">
             TensorRT Model Optimizer
           </a>
               <div class="version">
-                0.11.2
+                0.15.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -67,11 +67,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/1_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/2_installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/3_quantization.html">Quick Start: Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/5_distillation.html">Quick Start: Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/6_sparsity.html">Quick Start: Sparsity</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Optimization Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/1_quantization.html">Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/4_distillation.html">Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/5_sparsity.html">Sparsity</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deployment</span></p>
@@ -80,27 +82,30 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../examples/0_all_examples.html">All ModelOpt Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/0_all_examples.html">GitHub Examples</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_versions.html">Model Optimizer Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_versions.html">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../1_modelopt_api.html">modelopt API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelopt.deploy.html">deploy</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="modelopt.onnx.html">onnx</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="modelopt.onnx.op_types.html">op_types</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="modelopt.onnx.quantization.html">quantization</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.quantization.calib_utils.html">calib_utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.quantization.extensions.html">extensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.quantization.fp8.html">fp8</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">graph_utils</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.quantization.gs_patching.html">gs_patching</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.quantization.int4.html">int4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.quantization.int8.html">int8</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.quantization.operators.html">operators</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.quantization.ort_patching.html">ort_patching</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.quantization.ort_utils.html">ort_utils</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.quantization.partitioning.html">partitioning</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.quantization.qdq_utils.html">qdq_utils</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.quantization.quant_utils.html">quant_utils</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.quantization.quantize.html">quantize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.quantization.quantize.html">modelopt.onnx.quantization.quantize</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="modelopt.onnx.utils.html">utils</a></li>
@@ -142,21 +147,33 @@
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-
+             
   <section id="graph-utils">
 <h1>graph_utils<a class="headerlink" href="#graph-utils" title="Link to this heading"></a></h1>
 <p id="module-modelopt.onnx.quantization.graph_utils">Provides ONNX graph related utils for QDQ placement.</p>
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.build_non_residual_input_map" title="modelopt.onnx.quantization.graph_utils.build_non_residual_input_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_non_residual_input_map</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.add_fp16_fp32_cast" title="modelopt.onnx.quantization.graph_utils.add_fp16_fp32_cast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_fp16_fp32_cast</span></code></a></p></td>
+<td><p>Adds cast_to_fp16 nodes to the inputs of a layer and cast_to_fp32 to the outputs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.build_non_residual_input_map" title="modelopt.onnx.quantization.graph_utils.build_non_residual_input_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_non_residual_input_map</span></code></a></p></td>
 <td><p>Builds a map of non-residual Add input name to the Add node name from the given graph.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.classify_partition_nodes" title="modelopt.onnx.quantization.graph_utils.classify_partition_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify_partition_nodes</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.classify_partition_nodes" title="modelopt.onnx.quantization.graph_utils.classify_partition_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify_partition_nodes</span></code></a></p></td>
 <td><p>We should partially quantize the partition nodes with inputs outside of the partition.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.filter_quantizable_kgen_heads" title="modelopt.onnx.quantization.graph_utils.filter_quantizable_kgen_heads"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_quantizable_kgen_heads</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.filter_quantizable_kgen_heads" title="modelopt.onnx.quantization.graph_utils.filter_quantizable_kgen_heads"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_quantizable_kgen_heads</span></code></a></p></td>
 <td><p>Returns the list of kgen head names if it follows a CASK partition.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.find_fp8_mha_partitions" title="modelopt.onnx.quantization.graph_utils.find_fp8_mha_partitions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_fp8_mha_partitions</span></code></a></p></td>
+<td><p>Match FP8 MHA: Q -&gt; DQ -&gt; BMM1 -&gt; (Mul/Div) -&gt; (Add) -&gt; Softmax -&gt; (Cast) -&gt; Q -&gt; DQ -&gt; BMM2 -&gt; Q -&gt; DQ.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.find_mha_partitions" title="modelopt.onnx.quantization.graph_utils.find_mha_partitions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_mha_partitions</span></code></a></p></td>
+<td><p>Match MHA: BMM1 -&gt; (Mul/Div) -&gt; (Add) -&gt; Softmax -&gt; (Cast) -&gt; BMM2.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.find_nodes_to_exclude" title="modelopt.onnx.quantization.graph_utils.find_nodes_to_exclude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_nodes_to_exclude</span></code></a></p></td>
+<td><p>Find the node names from the ONNX graph which matches user's exclusion patterns.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_fusible_backbone" title="modelopt.onnx.quantization.graph_utils.get_fusible_backbone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fusible_backbone</span></code></a></p></td>
 <td><p>Returns the linear backbone node for a given node if it matches the pattern.</p></td>
@@ -166,6 +183,12 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.has_path_type" title="modelopt.onnx.quantization.graph_utils.has_path_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_path_type</span></code></a></p></td>
 <td><p>Checks if the given node is start/end of a given forward/backward path type.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.insert_fp8_mha_casts" title="modelopt.onnx.quantization.graph_utils.insert_fp8_mha_casts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_fp8_mha_casts</span></code></a></p></td>
+<td><p>Insert three cast ops.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.insert_matmul_casts" title="modelopt.onnx.quantization.graph_utils.insert_matmul_casts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_matmul_casts</span></code></a></p></td>
+<td><p>Insert three cast nodes for MatMul's two inputs and output.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.is_const_input" title="modelopt.onnx.quantization.graph_utils.is_const_input"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_const_input</span></code></a></p></td>
 <td><p>Returns whether the given tensor is an initializer or produced by const-foldable nodes.</p></td>
@@ -178,6 +201,12 @@
 </tr>
 </tbody>
 </table>
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.onnx.quantization.graph_utils.add_fp16_fp32_cast">
+<span class="sig-name descname"><span class="pre">add_fp16_fp32_cast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">onnx_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_ops_to_cast_to_fp16</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.graph_utils.add_fp16_fp32_cast" title="Link to this definition"></a></dt>
+<dd><p>Adds cast_to_fp16 nodes to the inputs of a layer and cast_to_fp32 to the outputs.</p>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.onnx.quantization.graph_utils.build_non_residual_input_map">
 <span class="sig-name descname"><span class="pre">build_non_residual_input_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.graph_utils.build_non_residual_input_map" title="Link to this definition"></a></dt>
@@ -232,6 +261,33 @@ List of partially-quantizable inputs with non-quantizable input info as (src, ds
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Tuple</em>[<em>List</em>[<em>Node</em>], <em>List</em>[<em>Tuple</em>[<em>Node</em>, <em>Node</em>, <em>str</em>]]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.onnx.quantization.graph_utils.find_fp8_mha_partitions">
+<span class="sig-name descname"><span class="pre">find_fp8_mha_partitions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.graph_utils.find_fp8_mha_partitions" title="Link to this definition"></a></dt>
+<dd><p>Match FP8 MHA: Q -&gt; DQ -&gt; BMM1 -&gt; (Mul/Div) -&gt; (Add) -&gt; Softmax -&gt; (Cast) -&gt; Q -&gt; DQ -&gt; BMM2 -&gt; Q -&gt; DQ.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.onnx.quantization.graph_utils.find_mha_partitions">
+<span class="sig-name descname"><span class="pre">find_mha_partitions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.graph_utils.find_mha_partitions" title="Link to this definition"></a></dt>
+<dd><p>Match MHA: BMM1 -&gt; (Mul/Div) -&gt; (Add) -&gt; Softmax -&gt; (Cast) -&gt; BMM2.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.onnx.quantization.graph_utils.find_nodes_to_exclude">
+<span class="sig-name descname"><span class="pre">find_nodes_to_exclude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes_to_exclude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op_types_to_exclude</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.graph_utils.find_nodes_to_exclude" title="Link to this definition"></a></dt>
+<dd><p>Find the node names from the ONNX graph which matches user’s exclusion patterns.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> (<em>Graph</em>) – </p></li>
+<li><p><strong>nodes_to_exclude</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>op_types_to_exclude</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -300,6 +356,23 @@ Additionally, this method can work with optional nodes and collect the traversed
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="modelopt.onnx.quantization.graph_utils.insert_fp8_mha_casts">
+<span class="sig-name descname"><span class="pre">insert_fp8_mha_casts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">onnx_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.graph_utils.insert_fp8_mha_casts" title="Link to this definition"></a></dt>
+<dd><p>Insert three cast ops.</p>
+<p>The first cast will be added before the input0 of MatMul to cast fp16 to fp32.
+The second cast will be added before the input1 of MatMul to cast fp16 to fp32.
+The third cast will be added after the output of MatMul to cast fp32 back to fp16.
+The insertion of Cast ops in the FP8 MHA part actually forbids the MHAs to run
+with FP16 accumulation because Myelin only has FP32 accumulation kernels for FP8 MHAs.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.onnx.quantization.graph_utils.insert_matmul_casts">
+<span class="sig-name descname"><span class="pre">insert_matmul_casts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matmul_node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.graph_utils.insert_matmul_casts" title="Link to this definition"></a></dt>
+<dd><p>Insert three cast nodes for MatMul’s two inputs and output.</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="modelopt.onnx.quantization.graph_utils.is_const_input">
 <span class="sig-name descname"><span class="pre">is_const_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tensor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.graph_utils.is_const_input" title="Link to this definition"></a></dt>
 <dd><p>Returns whether the given tensor is an initializer or produced by const-foldable nodes.</p>
@@ -353,7 +426,7 @@ Additionally, this method can work with optional nodes and collect the traversed
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="modelopt.onnx.quantization.calib_utils.html" class="btn btn-neutral float-left" title="calib_utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modelopt.onnx.quantization.fp8.html" class="btn btn-neutral float-left" title="fp8" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="modelopt.onnx.quantization.gs_patching.html" class="btn btn-neutral float-right" title="gs_patching" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
@@ -366,7 +439,7 @@ Additionally, this method can work with optional nodes and collect the traversed
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-
+   
 
 </footer>
         </div>
@@ -377,7 +450,7 @@ Additionally, this method can work with optional nodes and collect the traversed
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
+  </script> 
 
 </body>
 </html>

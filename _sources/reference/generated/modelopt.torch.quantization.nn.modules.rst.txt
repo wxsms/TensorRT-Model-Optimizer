@@ -38,6 +38,9 @@ modules
    modelopt.torch.quantization.nn.modules.quant_pooling
 
 
+   modelopt.torch.quantization.nn.modules.quant_rnn
+
+
    modelopt.torch.quantization.nn.modules.tensor_quantizer
 
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PyTorch Quantization &mdash; Model Optimizer 0.11.2</title>
+  <title>PyTorch Quantization &mdash; Model Optimizer 0.15.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -13,11 +13,11 @@
       <link rel="stylesheet" type="text/css" href="../_static/autodoc_pydantic.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=d10054b6" />
 
-
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-
+  
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=5929fcd5"></script>
@@ -37,22 +37,22 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="ONNX Quantization (Beta)" href="_onnx_quantization.html" />
-    <link rel="prev" title="Best practices to choose the right quantization methods" href="_choosing_quant_methods.html" />
+    <link rel="prev" title="Best practices to choose the right quantization methods" href="_choosing_quant_methods.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
 
-
-
+          
+          
           <a href="../index.html" class="icon icon-home">
             TensorRT Model Optimizer
           </a>
               <div class="version">
-                0.11.2
+                0.15.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -67,6 +67,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/1_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/2_installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/3_quantization.html">Quick Start: Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/5_distillation.html">Quick Start: Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/6_sparsity.html">Quick Start: Sparsity</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Optimization Guides</span></p>
@@ -85,11 +86,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#fast-evaluation">Fast evaluation</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#migrate-from-pytorch-quantization">Migrate from pytorch_quantization</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="_onnx_quantization.html">ONNX Quantization (Beta)</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="4_distillation.html">Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="5_sparsity.html">Sparsity</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deployment</span></p>
@@ -98,11 +101,11 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../examples/0_all_examples.html">All ModelOpt Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/0_all_examples.html">GitHub Examples</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../reference/0_versions.html">Model Optimizer Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/0_versions.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference/1_modelopt_api.html">modelopt API</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Support</span></p>
@@ -135,10 +138,9 @@
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-
+             
   <section id="pytorch-quantization">
 <h1>PyTorch Quantization<a class="headerlink" href="#pytorch-quantization" title="Link to this heading"></a></h1>
-<p>ModelOpt PyTorch quantization is refactored based on <a class="reference external" href="https://docs.nvidia.com/deeplearning/tensorrt/pytorch-quantization-toolkit/docs/index.html" rel="noopener noreferrer" target="_blank">pytorch_quantization</a>.</p>
 <p>Key advantages offered by ModelOpt’s PyTorch quantization:</p>
 <ol class="arabic simple">
 <li><p>Support advanced quantization formats, e.g., Block-wise Int4 and FP8.</p></li>
@@ -194,7 +196,7 @@ It should wrap around the calibration dataloader and the model.</p>
 <p>To verify that the quantizer nodes are placed correctly in the model, let’s print the quantized model summary as show below:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print quantization summary after successfully quantizing the model with mtq.quantize</span>
 <span class="c1"># This will show the quantizers inserted in the model and their configurations</span>
-<span class="n">mtq</span><span class="o">.</span><span class="n">print_quantization_summary</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="n">mtq</span><span class="o">.</span><span class="n">print_quant_summary</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>After PTQ, the model can be exported to ONNX with the normal PyTorch ONNX export flow.</p>
@@ -277,24 +279,30 @@ After quantizer states are restored, load the model weights. For example:</p>
 <p>Under the hood, ModelOpt <a class="reference internal" href="../reference/generated/modelopt.torch.quantization.model_quant.html#modelopt.torch.quantization.model_quant.quantize" title="modelopt.torch.quantization.model_quant.quantize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mtq.quantize()</span></code></a> inserts
 <a class="reference internal" href="../reference/generated/modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer" title="modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">TensorQuantizer</span></code></a>
 (quantizer modules) into the model layers like linear layer, conv layer etc. and patches their forward method to perform quantization.</p>
-<p>To create <code class="xref py py-class docutils literal notranslate"><span class="pre">TensorQuantizer</span></code> instance, you need to specify <a class="reference internal" href="../reference/generated/modelopt.torch.quantization.tensor_quant.html#modelopt.torch.quantization.tensor_quant.QuantDescriptor" title="modelopt.torch.quantization.tensor_quant.QuantDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantDescriptor</span></code></a>, which
-describes the quantization parameters like quantization bits, axis etc.</p>
+<p>The quantization parameters are as described in <a class="reference internal" href="../reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerAttributeConfig" title="modelopt.torch.quantization.config.QuantizerAttributeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizerAttributeConfig</span></code></a>.
+They can be set at initialization by passing <a class="reference internal" href="../reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerAttributeConfig" title="modelopt.torch.quantization.config.QuantizerAttributeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizerAttributeConfig</span></code></a>
+or later by calling  <a class="reference internal" href="../reference/generated/modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer.set_from_attribute_config" title="modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer.set_from_attribute_config"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TensorQuantizer.set_from_attribute_config()</span></code></a>.
+If the quantization parameters are not set explicitly, the quantizer will use the default values.</p>
 <p>Here is an example of creating a quantizer module:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">modelopt.torch.quantization.tensor_quant</span> <span class="kn">import</span> <span class="n">QuantDescriptor</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">modelopt.torch.quantization.config</span> <span class="kn">import</span> <span class="n">QuantizerAttributeConfig</span>
 <span class="kn">from</span> <span class="nn">modelopt.torch.quantization.nn</span> <span class="kn">import</span> <span class="n">TensorQuantizer</span>
 
-<span class="c1"># Create quantizer descriptor</span>
-<span class="n">quant_desc</span> <span class="o">=</span> <span class="n">QuantDescriptor</span><span class="p">(</span><span class="n">num_bits</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,),</span> <span class="n">unsigned</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="c1"># Create quantizer module</span>
-<span class="n">quantizer</span> <span class="o">=</span> <span class="n">TensorQuantizer</span><span class="p">(</span><span class="n">quant_desc</span><span class="p">)</span>
+<span class="c1"># Create quantizer module with default quantization parameters</span>
+<span class="n">quantizer</span> <span class="o">=</span> <span class="n">TensorQuantizer</span><span class="p">()</span>
 
 <span class="n">quant_x</span> <span class="o">=</span> <span class="n">quantizer</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Quantize input x</span>
+
+<span class="c1"># Create quantizer module with custom quantization parameters</span>
+<span class="c1"># Example setting for INT4 block-wise quantization</span>
+<span class="n">quantizer_custom</span> <span class="o">=</span> <span class="n">TensorQuantizer</span><span class="p">(</span><span class="n">QuantizerAttributeConfig</span><span class="p">(</span><span class="n">num_bits</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">block_sizes</span><span class="o">=</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">128</span><span class="p">}))</span>
+
+<span class="c1"># Quantize input with custom quantization parameters</span>
+<span class="n">quant_x</span> <span class="o">=</span> <span class="n">quantizer_custom</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Quantize input x</span>
 </pre></div>
 </div>
 </section>
 <section id="customize-quantizer-config">
-<span id="id2"></span><h3>Customize quantizer config<a class="headerlink" href="#customize-quantizer-config" title="Link to this heading"></a></h3>
+<span id="id1"></span><h3>Customize quantizer config<a class="headerlink" href="#customize-quantizer-config" title="Link to this heading"></a></h3>
 <p>ModelOpt inserts input quantizer, weight quantizer and output quantizer into common layers, but by default disables the output quantizer.
 Expert users who want to customize the default quantizer configuration can update the <code class="docutils literal notranslate"><span class="pre">config</span></code> dictionary provided to <code class="docutils literal notranslate"><span class="pre">mtq.quantize</span></code> using wildcard or filter function match.</p>
 <p>Here is an example of specifying a custom quantizer configuration to <code class="docutils literal notranslate"><span class="pre">mtq.quantize</span></code>:</p>
@@ -370,6 +378,13 @@ Here is the code to register the custom quantized module:</p>
 </div>
 </section>
 </section>
+<section id="migrate-from-pytorch-quantization">
+<h2>Migrate from pytorch_quantization<a class="headerlink" href="#migrate-from-pytorch-quantization" title="Link to this heading"></a></h2>
+<p>ModelOpt PyTorch quantization is refactored from and extends upon
+<a class="reference external" href="https://docs.nvidia.com/deeplearning/tensorrt/pytorch-quantization-toolkit/docs/index.html" rel="noopener noreferrer" target="_blank">pytorch_quantization</a>.</p>
+<p>Previous users of <code class="docutils literal notranslate"><span class="pre">pytorch_quantization</span></code> can simply migrate to <code class="docutils literal notranslate"><span class="pre">modelopt.torch.quantization</span></code> by
+replacing the import statements.</p>
+</section>
 </section>
 
 
@@ -389,7 +404,7 @@ Here is the code to register the custom quantized module:</p>
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-
+   
 
 </footer>
         </div>
@@ -400,7 +415,7 @@ Here is the code to register the custom quantized module:</p>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
+  </script> 
 
 </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>model_quant &mdash; Model Optimizer 0.11.2</title>
+  <title>model_quant &mdash; Model Optimizer 0.15.0</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -13,11 +13,11 @@
       <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=d10054b6" />
 
-
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-
+  
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
@@ -37,22 +37,22 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="nn" href="modelopt.torch.quantization.nn.html" />
-    <link rel="prev" title="model_calib" href="modelopt.torch.quantization.model_calib.html" />
+    <link rel="prev" title="model_calib" href="modelopt.torch.quantization.model_calib.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
 
-
-
+          
+          
           <a href="../../index.html" class="icon icon-home">
             TensorRT Model Optimizer
           </a>
               <div class="version">
-                0.11.2
+                0.15.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -67,11 +67,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/1_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/2_installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/3_quantization.html">Quick Start: Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/5_distillation.html">Quick Start: Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/6_sparsity.html">Quick Start: Sparsity</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Optimization Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/1_quantization.html">Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/4_distillation.html">Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/5_sparsity.html">Sparsity</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deployment</span></p>
@@ -80,18 +82,20 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../examples/0_all_examples.html">All ModelOpt Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/0_all_examples.html">GitHub Examples</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_versions.html">Model Optimizer Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_versions.html">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../1_modelopt_api.html">modelopt API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelopt.deploy.html">deploy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modelopt.onnx.html">onnx</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="modelopt.torch.html">torch</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.distill.html">distill</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.export.html">export</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.opt.html">opt</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="modelopt.torch.quantization.html">quantization</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.algorithms.html">algorithms</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.calib.html">calib</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.config.html">config</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.conversion.html">conversion</a></li>
@@ -102,6 +106,7 @@
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.nn.html">nn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.optim.html">optim</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.plugins.html">plugins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.qtensor.html">qtensor</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.quant_modules.html">quant_modules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.tensor_quant.html">tensor_quant</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.utils.html">utils</a></li>
@@ -146,7 +151,7 @@
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-
+             
   <section id="model-quant">
 <h1>model_quant<a class="headerlink" href="#model-quant" title="Link to this heading"></a></h1>
 <p id="module-modelopt.torch.quantization.model_quant">User-facing quantization API.</p>
@@ -154,22 +159,126 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.model_quant.quantize" title="modelopt.torch.quantization.model_quant.quantize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantize</span></code></a></p></td>
-<td><p>Quantizes and calibrates the model.</p></td>
+<td><p>Quantizes and calibrates the model in-place.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.model_quant.disable_quantizer" title="modelopt.torch.quantization.model_quant.disable_quantizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">disable_quantizer</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.model_quant.auto_quantize" title="modelopt.torch.quantization.model_quant.auto_quantize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto_quantize</span></code></a></p></td>
+<td><p>Quantizes a model by searching for the best quantization formats per-layer.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.model_quant.disable_quantizer" title="modelopt.torch.quantization.model_quant.disable_quantizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">disable_quantizer</span></code></a></p></td>
 <td><p>Disable quantizer by wildcard or filter function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.model_quant.enable_quantizer" title="modelopt.torch.quantization.model_quant.enable_quantizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">enable_quantizer</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.model_quant.enable_quantizer" title="modelopt.torch.quantization.model_quant.enable_quantizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">enable_quantizer</span></code></a></p></td>
 <td><p>Enable quantizer by wildcard or filter function.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.model_quant.print_quant_summary" title="modelopt.torch.quantization.model_quant.print_quant_summary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_quant_summary</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.model_quant.print_quant_summary" title="modelopt.torch.quantization.model_quant.print_quant_summary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_quant_summary</span></code></a></p></td>
 <td><p>Print summary of all quantizer modules in the model.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.model_quant.fold_weight" title="modelopt.torch.quantization.model_quant.fold_weight"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fold_weight</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.model_quant.fold_weight" title="modelopt.torch.quantization.model_quant.fold_weight"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fold_weight</span></code></a></p></td>
 <td><p>Fold weight quantizer for fast evaluation.</p></td>
 </tr>
 </tbody>
 </table>
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.model_quant.auto_quantize">
+<span class="sig-name descname"><span class="pre">auto_quantize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_loader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'weight_compression':</span> <span class="pre">0.3}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantization_formats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['FP8_DEFAULT_CFG',</span> <span class="pre">None]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collect_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_calib_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_score_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.model_quant.auto_quantize" title="Link to this definition"></a></dt>
+<dd><p>Quantizes a model by searching for the best quantization formats per-layer.</p>
+<p><code class="docutils literal notranslate"><span class="pre">auto_quantize</span></code> uses a gradient based sensitivity score to rank the per-layer quantization formats and search
+for the best quantization formats per-layer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>Module</em>) – A pytorch model with quantizer modules.</p></li>
+<li><p><strong>data_loader</strong> (<em>Iterable</em>) – An iterator that yields data that is to be used for calibrating quantized layers and estimating
+<code class="docutils literal notranslate"><span class="pre">auto_quantize</span></code> scores.</p></li>
+<li><p><strong>loss_func</strong> (<em>Callable</em><em>[</em><em>[</em><em>Any</em><em>, </em><em>Any</em><em>]</em><em>, </em><em>Tensor</em><em>]</em>) – <p>A <code class="docutils literal notranslate"><span class="pre">Callable</span></code> which takes the model output (i.e output of <code class="docutils literal notranslate"><span class="pre">model.forward()</span></code>)
+and the batch of data as its inputs and returns a scalar loss.</p>
+<p>It should be possible to run a backward pass on the loss value returned by this method.</p>
+<p><code class="docutils literal notranslate"><span class="pre">collect_func</span></code> will be used to gather the inputs to <code class="docutils literal notranslate"><span class="pre">model.forward()</span></code>
+from a batch of data yielded by``data_loader``.</p>
+<p><code class="docutils literal notranslate"><span class="pre">loss_func</span></code> should support the following usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">data_loader</span><span class="p">:</span>
+    <span class="c1"># Assuming collect_func returns a tuple of arguments</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="o">*</span><span class="n">collect_func</span><span class="p">(</span><span class="n">batch</span><span class="p">))</span>
+
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_func</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</pre></div>
+</div>
+</p></li>
+<li><p><strong>constraints</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>float</em><em> | </em><em>str</em><em>]</em>) – <p>Constraints for the search. Currently we support <code class="docutils literal notranslate"><span class="pre">weight_compression</span></code>.
+For example, for a compressed weight of 0.30 (i.e, 30%) of the original total weight size,
+<code class="docutils literal notranslate"><span class="pre">constraints</span></code> should be:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># For a compressed weight of 0.30 (i.e, 30%) of the original total weight size</span>
+<span class="n">constraints</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;weight_compression&quot;</span><span class="p">:</span> <span class="mf">0.30</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>You can also provide the equivalent percentage value in string type. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># For a compressed weight of 30% of the original total weight size</span>
+<span class="n">constraints</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;weight_compression&quot;</span><span class="p">:</span> <span class="s2">&quot;30%&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</p></li>
+<li><p><strong>quantization_formats</strong> (<em>List</em><em>[</em><em>str</em><em> | </em><em>None</em><em>]</em>) – <p>A list of the string names of the quantization formats to search for.
+The supported quantization formats are as listed by <code class="xref py py-attr docutils literal notranslate"><span class="pre">modelopt.torch.quantization.config.choices</span></code>.</p>
+<p>In addition, the quantization format can also be <code class="docutils literal notranslate"><span class="pre">None</span></code> which implies skipping quantization for
+the layer.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The quantization formats will be applied on a per-layer match basis. The global model level name
+based quantizer attribute setting will be ignored. For example, in <code class="docutils literal notranslate"><span class="pre">FP8_DEFAULT_CFG</span></code> quantizer
+configuration the key <code class="docutils literal notranslate"><span class="pre">&quot;*lm_head*&quot;:</span> <span class="pre">{&quot;enable&quot;:</span> <span class="pre">False}</span></code> disables quantization for the <code class="docutils literal notranslate"><span class="pre">lm_head</span></code>
+layer. However in <code class="docutils literal notranslate"><span class="pre">auto_quantize</span></code>, the quantization format for the <code class="docutils literal notranslate"><span class="pre">lm_head</span></code> layer will be searched.
+This is because the key <code class="docutils literal notranslate"><span class="pre">&quot;*lm_head*&quot;</span></code> sets the quantizer attributes based on the global model level
+name, not per-layer basis. The keys <code class="docutils literal notranslate"><span class="pre">&quot;*input_quantizer&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;*weight_quantizer&quot;</span></code> etc. in
+<code class="docutils literal notranslate"><span class="pre">FP8_DEFAULT_CFG</span></code> match on a per-layer basis  - hence the corresponding quantizers
+will be set as specified.</p>
+</div>
+</p></li>
+<li><p><strong>collect_func</strong> (<em>Callable</em><em> | </em><em>None</em>) – A <code class="docutils literal notranslate"><span class="pre">Callable</span></code> that takes a batch of data from the data loader as input and returns the input to
+<code class="docutils literal notranslate"><span class="pre">model.forward()</span></code> as described in
+<a class="reference internal" href="modelopt.torch.utils.network.html#modelopt.torch.utils.network.run_forward_loop" title="modelopt.torch.utils.network.run_forward_loop"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run_forward_loop</span></code></a>.</p></li>
+<li><p><strong>num_calib_steps</strong> (<em>int</em>) – Number of batches to use for calibrating the quantized model. Suggested value is 512.</p></li>
+<li><p><strong>num_score_steps</strong> (<em>int</em>) – Number of batches to use for estimating <code class="docutils literal notranslate"><span class="pre">auto_quantize</span></code> scores. Suggested value is 128.
+A higher value could increase the time taken for performing <code class="docutils literal notranslate"><span class="pre">auto_quantize</span></code>.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – If True, prints the search progress/intermediate results.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Returns: A tuple (model, state_dict) where <code class="docutils literal notranslate"><span class="pre">model</span></code> is the searched and quantized model and</dt><dd><p><code class="docutils literal notranslate"><span class="pre">state_dict</span></code> contains the history and detailed stats of the search procedure.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">auto_quantize</span></code> groups certain layers and restricts the quantization formats for them to be same. For example,
+Q, K, V linear layers belonging to the same transformer layer will have the same quantization format.
+This is to ensure compatibility with TensorRT-LLM which fuses these three linear layers into a single linear
+layer.</p>
+<p>A list of regex pattern rules as defined in <a class="reference internal" href="modelopt.torch.quantization.algorithms.html#modelopt.torch.quantization.algorithms.AutoQuantizeSearcher.rules" title="modelopt.torch.quantization.algorithms.AutoQuantizeSearcher.rules"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rules</span></code></a>
+are used to specify the group of layers. The first captured group
+in the regex pattern (i.e, <code class="docutils literal notranslate"><span class="pre">pattern.match(name).group(1)</span></code>) is used to group the layers. All the layers
+that share the same first captured group will have the same quantization format..</p>
+<p>For example, the rule <code class="docutils literal notranslate"><span class="pre">r&quot;^(.*?)\.(q_proj|k_proj|v_proj)$&quot;</span></code>
+groups the <cite>q_proj</cite>, <cite>k_proj</cite>, <cite>v_proj</cite> linear layers belonging to the same transformer layer.</p>
+<p>You may modify the rules to group the layers as per your requirement.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">modelopt.torch.quantization.algorithms</span> <span class="kn">import</span> <span class="n">AutoQuantizeSearcher</span>
+
+<span class="c1"># To additionally group the layers belonging to same `mlp` layer,</span>
+<span class="c1"># add the following rule</span>
+<span class="n">AutoQuantizeSearcher</span><span class="o">.</span><span class="n">rules</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^(.*?)\.mlp&quot;</span><span class="p">)</span>
+
+<span class="c1"># Perform `auto_quantize`</span>
+<span class="n">model</span><span class="p">,</span> <span class="n">state_dict</span> <span class="o">=</span> <span class="n">auto_quantize</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">auto_quantize</span></code> API and algorithm is experimental and subject to change. <code class="docutils literal notranslate"><span class="pre">auto_quantize</span></code> searched models
+might not be readily deployable to TensorRT-LLM yet.</p>
+</div>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.quantization.model_quant.disable_quantizer">
 <span class="sig-name descname"><span class="pre">disable_quantizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wildcard_or_filter_func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.model_quant.disable_quantizer" title="Link to this definition"></a></dt>
@@ -223,7 +332,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.quantization.model_quant.quantize">
 <span class="sig-name descname"><span class="pre">quantize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forward_loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.model_quant.quantize" title="Link to this definition"></a></dt>
-<dd><p>Quantizes and calibrates the model.</p>
+<dd><p>Quantizes and calibrates the model in-place.</p>
 <p>This method performs replacement of modules with their quantized counterparts and
 performs calibration as specified by <code class="docutils literal notranslate"><span class="pre">quant_cfg</span></code>.
 <code class="docutils literal notranslate"><span class="pre">forward_loop</span></code> is used to forward data through the model and gather statistics for calibration.</p>
@@ -231,7 +340,10 @@ performs calibration as specified by <code class="docutils literal notranslate">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>model</strong> (<em>Module</em>) – A pytorch model</p></li>
-<li><p><strong>config</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – <p>A dictionary specifying the values for keys <code class="docutils literal notranslate"><span class="pre">&quot;quant_cfg&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;algorithm&quot;</span></code>.
+<li><p><strong>config</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – <p>A dictionary or an instance of
+<a class="reference internal" href="modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizeConfig" title="modelopt.torch.quantization.config.QuantizeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizeConfig</span></code></a> specifying the
+values for keys <code class="docutils literal notranslate"><span class="pre">&quot;quant_cfg&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;algorithm&quot;</span></code>.
+It is basically a dictionary specifying the values for keys <code class="docutils literal notranslate"><span class="pre">&quot;quant_cfg&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;algorithm&quot;</span></code>.
 The <code class="docutils literal notranslate"><span class="pre">&quot;quant_cfg&quot;</span></code> key specifies the quantization configurations.
 The <code class="docutils literal notranslate"><span class="pre">&quot;algorithm&quot;</span></code> key specifies the <code class="docutils literal notranslate"><span class="pre">algorithm</span></code> argument to
 <a class="reference internal" href="modelopt.torch.quantization.model_calib.html#modelopt.torch.quantization.model_calib.calibrate" title="modelopt.torch.quantization.model_calib.calibrate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calibrate</span></code></a>.</p>
@@ -241,16 +353,20 @@ against the quantizer module names. The quantizer modules have names ending with
 <code class="docutils literal notranslate"><span class="pre">weight_quantizer</span></code> and <code class="docutils literal notranslate"><span class="pre">input_quantizer</span></code> and they perform weight quantization and
 input quantization (or activation quantization) respectively. The quantizer modules
 are instances of
-<a class="reference internal" href="modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer" title="modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">TensorQuantizer</span></code></a> and the
-specified quantizer attributes describe its quantization behavior. See
-<a class="reference internal" href="modelopt.torch.quantization.conversion.html#modelopt.torch.quantization.conversion.set_quantizer_by_cfg" title="modelopt.torch.quantization.conversion.set_quantizer_by_cfg"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_quantizer_by_cfg</span></code></a> for more details
-on <code class="docutils literal notranslate"><span class="pre">&quot;quant_cfg&quot;</span></code> dictionary.</p>
+<a class="reference internal" href="modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer" title="modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">TensorQuantizer</span></code></a>.
+The quantizer attributes are defined by <code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizerAttributeConfig</span></code>. See
+<code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizerAttributeConfig</span></code> for details on the quantizer attributes and their values.</p>
 <p>An example <code class="docutils literal notranslate"><span class="pre">config</span></code> dictionary is given below:</p>
-<p>Please see <a class="reference internal" href="modelopt.torch.quantization.config.html#module-modelopt.torch.quantization.config" title="modelopt.torch.quantization.config"><code class="xref py py-mod docutils literal notranslate"><span class="pre">config</span></code></a> for more examples.</p>
+<p>See <a class="reference internal" href="modelopt.torch.quantization.config.html#quantization-formats"><span class="std std-ref">Quantization Formats</span></a> to learn more about the supported
+quantization formats. See <a class="reference internal" href="modelopt.torch.quantization.config.html#quantization-configs"><span class="std std-ref">Quantization Configs</span></a> for more details on
+<code class="docutils literal notranslate"><span class="pre">config</span></code> dictionary.</p>
 </p></li>
 <li><p><strong>forward_loop</strong> (<em>Callable</em><em>[</em><em>[</em><em>Module</em><em>]</em><em>, </em><em>None</em><em>] </em><em>| </em><em>None</em>) – <p>A callable that forwards all calibration data through the model. This is used
 to gather statistics for calibration. It should take model as the argument. It does not need
-to return anything. Here are a few examples for correct <code class="docutils literal notranslate"><span class="pre">forward_loop</span></code> definitions:
+to return anything.</p>
+<p>This argument is not required for weight-only quantization with the <code class="docutils literal notranslate"><span class="pre">&quot;max&quot;</span></code>
+algorithm.</p>
+<p>Here are a few examples for correct <code class="docutils literal notranslate"><span class="pre">forward_loop</span></code> definitions:
 Example 1:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">forward_loop</span><span class="p">(</span><span class="n">model</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="c1"># iterate over the data loader and forward data through the model</span>
@@ -305,7 +421,7 @@ Please subsample the dataset or reduce the number of batches if needed.</p>
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-
+   
 
 </footer>
         </div>
@@ -316,7 +432,7 @@ Please subsample the dataset or reduce the number of batches if needed.</p>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
+  </script> 
 
 </body>
 </html>

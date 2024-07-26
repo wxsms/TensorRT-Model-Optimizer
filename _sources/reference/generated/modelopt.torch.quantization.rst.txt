@@ -14,6 +14,9 @@ quantization
    :recursive:
 
 
+   modelopt.torch.quantization.algorithms
+
+
    modelopt.torch.quantization.calib
 
 
@@ -42,6 +45,9 @@ quantization
 
 
    modelopt.torch.quantization.plugins
+
+
+   modelopt.torch.quantization.qtensor
 
 
    modelopt.torch.quantization.quant_modules

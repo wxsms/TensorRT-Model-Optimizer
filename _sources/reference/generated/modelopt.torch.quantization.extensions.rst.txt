@@ -34,4 +34,12 @@ extensions
    .. Overview table of available functions in the module
    
    
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      get_cuda_ext
+      get_cuda_ext_fp8
+   
    

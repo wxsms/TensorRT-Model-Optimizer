@@ -48,6 +48,7 @@ qdq\_utils
       make_gs_quantized_weight
       make_gs_scale
       make_gs_zp
+      replace_scale_values
       use_trt_qdq_ops
    
    

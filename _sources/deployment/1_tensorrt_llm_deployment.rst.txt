@@ -90,11 +90,6 @@ If the :meth:`export_tensorrt_llm_checkpoint <modelopt.torch.export.model_config
      - Yes
      - Yes
      - No
-   * - Falcon RW 1B, 7B
-     - Yes
-     - Yes
-     - Yes
-     - Yes
    * - MPT 7B, 30B
      - Yes
      - Yes
@@ -105,15 +100,10 @@ If the :meth:`export_tensorrt_llm_checkpoint <modelopt.torch.export.model_config
      - Yes
      - Yes
      - Yes
-   * - Qwen 7B, 14B
-     - Yes
-     - Yes
-     - Yes
-     - Yes
    * - ChatGLM2, 3 6B
      - Yes
-     - Yes
-     - Yes
+     - No
+     - No
      - Yes
    * - Bloom
      - Yes
@@ -134,6 +124,21 @@ If the :meth:`export_tensorrt_llm_checkpoint <modelopt.torch.export.model_config
      - Yes
      - Yes
      - No
+     - Yes
+   * - Recurrent Gemma
+     - Yes
+     - Yes
+     - Yes
+     - Yes
+   * - StarCoder 2
+     - Yes
+     - Yes
+     - Yes
+     - Yes
+   * - Qwen-1, 1.5
+     - Yes
+     - Yes
+     - Yes
      - Yes
 
 Convert to TensorRT-LLM

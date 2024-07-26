@@ -40,13 +40,15 @@ distributed
       :nosignatures:
    
       backend
-      size
-      rank
-      is_master
       barrier
-      set_data_parallel_group
-      set_tensor_parallel_group
       get_data_parallel_group
       get_tensor_parallel_group
+      is_available
+      is_initialized
+      is_master
+      rank
+      set_data_parallel_group
+      set_tensor_parallel_group
+      size
    
    

@@ -9,8 +9,8 @@ Quantization is an effective technique to reduce the memory footprint of deep le
 accelerate the inference speed.
 
 ModelOpt's :meth:`mtq.quantize() <modelopt.torch.quantization.model_quant.quantize>` API enables
-users to quantize a model with advanced algorithms like SmoothQuant, AWQ etc. ModelOpt supports both
-Post Training Quantization (PTQ) and Quantization Aware Training (QAT).
+users to quantize a model with advanced algorithms like SmoothQuant, AWQ, and more. ModelOpt
+supports both Post Training Quantization (PTQ) and Quantization Aware Training (QAT).
 
 .. tip::
 
@@ -21,7 +21,7 @@ PTQ for PyTorch models
 -----------------------------
 
 :meth:`mtq.quantize <modelopt.torch.quantization.model_quant.quantize>` requires the model,
-the appropriate quantization configuration and a forward loop as inputs. Here is a quick example of
+the appropriate quantization configuration, and a forward loop as inputs. Here is a quick example of
 quantizing a model with int8 SmoothQuant using
 :meth:`mtq.quantize <modelopt.torch.quantization.model_quant.quantize>`:
 
@@ -55,8 +55,8 @@ Deployment
 The quantized model is just like a regular Pytorch model and is ready for evaluation or deployment.
 
 Huggingface or Nemo LLM models can be exported to TensorRT-LLM using ModelOpt.
-Please see :doc:`TensorRT-LLM Deployment <../deployment/1_tensorrt_llm_deployment>` guide for more
-details.
+Please see the :doc:`TensorRT-LLM Deployment <../deployment/1_tensorrt_llm_deployment>` guide for
+more details.
 
 The model can be also exported to ONNX using
 `torch.onnx.export <https://pytorch.org/docs/stable/onnx_torchscript.html#torch.onnx.export>`_.
