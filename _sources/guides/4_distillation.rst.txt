@@ -17,7 +17,8 @@ a more powerful teacher model using :mod:`modelopt.torch.distill <modelopt.torch
 #.  **Distillation training**: Seamlessly use the meta-model in place of the original model and run
     the orignal script with only one additional line of code for loss calculation.
 #.  **Checkpoint and re-load**: Save the model via :meth:`mto.save <modelopt.torch.opt.conversion.save>` and
-    restore via :meth:`mto.restore <modelopt.torch.opt.conversion.restore>`
+    restore via :meth:`mto.restore <modelopt.torch.opt.conversion.restore>`. See :ref:`saving and restoring <save-restore>`
+    to learn more.
 
 *To find out more about Distillation and related concepts, please refer to the below section*
 :ref:`Distillation Concepts <distillation-concepts>`.

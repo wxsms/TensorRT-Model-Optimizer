@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>int4 &mdash; Model Optimizer 0.15.0</title>
+  <title>int4 &mdash; Model Optimizer 0.17.0</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -32,6 +32,7 @@
         <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
         <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -52,7 +53,7 @@
             TensorRT Model Optimizer
           </a>
               <div class="version">
-                0.15.0
+                0.17.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -67,14 +68,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/1_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/2_installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/3_quantization.html">Quick Start: Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/4_pruning.html">Quick Start: Pruning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/5_distillation.html">Quick Start: Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started/6_sparsity.html">Quick Start: Sparsity</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Optimization Guides</span></p>
+<p class="caption" role="heading"><span class="caption-text">Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/1_quantization.html">Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/2_pruning.html">Pruning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/3_nas.html">NAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/4_distillation.html">Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/5_sparsity.html">Sparsity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/6_save_load.html">Saving &amp; Restoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/6_speculative_decoding.html">Speculative Decoding</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deployment</span></p>
 <ul>
@@ -82,11 +88,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../examples/0_all_examples.html">GitHub Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/0_all_examples.html">All GitHub Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/1_cifar_resnet.html">ResNet20 on CIFAR-10: Pruning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/2_bert_prune_distill_quantize.html">HF BERT: Prune, Distill &amp; Quantize</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_versions.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../1_modelopt_api.html">modelopt API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelopt.deploy.html">deploy</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="modelopt.onnx.html">onnx</a><ul class="current">
@@ -150,12 +158,15 @@
              
   <section id="int4">
 <h1>int4<a class="headerlink" href="#int4" title="Link to this heading"></a></h1>
-<p id="module-modelopt.onnx.quantization.int4">Perform INT4 WoQ on an ONNX model, and returns the ONNX ModelProto.</p>
+<p id="module-modelopt.onnx.quantization.int4">Performs INT4 WoQ on an ONNX model, and returns the ONNX ModelProto.</p>
 <p class="rubric">Classes</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.AWQClipHelper" title="modelopt.onnx.quantization.int4.AWQClipHelper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AWQClipHelper</span></code></a></p></td>
 <td><p>AWQ calibration helper class.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.AWQLiteHelper" title="modelopt.onnx.quantization.int4.AWQLiteHelper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AWQLiteHelper</span></code></a></p></td>
+<td><p>AWQ Lite calibration helper class.</p></td>
 </tr>
 </tbody>
 </table>
@@ -168,13 +179,25 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.find_scales" title="modelopt.onnx.quantization.int4.find_scales"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_scales</span></code></a></p></td>
 <td><p>Find scale factors for <cite>w</cite> via <cite>s = max(w.block(block_size)) / 7</cite>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.quant_tensor" title="modelopt.onnx.quantization.int4.quant_tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quant_tensor</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.get_act_scale" title="modelopt.onnx.quantization.int4.get_act_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_act_scale</span></code></a></p></td>
+<td><p>Get scale tensors for inputs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.get_scale" title="modelopt.onnx.quantization.int4.get_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_scale</span></code></a></p></td>
+<td><p>Get AWQ lite scales as described by 's' in the paper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.get_weight_scale" title="modelopt.onnx.quantization.int4.get_weight_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_weight_scale</span></code></a></p></td>
+<td><p>Get scale tensors for weights.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.quant_tensor" title="modelopt.onnx.quantization.int4.quant_tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quant_tensor</span></code></a></p></td>
 <td><p>Quantize a tensor using alpha etc.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.quantize" title="modelopt.onnx.quantization.int4.quantize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantize</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.quantize" title="modelopt.onnx.quantization.int4.quantize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantize</span></code></a></p></td>
 <td><p>Applies INT4 WoQ (Weight-Only-Quantization) to an ONNX file.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.quantize_awq_clip" title="modelopt.onnx.quantization.int4.quantize_awq_clip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantize_awq_clip</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.quantize_awq_clip" title="modelopt.onnx.quantization.int4.quantize_awq_clip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantize_awq_clip</span></code></a></p></td>
+<td><p>Quantizes <cite>onnx_model</cite> using the Activation aware quantization a.k.a AWQ algorithm.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.quantize_awq_lite" title="modelopt.onnx.quantization.int4.quantize_awq_lite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantize_awq_lite</span></code></a></p></td>
 <td><p>Quantizes <cite>onnx_model</cite> using the Activation aware quantization a.k.a AWQ algorithm.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.quantize_rtn" title="modelopt.onnx.quantization.int4.quantize_rtn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantize_rtn</span></code></a></p></td>
@@ -224,6 +247,29 @@
 
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.AWQLiteHelper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AWQLiteHelper</span></span><a class="headerlink" href="#modelopt.onnx.quantization.int4.AWQLiteHelper" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>AWQ Lite calibration helper class.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.AWQLiteHelper.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.AWQLiteHelper.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes AWQLiteHelper with a module weight.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>block_size</strong> (<em>int</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.AWQLiteHelper.alpha_step">
+<span class="sig-name descname"><span class="pre">alpha_step</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.1</span></em><a class="headerlink" href="#modelopt.onnx.quantization.int4.AWQLiteHelper.alpha_step" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.dq_tensor">
 <span class="sig-name descname"><span class="pre">dq_tensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.dq_tensor" title="Link to this definition"></a></dt>
@@ -261,6 +307,24 @@
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.get_act_scale">
+<span class="sig-name descname"><span class="pre">get_act_scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.get_act_scale" title="Link to this definition"></a></dt>
+<dd><p>Get scale tensors for inputs.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.get_scale">
+<span class="sig-name descname"><span class="pre">get_scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduce_across_tp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.get_scale" title="Link to this definition"></a></dt>
+<dd><p>Get AWQ lite scales as described by ‘s’ in the paper.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.get_weight_scale">
+<span class="sig-name descname"><span class="pre">get_weight_scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.get_weight_scale" title="Link to this definition"></a></dt>
+<dd><p>Get scale tensors for weights.</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.quant_tensor">
 <span class="sig-name descname"><span class="pre">quant_tensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.quant_tensor" title="Link to this definition"></a></dt>
 <dd><p>Quantize a tensor using alpha etc. and return the quantized tensor.</p>
@@ -277,7 +341,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.quantize">
-<span class="sig-name descname"><span class="pre">quantize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">onnx_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calibration_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'awq_clip'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calibration_data_reader</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_external_data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.quantize" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">quantize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">onnx_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calibration_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'awq_clip'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calibration_data_reader</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_external_data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.quantize" title="Link to this definition"></a></dt>
 <dd><p>Applies INT4 WoQ (Weight-Only-Quantization) to an ONNX file.</p>
 <p>Currently only GEMM quantization is supported.</p>
 <dl class="field-list simple">
@@ -287,7 +351,6 @@
 <li><p><strong>calibration_method</strong> (<em>str</em>) – </p></li>
 <li><p><strong>calibration_data_reader</strong> (<em>CalibrationDataReader</em>) – </p></li>
 <li><p><strong>use_external_data_format</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>output_path</strong> (<em>str</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -316,6 +379,26 @@
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.quantize_awq_lite">
+<span class="sig-name descname"><span class="pre">quantize_awq_lite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">onnx_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_reader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_external_data_format</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_fp16</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_fast_path_using_high_sysram</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.quantize_awq_lite" title="Link to this definition"></a></dt>
+<dd><p>Quantizes <cite>onnx_model</cite> using the Activation aware quantization a.k.a AWQ algorithm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>onnx_model</strong> (<em>ModelProto</em>) – </p></li>
+<li><p><strong>data_reader</strong> (<em>CalibrationDataReader</em>) – </p></li>
+<li><p><strong>use_external_data_format</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>force_fp16</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>enable_fast_path_using_high_sysram</strong> (<em>bool</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>ModelProto</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.quantize_rtn">
 <span class="sig-name descname"><span class="pre">quantize_rtn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">onnx_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gemm_io_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dq_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.quantize_rtn" title="Link to this definition"></a></dt>
 <dd><p>Quantizes <cite>onnx_model</cite> using the RTN (Round-to-Nearest) algorithm.</p>
@@ -328,7 +411,7 @@ dimension, and in ONNX, weights are always plugged into the RHS (i.e. y = x &#64
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>onnx_model</strong> (<em>ModelProto</em>) – </p></li>
-<li><p><strong>gemm_io_type</strong> (<em>&lt;google.protobuf.internal.enum_type_wrapper.EnumTypeWrapper object at 0x7f2e8de70cb0&gt;</em>) – </p></li>
+<li><p><strong>gemm_io_type</strong> (<em>&lt;google.protobuf.internal.enum_type_wrapper.EnumTypeWrapper object at 0x7f1c4f143170&gt;</em>) – </p></li>
 <li><p><strong>dq_only</strong> (<em>bool</em>) – </p></li>
 </ul>
 </dd>

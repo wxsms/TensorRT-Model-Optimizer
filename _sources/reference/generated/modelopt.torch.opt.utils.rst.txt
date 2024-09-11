@@ -42,6 +42,7 @@ utils
       get_hparam
       is_configurable
       is_dynamic
+      named_dynamic_modules
       named_hparams
       search_space_size
    

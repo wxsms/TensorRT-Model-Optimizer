@@ -38,10 +38,16 @@ export
    modelopt.torch.export.scaling_factor_utils
 
 
+   modelopt.torch.export.tensorrt_llm_type
+
+
    modelopt.torch.export.tensorrt_llm_utils
 
 
    modelopt.torch.export.transformer_engine
+
+
+   modelopt.torch.export.unified_export_hf
 
 
    modelopt.torch.export.vllm

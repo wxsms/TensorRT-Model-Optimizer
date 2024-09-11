@@ -18,7 +18,8 @@ module :mod:`modelopt.torch.sparsity`:
 #.  **Sparsification**: Sparsify the model using the provided
     :meth:`mts.sparsify <modelopt.torch.sparsity.sparsification.sparsify>` API.
 #.  **Checkpoint and re-load**: Save the model via :meth:`mto.save <modelopt.torch.opt.conversion.save>`
-    and restore via :meth:`mto.restore <modelopt.torch.opt.conversion.restore>`
+    and restore via :meth:`mto.restore <modelopt.torch.opt.conversion.restore>`. See
+    :ref:`saving and loading of ModelOpt-modified model <save-restore>` to learn more.
 
 *To find out more about Sparsity and related concepts, please refer to the section on*
 :ref:`Sparsity Concepts <sparsity-concepts>`.
@@ -108,6 +109,10 @@ To restore the saved sparse model you can use
     sparse metadata will be removed. After exporting, sparsity will no longer be enforced during
     subsequent fine-tuning. If you want to continue fine-tuning, do not export the model.
 
+.. note::
+
+    Please see :ref:`saving and restoring of ModelOpt-modified models <save-restore>` to learn
+    about all the available options for saving and restoring.
 
 .. _sparsity-concepts:
 

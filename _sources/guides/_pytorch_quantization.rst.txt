@@ -116,43 +116,74 @@ Here is an example of performing QAT:
     We recommend QAT for 10% of the original training epochs. For LLMs, we find that QAT fine-tuning for even
     less than 1% of the original pre-training duration is often sufficient to recover the model quality.
 
-Storing and loading quantized model
-===================================
+Storing and restoring quantized model
+======================================
 
 The model weights and quantizer states need to saved for future use or to resume training.
-The quantizer states of the model should be saved and loaded separately from the model weights.
+Please see :ref:`saving and restoring of ModelOpt-modified models <save-restore>` to learn
+how to save and restore the quantized model.
 
-:meth:`mto.modelopt_state() <modelopt.torch.opt.conversion.modelopt_state>` provides the quantizer states of the model.
-The quantizer states can be saved with `torch.save <https://pytorch.org/docs/stable/generated/torch.save.html#torch-save>`_. For example:
 
-.. code-block:: python
+Optimal Partial Quantization using AutoQuantize(``auto_quantize``)
+===================================================================
 
+:meth:`auto_quantize <modelopt.torch.quantization.model_quant.auto_quantize>` or ``AutoQuantize`` is a PTQ algorithm from ModelOpt which
+quantizes a model by searching for the best quantization format per-layer
+while meeting the performance constraint specified by the user. ``AutoQuantize`` enables to trade-off model accuracy
+for performance. Please see :meth:`auto_quantize <modelopt.torch.quantization.model_quant.auto_quantize>` for more details
+on the API usage.
+
+Currently ``AutoQuantize`` supports only ``weight_compression`` as the performance constraint (for both weight-only quantization and
+weight & activation quantization). ``weight_compression`` constraint specifies the
+total weight size as a ratio of the un-quantized fp16/bf16 weight size. For example, by quantizing all
+layers with :attr:`FP8_DEFAULT_CFG <modelopt.torch.quantization.config.FP8_DEFAULT_CFG>`, ``weight_compression`` is 0.5
+(or 50%) of the un-quantized weight size.
+
+You may specify a ``weight_compression`` constraint such as 0.55 for partial quantization with :attr:`FP8_DEFAULT_CFG`.
+``AutoQuantize`` will skip quantizing the most quantization sensitive layers so that the final partially quantized model's
+weight size is 55% as that of the un-quantized weight size. This model will have a better model
+accuracy than the fully quantized model since quantization was skipped for some layers which are highly sensitive to
+quantization.
+
+.. tip::
+
+    Here is how to get the ``weight_compression`` for a quantization format:
+
+    .. code::
+
+        from modelopt.torch.quantization.algorithms import QuantRecipe
+        print(f"Weight compression for FP8_DEFAULT_CFG: {QuantRecipe('FP8_DEFAULT_CFG').compression}")
+
+
+Here is how to perform ``AutoQuantize``:
+
+.. code::
+
+    import modelopt.torch.quantization as mtq
     import modelopt.torch.opt as mto
 
-    # Save quantizer states
-    torch.save(mto.modelopt_state(model), "modelopt_state.pt")
-
-    # Save model weights using torch.save or custom check-pointing function
-    # trainer.save_model("model.pt")
-    torch.save(model.state_dict(), "model.pt")
-
-To restore a quantized model, first restore the quantizer states using
-:meth:`mto.restore_from_modelopt_state <modelopt.torch.opt.conversion.restore_from_modelopt_state>`.
-After quantizer states are restored, load the model weights. For example:
-
-.. code-block:: python
-
-    import modelopt.torch.opt as mto
-
-    # Initialize the un-quantized model
+    # Define the model & dataloader
     model = ...
+    dataloader = ...
 
-    # Load quantizer states
-    model = mto.restore_from_modelopt_state(model, torch.load("modelopt_state.pt"))
+    # Define loss function
+    def loss_func(outputs, inputs):
+       ...
 
-    # Load model weights using torch.load or custom check-pointing function
-    # model.from_pretrained("model.pt")
-    model.load_state_dict(torch.load("model.pt"))
+    # Perform AutoQuantize
+    model, search_state_dict = mtq.auto_quantize(
+        model,
+        data_loader,
+        loss_func = loss_func
+        constraints = {"weight_compression": 0.30},
+        # supported quantization formats are listed in `modelopt.torch.quantization.config.choices`
+        quantization_formats = ["FP8_DEFAULT_CFG", None]
+        ...
+        )
+
+    # Save the searched model for future use
+    mto.save(model, "auto_quantize_model.pt")
+
 
 
 Advanced Topics

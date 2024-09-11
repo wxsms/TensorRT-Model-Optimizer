@@ -40,14 +40,19 @@ qdq\_utils
       :nosignatures:
    
       insert_dq_nodes
+      insert_pre_quant_scale_nodes
       insert_qdq_nodes
+      make_gs_awq_scale
       make_gs_dequantize_node
       make_gs_dequantize_output
+      make_gs_pre_quant_scale_node
+      make_gs_pre_quant_scale_output
       make_gs_quantize_node
       make_gs_quantize_output
       make_gs_quantized_weight
       make_gs_scale
       make_gs_zp
+      qdq_to_dq
       replace_scale_values
       use_trt_qdq_ops
    

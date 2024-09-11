@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Python Module Index &mdash; Model Optimizer 0.15.0</title>
+  <title>Python Module Index &mdash; Model Optimizer 0.17.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -31,6 +31,7 @@
         <script src="_static/togglebutton.js?v=4a39c7ea"></script>
         <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -52,7 +53,7 @@
             TensorRT Model Optimizer
           </a>
               <div class="version">
-                0.15.0
+                0.17.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -67,14 +68,19 @@
 <li class="toctree-l1"><a class="reference internal" href="getting_started/1_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_started/2_installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_started/3_quantization.html">Quick Start: Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/4_pruning.html">Quick Start: Pruning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_started/5_distillation.html">Quick Start: Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_started/6_sparsity.html">Quick Start: Sparsity</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Optimization Guides</span></p>
+<p class="caption" role="heading"><span class="caption-text">Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="guides/1_quantization.html">Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/2_pruning.html">Pruning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/3_nas.html">NAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/4_distillation.html">Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/5_sparsity.html">Sparsity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/6_save_load.html">Saving &amp; Restoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/6_speculative_decoding.html">Speculative Decoding</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deployment</span></p>
 <ul>
@@ -82,11 +88,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="examples/0_all_examples.html">GitHub Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/0_all_examples.html">All GitHub Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/1_cifar_resnet.html">ResNet20 on CIFAR-10: Pruning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/2_bert_prune_distill_quantize.html">HF BERT: Prune, Distill &amp; Quantize</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="reference/0_versions.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/0_changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference/1_modelopt_api.html">modelopt API</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Support</span></p>
@@ -333,6 +341,11 @@
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.export.tensorrt_llm_type.html#module-modelopt.torch.export.tensorrt_llm_type"><code class="xref">modelopt.torch.export.tensorrt_llm_type</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
        <a href="reference/generated/modelopt.torch.export.tensorrt_llm_utils.html#module-modelopt.torch.export.tensorrt_llm_utils"><code class="xref">modelopt.torch.export.tensorrt_llm_utils</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
@@ -343,7 +356,112 @@
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.export.unified_export_hf.html#module-modelopt.torch.export.unified_export_hf"><code class="xref">modelopt.torch.export.unified_export_hf</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
        <a href="reference/generated/modelopt.torch.export.vllm.html#module-modelopt.torch.export.vllm"><code class="xref">modelopt.torch.export.vllm</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.nas.html#module-modelopt.torch.nas"><code class="xref">modelopt.torch.nas</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.nas.algorithms.html#module-modelopt.torch.nas.algorithms"><code class="xref">modelopt.torch.nas.algorithms</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.nas.autonas.html#module-modelopt.torch.nas.autonas"><code class="xref">modelopt.torch.nas.autonas</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.nas.config.html#module-modelopt.torch.nas.config"><code class="xref">modelopt.torch.nas.config</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.nas.conversion.html#module-modelopt.torch.nas.conversion"><code class="xref">modelopt.torch.nas.conversion</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.nas.hparams.html#module-modelopt.torch.nas.hparams"><code class="xref">modelopt.torch.nas.hparams</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.nas.hparams.concat.html#module-modelopt.torch.nas.hparams.concat"><code class="xref">modelopt.torch.nas.hparams.concat</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.nas.hparams.container.html#module-modelopt.torch.nas.hparams.container"><code class="xref">modelopt.torch.nas.hparams.container</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.nas.mode.html#module-modelopt.torch.nas.mode"><code class="xref">modelopt.torch.nas.mode</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.nas.modules.html#module-modelopt.torch.nas.modules"><code class="xref">modelopt.torch.nas.modules</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.nas.modules.container.html#module-modelopt.torch.nas.modules.container"><code class="xref">modelopt.torch.nas.modules.container</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.nas.modules.conv.html#module-modelopt.torch.nas.modules.conv"><code class="xref">modelopt.torch.nas.modules.conv</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.nas.modules.linear.html#module-modelopt.torch.nas.modules.linear"><code class="xref">modelopt.torch.nas.modules.linear</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.nas.modules.norm.html#module-modelopt.torch.nas.modules.norm"><code class="xref">modelopt.torch.nas.modules.norm</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.nas.modules.utils.html#module-modelopt.torch.nas.modules.utils"><code class="xref">modelopt.torch.nas.modules.utils</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.nas.plugins.html#module-modelopt.torch.nas.plugins"><code class="xref">modelopt.torch.nas.plugins</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.nas.registry.html#module-modelopt.torch.nas.registry"><code class="xref">modelopt.torch.nas.registry</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.nas.search_space.html#module-modelopt.torch.nas.search_space"><code class="xref">modelopt.torch.nas.search_space</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.nas.traced_hp.html#module-modelopt.torch.nas.traced_hp"><code class="xref">modelopt.torch.nas.traced_hp</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.nas.utils.html#module-modelopt.torch.nas.utils"><code class="xref">modelopt.torch.nas.utils</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
@@ -383,12 +501,57 @@
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.opt.plugins.huggingface.html#module-modelopt.torch.opt.plugins.huggingface"><code class="xref">modelopt.torch.opt.plugins.huggingface</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
        <a href="reference/generated/modelopt.torch.opt.searcher.html#module-modelopt.torch.opt.searcher"><code class="xref">modelopt.torch.opt.searcher</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
        <a href="reference/generated/modelopt.torch.opt.utils.html#module-modelopt.torch.opt.utils"><code class="xref">modelopt.torch.opt.utils</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.prune.html#module-modelopt.torch.prune"><code class="xref">modelopt.torch.prune</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.prune.config.html#module-modelopt.torch.prune.config"><code class="xref">modelopt.torch.prune.config</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.prune.fastnas.html#module-modelopt.torch.prune.fastnas"><code class="xref">modelopt.torch.prune.fastnas</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.prune.gradnas.html#module-modelopt.torch.prune.gradnas"><code class="xref">modelopt.torch.prune.gradnas</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.prune.mcore_gpt_minitron.html#module-modelopt.torch.prune.mcore_gpt_minitron"><code class="xref">modelopt.torch.prune.mcore_gpt_minitron</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.prune.mode.html#module-modelopt.torch.prune.mode"><code class="xref">modelopt.torch.prune.mode</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.prune.plugins.html#module-modelopt.torch.prune.plugins"><code class="xref">modelopt.torch.prune.plugins</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.prune.pruning.html#module-modelopt.torch.prune.pruning"><code class="xref">modelopt.torch.prune.pruning</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
@@ -604,6 +767,86 @@
        <td></td>
        <td>&#160;&#160;&#160;
        <a href="reference/generated/modelopt.torch.sparsity.sparsification.html#module-modelopt.torch.sparsity.sparsification"><code class="xref">modelopt.torch.sparsity.sparsification</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.speculative.html#module-modelopt.torch.speculative"><code class="xref">modelopt.torch.speculative</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.speculative.config.html#module-modelopt.torch.speculative.config"><code class="xref">modelopt.torch.speculative.config</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.speculative.medusa.html#module-modelopt.torch.speculative.medusa"><code class="xref">modelopt.torch.speculative.medusa</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.speculative.medusa.conversion.html#module-modelopt.torch.speculative.medusa.conversion"><code class="xref">modelopt.torch.speculative.medusa.conversion</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.speculative.medusa.medusa_model.html#module-modelopt.torch.speculative.medusa.medusa_model"><code class="xref">modelopt.torch.speculative.medusa.medusa_model</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.speculative.mode.html#module-modelopt.torch.speculative.mode"><code class="xref">modelopt.torch.speculative.mode</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.speculative.plugins.html#module-modelopt.torch.speculative.plugins"><code class="xref">modelopt.torch.speculative.plugins</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.speculative.speculative_decoding.html#module-modelopt.torch.speculative.speculative_decoding"><code class="xref">modelopt.torch.speculative.speculative_decoding</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.trace.html#module-modelopt.torch.trace"><code class="xref">modelopt.torch.trace</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.trace.analyzer.html#module-modelopt.torch.trace.analyzer"><code class="xref">modelopt.torch.trace.analyzer</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.trace.modules.html#module-modelopt.torch.trace.modules"><code class="xref">modelopt.torch.trace.modules</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.trace.modules.concat.html#module-modelopt.torch.trace.modules.concat"><code class="xref">modelopt.torch.trace.modules.concat</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.trace.modules.nn.html#module-modelopt.torch.trace.modules.nn"><code class="xref">modelopt.torch.trace.modules.nn</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.trace.plugins.html#module-modelopt.torch.trace.plugins"><code class="xref">modelopt.torch.trace.plugins</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.trace.symbols.html#module-modelopt.torch.trace.symbols"><code class="xref">modelopt.torch.trace.symbols</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="reference/generated/modelopt.torch.trace.tracer.html#module-modelopt.torch.trace.tracer"><code class="xref">modelopt.torch.trace.tracer</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>

@@ -16,7 +16,7 @@ Welcome to Model Optimizer (ModelOpt) documentation!
 .. toctree::
    :glob:
    :maxdepth: 1
-   :caption: Optimization Guides
+   :caption: Guides
 
    guides/[0-9]*
 

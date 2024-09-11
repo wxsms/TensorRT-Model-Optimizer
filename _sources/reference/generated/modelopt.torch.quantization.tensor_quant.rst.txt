@@ -50,6 +50,8 @@ tensor\_quant
    .. autosummary::
       :nosignatures:
    
-      scaled_e4m3_abstract
+      fake_quant_impl
+      quantize_op_abstract
+      scaled_e4m3_impl
    
    

@@ -1,5 +1,6 @@
-GitHub Examples
-===============
+All GitHub Examples
+===================
 
-All examples can be accessed from the ModelOpt GitHub repository at
+All examples related to optimization techniques like Quantization (PTQ, QAT), Sparsity, Distillation,
+Pruning, TensorRT-LLM deployment and more can be accessed from the ModelOpt GitHub repository at
 `github.com/NVIDIA/TensorRT-Model-Optimizer <https://github.com/NVIDIA/TensorRT-Model-Optimizer/>`_.

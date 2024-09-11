@@ -43,5 +43,6 @@ postprocess
       pad_embedding_lm_head
       postprocess_model_config
       postprocess_tensors
+      update_lm_head_quantization
    
    

@@ -56,6 +56,7 @@ layer\_utils
       get_kv_cache_dtype
       get_kv_cache_scaling_factor
       get_prequant_scaling_factor
+      get_qkv_and_avg_prequant_scale
       get_quantization_format
       get_scaling_factor
       get_transformer_layers

@@ -39,6 +39,7 @@ fp8
    .. autosummary::
       :nosignatures:
    
+      int8_to_fp8
       quantize
    
    

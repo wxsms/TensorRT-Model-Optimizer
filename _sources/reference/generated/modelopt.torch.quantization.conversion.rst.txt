@@ -44,5 +44,6 @@ conversion
       set_quantizer_attribute
       register
       unregister
+      set_quantizer_by_cfg_context
    
    

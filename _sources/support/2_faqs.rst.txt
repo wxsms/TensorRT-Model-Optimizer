@@ -3,6 +3,34 @@
 FAQs
 ====
 
+.. _nas_faqs:
+
+NAS/Pruning
+===========
+
+
+Parallel search
+---------------
+
+If your ``score_func`` in :meth:`mtn.search() <modelopt.torch.nas.algorithms.search>`
+supports parallel evaluation, you can make use of it by passing in ``DistributedDataParallel``
+module to search.
+
+
+Monkey-patched functions
+------------------------
+
+During the conversion process (:meth:`mtn.convert() <modelopt.torch.nas.conversion.convert>`), we
+use a `monkey patch <https://en.wikipedia.org/wiki/Monkey_patch>`_ to augment the ``forward()``,
+``eval()``, and ``train()`` methods of ``nn.Module``. This renders the ModelOpt conversion process
+incompatible with other monkey patches to those methods.
+
+.. code-block:: python
+
+    # Internally in mtn.convert, we do:
+    model.forward = types.MethodType(nas_forward_func, model)
+    model.train = types.MethodType(nas_train_func, model)
+
 Known Issues
 ============
 

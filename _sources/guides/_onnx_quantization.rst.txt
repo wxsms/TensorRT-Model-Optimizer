@@ -8,7 +8,7 @@ ModelOpt provides ONNX quantization that works together with `TensorRT Explicit 
 #. White-box design allowing expert users to customize the quantization process.
 #. Better support for vision transformers.
 
-Currently ONNX quantization supports INT4 and INT8 quantization.
+Currently ONNX quantization supports FP8, INT4 and INT8 quantization.
 
 .. note::
 

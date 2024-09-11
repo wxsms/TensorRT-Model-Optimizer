@@ -14,6 +14,9 @@ plugins
    :recursive:
 
 
+   modelopt.torch.opt.plugins.huggingface
+
+
 
 
 

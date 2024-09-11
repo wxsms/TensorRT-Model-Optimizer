@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Speculative Decoding &mdash; Model Optimizer 0.17.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=d10054b6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=20d3d275"></script>
+        <script src="../_static/tabs.js?v=3ee01567"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TensorRT-LLM Deployment" href="../deployment/1_tensorrt_llm_deployment.html" />
+    <link rel="prev" title="Saving &amp; Restoring" href="6_save_load.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            TensorRT Model Optimizer
+          </a>
+              <div class="version">
+                0.17.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/1_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/2_installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/3_quantization.html">Quick Start: Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/4_pruning.html">Quick Start: Pruning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/5_distillation.html">Quick Start: Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/6_sparsity.html">Quick Start: Sparsity</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_quantization.html">Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_pruning.html">Pruning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_nas.html">NAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_distillation.html">Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_sparsity.html">Sparsity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_save_load.html">Saving &amp; Restoring</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Speculative Decoding</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#convert">Convert</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fine-tune-medusa-model-and-save">Fine-tune Medusa model and save</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#speculative-decoding-concepts">Speculative Decoding Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sepculative-decoding">Sepculative decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#medusa-algorithm">Medusa algorithm</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Deployment</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/1_tensorrt_llm_deployment.html">TensorRT-LLM Deployment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/0_all_examples.html">All GitHub Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/1_cifar_resnet.html">ResNet20 on CIFAR-10: Pruning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/2_bert_prune_distill_quantize.html">HF BERT: Prune, Distill &amp; Quantize</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/0_changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/1_modelopt_api.html">modelopt API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/1_contact.html">Contact us</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/2_faqs.html">FAQs</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TensorRT Model Optimizer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Speculative Decoding</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/guides/6_speculative_decoding.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="speculative-decoding">
+<h1>Speculative Decoding<a class="headerlink" href="#speculative-decoding" title="Link to this heading"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>ModelOpt’s Speculative Decoding module (<a class="reference internal" href="../reference/generated/modelopt.torch.speculative.html#module-modelopt.torch.speculative" title="modelopt.torch.speculative"><code class="xref py py-mod docutils literal notranslate"><span class="pre">modelopt.torch.speculative</span></code></a>)
+enables your model to generate multiple tokens in each generate step. This can be useful for reducing the
+latency of your model and speeds up inference.</p>
+<p>Below are the speculative decoding algorithms supported by ModelOpt:
+- Medusa</p>
+<p>Follow the steps described below to obtain a model with Medusa speculative decoding using ModelOpt’s
+Speculative Decoding module <a class="reference internal" href="../reference/generated/modelopt.torch.speculative.html#module-modelopt.torch.speculative" title="modelopt.torch.speculative"><code class="xref py py-mod docutils literal notranslate"><span class="pre">modelopt.torch.speculative</span></code></a>:</p>
+<ol class="arabic simple">
+<li><p><strong>Convert your model via</strong> <a class="reference internal" href="../reference/generated/modelopt.torch.speculative.speculative_decoding.html#modelopt.torch.speculative.speculative_decoding.convert" title="modelopt.torch.speculative.speculative_decoding.convert"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mtsp.convert</span></code></a>:
+Add Medusa head to your model and enable Medusa speculative decoding in inference.</p></li>
+<li><p><strong>Fine-tune Medusa head</strong>: Update the compute_loss function of your trainer and fine-tune the Medusa head.
+The base model can be frozen or fine-tuned together with Medua head.</p></li>
+<li><p><strong>Checkpoint and re-load</strong>: Save the model via <a class="reference internal" href="../reference/generated/modelopt.torch.opt.conversion.html#modelopt.torch.opt.conversion.save" title="modelopt.torch.opt.conversion.save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mto.save</span></code></a> and
+restore via <a class="reference internal" href="../reference/generated/modelopt.torch.opt.conversion.html#modelopt.torch.opt.conversion.restore" title="modelopt.torch.opt.conversion.restore"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mto.restore</span></code></a></p></li>
+</ol>
+</section>
+<section id="convert">
+<span id="speculative-conversion"></span><h2>Convert<a class="headerlink" href="#convert" title="Link to this heading"></a></h2>
+<p>You can convert your model to a speculative decoding model using <a class="reference internal" href="../reference/generated/modelopt.torch.speculative.speculative_decoding.html#modelopt.torch.speculative.speculative_decoding.convert" title="modelopt.torch.speculative.speculative_decoding.convert"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mtsp.convert()</span></code></a>.</p>
+<p>Example usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">AutoTokenizer</span>
+<span class="kn">import</span> <span class="nn">modelopt.torch.speculative</span> <span class="k">as</span> <span class="nn">mtsp</span>
+
+<span class="c1"># User-defined model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;TinyLlama/TinyLlama-1.1B-Chat-v1.0&quot;</span><span class="p">)</span>
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;TinyLlama/TinyLlama-1.1B-Chat-v1.0&quot;</span><span class="p">)</span>
+<span class="n">tokenizer</span><span class="o">.</span><span class="n">pad_token_id</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">eos_token_id</span>
+
+<span class="c1"># Configure and convert to medusa</span>
+<span class="n">medusa_config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;medusa_num_heads&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="s2">&quot;medusa_num_layers&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">medusa_model</span> <span class="o">=</span> <span class="n">mtsp</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="p">[(</span><span class="s2">&quot;medusa&quot;</span><span class="p">,</span> <span class="n">config</span><span class="p">)])</span>
+</pre></div>
+</div>
+<section id="fine-tune-medusa-model-and-save">
+<h3>Fine-tune Medusa model and save<a class="headerlink" href="#fine-tune-medusa-model-and-save" title="Link to this heading"></a></h3>
+<p>After converting to a Medusa model, you need to fine-tune the Medusa head:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">Trainer</span>
+<span class="kn">import</span> <span class="nn">modelopt.torch.opt</span> <span class="k">as</span> <span class="nn">mto</span>
+
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">medusa_model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">training_args</span><span class="p">,</span> <span class="o">**</span><span class="n">data_module</span><span class="p">)</span>
+<span class="n">trainer</span><span class="o">.</span><span class="n">_move_model_to_device</span><span class="p">(</span><span class="n">medusa_model</span><span class="p">,</span> <span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<span class="n">mtsp</span><span class="o">.</span><span class="n">plugins</span><span class="o">.</span><span class="n">transformers</span><span class="o">.</span><span class="n">replace_medusa_compute_loss</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="n">medusa_only_heads</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">mto</span><span class="o">.</span><span class="n">enable_huggingface_checkpointing</span><span class="p">()</span>
+
+<span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">resume_from_checkpoint</span><span class="o">=</span><span class="n">checkpoint</span><span class="p">)</span>
+<span class="n">trainer</span><span class="o">.</span><span class="n">save_state</span><span class="p">()</span>
+<span class="n">trainer</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="s2">&quot;&lt;path to the output directory&gt;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If “medusa_only_heads” is set to True, the original model will be frozen and only the Medusa head
+will be fine-tuned.</p>
+</div>
+<p>To restore the saved speculative model:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Re-initialize the original, unmodified model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;&lt;path to the output directory&gt;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="speculative-decoding-concepts">
+<span id="speculative-concepts"></span><h2>Speculative Decoding Concepts<a class="headerlink" href="#speculative-decoding-concepts" title="Link to this heading"></a></h2>
+<p>Below, we will provide an overview of ModelOpt’s speculative decoding feature as well as its basic
+concepts and terminology.</p>
+<section id="sepculative-decoding">
+<h3>Sepculative decoding<a class="headerlink" href="#sepculative-decoding" title="Link to this heading"></a></h3>
+<p>The standard way of generating text from a language model is with autoregressive decoding: one token
+is generated each step and appended to the input context for the next token generation. This means
+to generate <em>K</em> tokens it will take <em>K</em> serial runs of the model. Inference from large autoregressive
+models like Transformers can be slow and expensive. Therefore, various <em>speculative decoding</em> algorithms
+have been proposed to accelerate text generation, especially in latency critical applications.</p>
+<p>Typically, a short draft of length <em>K</em> is generated using a faster, auto-regressive model, called draft
+model. This can be attained with either a parallel model or by calling the draft model <em>K</em> times.
+Then, a larger and more powerful model, called target model, is used to score the draft. Last, a sampling
+scheme is used to decide which draft to accept by the target model, recovering the distribution of the
+target model in the process.</p>
+</section>
+<section id="medusa-algorithm">
+<h3>Medusa algorithm<a class="headerlink" href="#medusa-algorithm" title="Link to this heading"></a></h3>
+<p>There are many ways to achieve speculative decoding. A popular approach is Medusa where instead of
+using an additional draft model, it introduces a few additional decoding heads to predict multiple
+future tokens simultaneously. During generation, these heads each produce multiple likely words for
+the corresponding position. These options are then combined and processed using a tree-based attention
+mechanism. Finally, a typical acceptance scheme is employed to pick the longest plausible prefix from
+the candidates for further decoding. Since the draft model is the target model itself, this guarantees
+the output distribution is the same as that of the target model.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="6_save_load.html" class="btn btn-neutral float-left" title="Saving &amp; Restoring" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../deployment/1_tensorrt_llm_deployment.html" class="btn btn-neutral float-right" title="TensorRT-LLM Deployment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, NVIDIA Corporation.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

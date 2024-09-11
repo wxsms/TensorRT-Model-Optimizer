@@ -40,7 +40,8 @@ scaling\_factor\_utils
       :nosignatures:
    
       adjust_attn_amax_values
-      get_weights_scaling_factor
-      resmooth_and_get_scale
+      convert_state_dict_amax_to_scales
+      get_weights_scaling_factor_and_amax
+      resmooth_and_get_scale_and_amax
    
    

@@ -42,3 +42,18 @@ such as `NVIDIA ASP <https://github.com/NVIDIA/apex/tree/master/apex/contrib/spa
 `SparseGPT <https://arxiv.org/abs/2301.00774>`_. It supports both post-training sparsity (PTS) and
 sparsity-aware training (SAT). The latter workflow is recommended to minimize accuracy
 degradation.
+
+Distillation
+^^^^^^^^^^^^
+Knowledge Distillation is the use of an existing pretrained "teacher" model to train a smaller, more efficient "student" model.
+It allows for increasing the accuracy and/or convergence speed over traditional training.
+The feature maps and logits of the teacher and student become the targets and predictions for the (user-specified) loss, respectively.
+Model Optimizer allows for minimally-invasive integration of teacher-student Knowledge Distillation into an existing training pipeline
+using the :meth:`mtd.convert() <modelopt.torch.distill.distillation.convert>` API.
+
+Pruning
+^^^^^^^
+
+Pruning is a technique to reduce the model size and accelerate the inference by removing unnecessary weights.
+Model Optimizer provides the Python API :meth:`mtp.prune() <modelopt.torch.prune.pruning.prune>` to prune Linear and
+Conv layers, and Transformer attention heads, MLP, and depth through various different state of the art algorithms.

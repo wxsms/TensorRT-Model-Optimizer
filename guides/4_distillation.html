@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Distillation &mdash; Model Optimizer 0.15.0</title>
+  <title>Distillation &mdash; Model Optimizer 0.17.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -32,12 +32,13 @@
         <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
         <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Sparsity" href="5_sparsity.html" />
-    <link rel="prev" title="ONNX Quantization (Beta)" href="_onnx_quantization.html" /> 
+    <link rel="prev" title="NAS" href="3_nas.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -52,7 +53,7 @@
             TensorRT Model Optimizer
           </a>
               <div class="version">
-                0.15.0
+                0.17.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -67,12 +68,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/1_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/2_installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/3_quantization.html">Quick Start: Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/4_pruning.html">Quick Start: Pruning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/5_distillation.html">Quick Start: Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/6_sparsity.html">Quick Start: Sparsity</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Optimization Guides</span></p>
+<p class="caption" role="heading"><span class="caption-text">Guides</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="1_quantization.html">Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_pruning.html">Pruning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_nas.html">NAS</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Distillation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#convert-and-integrate">Convert and integrate</a></li>
@@ -92,6 +96,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="5_sparsity.html">Sparsity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_save_load.html">Saving &amp; Restoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_speculative_decoding.html">Speculative Decoding</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deployment</span></p>
 <ul>
@@ -99,11 +105,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../examples/0_all_examples.html">GitHub Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/0_all_examples.html">All GitHub Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/1_cifar_resnet.html">ResNet20 on CIFAR-10: Pruning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/2_bert_prune_distill_quantize.html">HF BERT: Prune, Distill &amp; Quantize</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../reference/0_versions.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/0_changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference/1_modelopt_api.html">modelopt API</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Support</span></p>
@@ -151,7 +159,8 @@ interaction between the two.</p></li>
 <li><p><strong>Distillation training</strong>: Seamlessly use the meta-model in place of the original model and run
 the orignal script with only one additional line of code for loss calculation.</p></li>
 <li><p><strong>Checkpoint and re-load</strong>: Save the model via <a class="reference internal" href="../reference/generated/modelopt.torch.opt.conversion.html#modelopt.torch.opt.conversion.save" title="modelopt.torch.opt.conversion.save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mto.save</span></code></a> and
-restore via <a class="reference internal" href="../reference/generated/modelopt.torch.opt.conversion.html#modelopt.torch.opt.conversion.restore" title="modelopt.torch.opt.conversion.restore"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mto.restore</span></code></a></p></li>
+restore via <a class="reference internal" href="../reference/generated/modelopt.torch.opt.conversion.html#modelopt.torch.opt.conversion.restore" title="modelopt.torch.opt.conversion.restore"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mto.restore</span></code></a>. See <a class="reference internal" href="6_save_load.html#save-restore"><span class="std std-ref">saving and restoring</span></a>
+to learn more.</p></li>
 </ol>
 <p><em>To find out more about Distillation and related concepts, please refer to the below section</em>
 <a class="reference internal" href="#distillation-concepts"><span class="std std-ref">Distillation Concepts</span></a>.</p>
@@ -316,7 +325,7 @@ ground truth labels may be.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="_onnx_quantization.html" class="btn btn-neutral float-left" title="ONNX Quantization (Beta)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_nas.html" class="btn btn-neutral float-left" title="NAS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="5_sparsity.html" class="btn btn-neutral float-right" title="Sparsity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
