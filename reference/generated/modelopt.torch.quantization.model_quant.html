@@ -1,39 +1,37 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>model_quant &mdash; Model Optimizer 0.17.0</title>
+  <title>model_quant &mdash; Model Optimizer 0.19.0</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
       <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
       <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=d10054b6" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=7a224f4b" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
-        <script src="../../_static/copybutton.js?v=20d3d275"></script>
-        <script src="../../_static/tabs.js?v=3ee01567"></script>
-        <script>let toggleHintShow = 'Click to show';</script>
-        <script>let toggleHintHide = 'Click to hide';</script>
-        <script>let toggleOpenOnPrint = 'true';</script>
-        <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
-        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=20d3d275"></script>
+      <script src="../../_static/tabs.js?v=3ee01567"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -52,9 +50,6 @@
           <a href="../../index.html" class="icon icon-home">
             TensorRT Model Optimizer
           </a>
-              <div class="version">
-                0.17.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -80,7 +75,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../guides/4_distillation.html">Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/5_sparsity.html">Sparsity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/6_save_load.html">Saving &amp; Restoring</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guides/6_speculative_decoding.html">Speculative Decoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/7_speculative_decoding.html">Speculative Decoding</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deployment</span></p>
 <ul>
@@ -94,7 +89,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">Model Optimizer Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../1_modelopt_api.html">modelopt API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelopt.deploy.html">deploy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modelopt.onnx.html">onnx</a></li>
@@ -109,6 +104,7 @@
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.calib.html">calib</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.config.html">config</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.conversion.html">conversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.export_onnx.html">export_onnx</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.extensions.html">extensions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.mode.html">mode</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.model_calib.html">model_calib</a></li>
@@ -192,7 +188,7 @@
 </table>
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.quantization.model_quant.auto_quantize">
-<span class="sig-name descname"><span class="pre">auto_quantize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_loader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'weight_compression':</span> <span class="pre">0.3}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantization_formats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['FP8_DEFAULT_CFG',</span> <span class="pre">None]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collect_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_calib_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_score_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.model_quant.auto_quantize" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">auto_quantize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'effective_bits':</span> <span class="pre">4.8}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantization_formats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['W4A8_AWQ_BETA_CFG',</span> <span class="pre">'FP8_DEFAULT_CFG',</span> <span class="pre">None]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_loader</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forward_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forward_backward_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_calib_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_score_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.model_quant.auto_quantize" title="Link to this definition"></a></dt>
 <dd><p>API for <code class="docutils literal notranslate"><span class="pre">AutoQuantize</span></code> which quantizes a model by searching for the best quantization formats per-layer.</p>
 <p><code class="docutils literal notranslate"><span class="pre">auto_quantize</span></code> uses a gradient based sensitivity score to rank the per-layer quantization formats and search
 for the best quantization formats per-layer.</p>
@@ -200,34 +196,11 @@ for the best quantization formats per-layer.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>model</strong> (<em>Module</em>) – A pytorch model with quantizer modules.</p></li>
-<li><p><strong>data_loader</strong> (<em>Iterable</em>) – An iterator that yields data that is to be used for calibrating quantized layers and estimating
-<code class="docutils literal notranslate"><span class="pre">auto_quantize</span></code> scores.</p></li>
-<li><p><strong>loss_func</strong> (<em>Callable</em><em>[</em><em>[</em><em>Any</em><em>, </em><em>Any</em><em>]</em><em>, </em><em>Tensor</em><em>]</em>) – <p>A <code class="docutils literal notranslate"><span class="pre">Callable</span></code> which takes the model output (i.e output of <code class="docutils literal notranslate"><span class="pre">model.forward()</span></code>)
-and the batch of data as its inputs and returns a scalar loss.</p>
-<p>It should be possible to run a backward pass on the loss value returned by this method.</p>
-<p><code class="docutils literal notranslate"><span class="pre">collect_func</span></code> will be used to gather the inputs to <code class="docutils literal notranslate"><span class="pre">model.forward()</span></code>
-from a batch of data yielded by``data_loader``.</p>
-<p><code class="docutils literal notranslate"><span class="pre">loss_func</span></code> should support the following usage:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">data_loader</span><span class="p">:</span>
-    <span class="c1"># Assuming collect_func returns a tuple of arguments</span>
-    <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="o">*</span><span class="n">collect_func</span><span class="p">(</span><span class="n">batch</span><span class="p">))</span>
-
-    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_func</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
-    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-</pre></div>
-</div>
-</p></li>
-<li><p><strong>constraints</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>float</em><em> | </em><em>str</em><em>]</em>) – <p>Constraints for the search. Currently we support <code class="docutils literal notranslate"><span class="pre">weight_compression</span></code>.
-<code class="docutils literal notranslate"><span class="pre">weight_compression</span></code> constraint specifies the total weight size as a ratio of the un-quantized
-fp16/bf16 weight size.</p>
-<p>Here is an example for valid <code class="docutils literal notranslate"><span class="pre">constraints</span></code> argument:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># For a compressed weight of 0.30 (i.e, 30%) of the original total weight size</span>
-<span class="n">constraints</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;weight_compression&quot;</span><span class="p">:</span> <span class="mf">0.30</span><span class="p">}</span>
-</pre></div>
-</div>
-<p>You can also provide the equivalent percentage value in string type. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># For a compressed weight of 30% of the original total weight size</span>
-<span class="n">constraints</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;weight_compression&quot;</span><span class="p">:</span> <span class="s2">&quot;30%&quot;</span><span class="p">}</span>
+<li><p><strong>constraints</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>float</em><em> | </em><em>str</em><em>]</em>) – <p>Constraints for the search. Currently we support only <code class="docutils literal notranslate"><span class="pre">effective_bits</span></code>.
+<code class="docutils literal notranslate"><span class="pre">effective_bits</span></code> specifies the effective number of bits for the quantized model.</p>
+<p>Here is an example for valid <code class="docutils literal notranslate"><span class="pre">effective_bits</span></code> argument:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># For an effective quantization bits of 4.8</span>
+<span class="n">constraints</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;effective_bits&quot;</span><span class="p">:</span> <span class="mf">4.8</span><span class="p">}</span>
 </pre></div>
 </div>
 </p></li>
@@ -246,21 +219,56 @@ name, not per-layer basis. The keys <code class="docutils literal notranslate"><
 <code class="docutils literal notranslate"><span class="pre">FP8_DEFAULT_CFG</span></code> match on a per-layer basis  - hence the corresponding quantizers
 will be set as specified.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Currently <a class="reference external" href="https://github.com/NVIDIA/TensorRT-LLM" rel="noopener noreferrer" target="_blank">TensorRT-LLM</a> deployment does not support
-<code class="docutils literal notranslate"><span class="pre">AutoQuantize</span></code> with mixed quantization formats.</p>
-<p>For deployment to TensorRT-LLM, please specify a single format and None (for skipping quantization)
-as <code class="docutils literal notranslate"><span class="pre">quantization_formats</span></code> arguments. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A valid quantization_formats argument for deployment to TensorRT-LLM with `AutoQuantize`</span>
-<span class="n">quantization_formats</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;FP8_DEFAULT_CFG&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+<p>Here is an example <cite>quantization_formats</cite> argument:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A valid `quantization_formats` argument</span>
+<span class="c1"># This will search for the best per-layer quantization from FP8, W4A8_AWQ or No quantization</span>
+<span class="n">quantization_formats</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;FP8_DEFAULT_CFG&quot;</span><span class="p">,</span> <span class="s2">&quot;W4A8_AWQ&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
 </pre></div>
 </div>
+</div></blockquote>
+</p></li>
+<li><p><strong>data_loader</strong> (<em>Iterable</em>) – An iterator that yields data that is to be used for calibrating quantized layers and estimating
+<code class="docutils literal notranslate"><span class="pre">auto_quantize</span></code> scores.</p></li>
+<li><p><strong>forward_step</strong> (<em>Callable</em><em>[</em><em>[</em><em>Module</em><em>, </em><em>Any</em><em>]</em><em>, </em><em>Any</em><em> | </em><em>Tensor</em><em>]</em>) – <p>A callable that takes the model and a batch of data from <code class="docutils literal notranslate"><span class="pre">data_loader</span></code> as input, forwards
+the data through the model and returns the model output.
+This is a required argument.</p>
+<p>Here is an example for a valid <code class="docutils literal notranslate"><span class="pre">forward_step</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Takes the model and a batch of data as input and returns the model output</span>
+<span class="k">def</span> <span class="nf">forward_step</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span>
+</pre></div>
 </div>
 </p></li>
-<li><p><strong>collect_func</strong> (<em>Callable</em><em> | </em><em>None</em>) – A <code class="docutils literal notranslate"><span class="pre">Callable</span></code> that takes a batch of data from the data loader as input and returns the input to
-<code class="docutils literal notranslate"><span class="pre">model.forward()</span></code> as described in
-<a class="reference internal" href="modelopt.torch.utils.network.html#modelopt.torch.utils.network.run_forward_loop" title="modelopt.torch.utils.network.run_forward_loop"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run_forward_loop</span></code></a>.</p></li>
+<li><p><strong>loss_func</strong> (<em>Callable</em><em>[</em><em>[</em><em>Any</em><em>, </em><em>Any</em><em>]</em><em>, </em><em>Tensor</em><em>]</em>) – <p>(Optional) A callable that takes the model output and the batch of data as input and computes the
+loss. The model output is the output given by <code class="docutils literal notranslate"><span class="pre">forward_step</span></code>. <cite>.backward()</cite> will be called on the loss.</p>
+<p>Here is an example for a valid <code class="docutils literal notranslate"><span class="pre">loss_func</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Takes the model output and a batch of data as input and returns the loss</span>
+<span class="k">def</span> <span class="nf">loss_func</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="n">loss</span>
+
+
+<span class="c1"># loss should be a scalar tensor such that loss.backward() can be called</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">loss_func</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
+<span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>If this argument is not provided, <code class="docutils literal notranslate"><span class="pre">forward_backward_step</span></code> should be provided.</p>
+</p></li>
+<li><p><strong>forward_backward_step</strong> (<em>Callable</em><em>[</em><em>[</em><em>Module</em><em>, </em><em>Any</em><em>]</em><em>, </em><em>Any</em><em>] </em><em>| </em><em>None</em>) – <p>(Optional) A callable that takes batch of data from <code class="docutils literal notranslate"><span class="pre">data_loader</span></code>, forwards it
+through the model, computes the loss and runs backward on the loss.</p>
+<p>Here is an example for a valid <code class="docutils literal notranslate"><span class="pre">forward_backward_step</span></code> argument:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Takes the model and a batch of data as input and runs forward and backward pass</span>
+<span class="k">def</span> <span class="nf">forward_backward_step</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">my_loss_func</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
+    <span class="n">run_custom_backward</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If this argument is not provided, <code class="docutils literal notranslate"><span class="pre">loss_func</span></code> should be provided.</p>
+</p></li>
 <li><p><strong>num_calib_steps</strong> (<em>int</em>) – Number of batches to use for calibrating the quantized model. Suggested value is 512.</p></li>
 <li><p><strong>num_score_steps</strong> (<em>int</em>) – Number of batches to use for estimating <code class="docutils literal notranslate"><span class="pre">auto_quantize</span></code> scores. Suggested value is 128.
 A higher value could increase the time taken for performing <code class="docutils literal notranslate"><span class="pre">auto_quantize</span></code>.</p></li>

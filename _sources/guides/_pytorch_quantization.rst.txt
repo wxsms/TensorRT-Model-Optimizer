@@ -133,27 +133,13 @@ while meeting the performance constraint specified by the user. ``AutoQuantize``
 for performance. Please see :meth:`auto_quantize <modelopt.torch.quantization.model_quant.auto_quantize>` for more details
 on the API usage.
 
-Currently ``AutoQuantize`` supports only ``weight_compression`` as the performance constraint (for both weight-only quantization and
-weight & activation quantization). ``weight_compression`` constraint specifies the
-total weight size as a ratio of the un-quantized fp16/bf16 weight size. For example, by quantizing all
-layers with :attr:`FP8_DEFAULT_CFG <modelopt.torch.quantization.config.FP8_DEFAULT_CFG>`, ``weight_compression`` is 0.5
-(or 50%) of the un-quantized weight size.
+Currently ``AutoQuantize`` supports only ``effective_bits`` as the performance constraint (for both weight-only
+quantization and weight & activation quantization). ``effective_bits`` constraint specifies the effective number of bits for the quantized model.
 
-You may specify a ``weight_compression`` constraint such as 0.55 for partial quantization with :attr:`FP8_DEFAULT_CFG`.
+You may specify a ``effective_bits`` constraint such as 8.8 for partial quantization with :attr:`FP8_DEFAULT_CFG`.
 ``AutoQuantize`` will skip quantizing the most quantization sensitive layers so that the final partially quantized model's
-weight size is 55% as that of the un-quantized weight size. This model will have a better model
-accuracy than the fully quantized model since quantization was skipped for some layers which are highly sensitive to
-quantization.
-
-.. tip::
-
-    Here is how to get the ``weight_compression`` for a quantization format:
-
-    .. code::
-
-        from modelopt.torch.quantization.algorithms import QuantRecipe
-        print(f"Weight compression for FP8_DEFAULT_CFG: {QuantRecipe('FP8_DEFAULT_CFG').compression}")
-
+effective bits is 8.8. This model will have a better accuracy than the model quantized with default configuration since quantization was
+skipped for some layers which are highly sensitive to quantization.
 
 Here is how to perform ``AutoQuantize``:
 
@@ -162,28 +148,36 @@ Here is how to perform ``AutoQuantize``:
     import modelopt.torch.quantization as mtq
     import modelopt.torch.opt as mto
 
-    # Define the model & dataloader
+    # Define the model & calibration dataloader
     model = ...
-    dataloader = ...
+    calib_dataloader = ...
 
-    # Define loss function
-    def loss_func(outputs, inputs):
-       ...
+    # Define forward_step function.
+    # forward_step should take the model and data as input and return the output
+    def forward_step(model, data):
+        output =  model(data)
+        return output
+
+    # Define loss function which takes the model output and data as input and returns the loss
+    def loss_func(output, data):
+        loss = ...
+        return loss
+
 
     # Perform AutoQuantize
     model, search_state_dict = mtq.auto_quantize(
         model,
-        data_loader,
-        loss_func = loss_func
-        constraints = {"weight_compression": 0.30},
+        constraints = {"effective_bits": 4.8},
         # supported quantization formats are listed in `modelopt.torch.quantization.config.choices`
-        quantization_formats = ["FP8_DEFAULT_CFG", None]
+        quantization_formats = ["W4A8_AWQ_BETA_CFG", "FP8_DEFAULT_CFG", None]
+        data_loader = calib_dataloader,
+        forward_step=forward_step,
+        loss_func=loss_func,
         ...
         )
 
     # Save the searched model for future use
     mto.save(model, "auto_quantize_model.pt")
-
 
 
 Advanced Topics

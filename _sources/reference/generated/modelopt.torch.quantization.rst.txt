@@ -26,6 +26,9 @@ quantization
    modelopt.torch.quantization.conversion
 
 
+   modelopt.torch.quantization.export_onnx
+
+
    modelopt.torch.quantization.extensions
 
 

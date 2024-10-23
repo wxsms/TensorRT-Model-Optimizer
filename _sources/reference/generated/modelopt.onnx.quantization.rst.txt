@@ -56,6 +56,9 @@ quantization
    modelopt.onnx.quantization.quantize
 
 
+   modelopt.onnx.quantization.trt_utils
+
+
 
 
 .. Autodoc anything defined in the module itself

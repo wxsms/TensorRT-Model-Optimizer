@@ -47,6 +47,7 @@ model\_config\_utils
       naive_quantization
       pack_linear_weights
       pad_weights
+      process_layer_quant_config
       restore_model_config
       split_config_and_weights
       to_quantized_weight

@@ -42,10 +42,12 @@ graph\_utils
       add_fp16_fp32_cast
       build_non_residual_input_map
       classify_partition_nodes
+      convert_fp16_io
       expand_node_names_from_patterns
       filter_quantizable_kgen_heads
       find_fp8_mha_partitions
       find_mha_partitions
+      find_nodes_from_matmul_to_exclude
       find_nodes_from_mha_to_exclude
       find_nodes_to_exclude
       get_fusible_backbone

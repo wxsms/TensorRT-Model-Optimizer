@@ -1,39 +1,37 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Changelog &mdash; Model Optimizer 0.17.0</title>
+  <title>Model Optimizer Changelog &mdash; Model Optimizer 0.19.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
       <link rel="stylesheet" type="text/css" href="../_static/autodoc_pydantic.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=d10054b6" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7a224f4b" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-        <script src="../_static/copybutton.js?v=20d3d275"></script>
-        <script src="../_static/tabs.js?v=3ee01567"></script>
-        <script>let toggleHintShow = 'Click to show';</script>
-        <script>let toggleHintHide = 'Click to hide';</script>
-        <script>let toggleOpenOnPrint = 'true';</script>
-        <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
-        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=20d3d275"></script>
+      <script src="../_static/tabs.js?v=3ee01567"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -52,9 +50,6 @@
           <a href="../index.html" class="icon icon-home">
             TensorRT Model Optimizer
           </a>
-              <div class="version">
-                0.17.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -80,7 +75,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../guides/4_distillation.html">Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/5_sparsity.html">Sparsity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/6_save_load.html">Saving &amp; Restoring</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guides/6_speculative_decoding.html">Speculative Decoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/7_speculative_decoding.html">Speculative Decoding</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deployment</span></p>
 <ul>
@@ -94,14 +89,12 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#model-optimizer-changelog">Model Optimizer Changelog</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">0.17 (2024-09-10)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">0.15 (2024-07-25)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">0.13 (2024-06-14)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">0.11 (2024-05-07)</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Model Optimizer Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">0.19 (2024-10-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">0.17 (2024-09-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">0.15 (2024-07-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">0.13 (2024-06-14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">0.11 (2024-05-07)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="1_modelopt_api.html">modelopt API</a></li>
@@ -126,7 +119,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Changelog</li>
+      <li class="breadcrumb-item active">Model Optimizer Changelog</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/reference/0_changelog.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -136,12 +129,39 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="changelog">
-<h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading"></a></h1>
-<section id="model-optimizer-changelog">
-<h2>Model Optimizer Changelog<a class="headerlink" href="#model-optimizer-changelog" title="Link to this heading"></a></h2>
+  <section id="model-optimizer-changelog">
+<h1>Model Optimizer Changelog<a class="headerlink" href="#model-optimizer-changelog" title="Link to this heading"></a></h1>
 <section id="id1">
-<h3>0.17 (2024-09-10)<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<h2>0.19 (2024-10-23)<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p><strong>Backward Breaking Changes</strong></p>
+<ul class="simple">
+<li><p>Deprecated the summarize task in the <code class="docutils literal notranslate"><span class="pre">llm_ptq</span></code> example.</p></li>
+<li><p>Deprecated the <code class="docutils literal notranslate"><span class="pre">type</span></code> flag in the <a class="reference external" href="https://github.com/NVIDIA/TensorRT-Model-Optimizer/tree/main/llm_ptq/scripts/huggingface_example.sh" rel="noopener noreferrer" target="_blank">huggingface_example.sh</a></p></li>
+<li><p>Deprecated Python plugin support in ONNX.</p></li>
+<li><p>Support TensorRT-LLM 0.13. Examples not compatible with TensorRT-LLM 0.12.</p></li>
+<li><p><a class="reference internal" href="generated/modelopt.torch.quantization.model_quant.html#modelopt.torch.quantization.model_quant.auto_quantize" title="modelopt.torch.quantization.model_quant.auto_quantize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mtq.auto_quantize</span></code></a> API has been updated. The API now
+accepts <code class="docutils literal notranslate"><span class="pre">forward_step</span></code> and <code class="docutils literal notranslate"><span class="pre">forward_backward_step</span></code> as arguments instead of <code class="docutils literal notranslate"><span class="pre">loss_func</span></code> and <code class="docutils literal notranslate"><span class="pre">collect_func</span></code>.
+Please see the API documentation for more details.</p></li>
+</ul>
+<p><strong>New Features</strong></p>
+<ul class="simple">
+<li><p>ModelOpt is compatbile for SBSA aarch64 (e.g. GH200) now!
+Except ONNX PTQ with plugins is not supported.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">effective_bits</span></code> as a constraint for <a class="reference internal" href="generated/modelopt.torch.quantization.model_quant.html#modelopt.torch.quantization.model_quant.auto_quantize" title="modelopt.torch.quantization.model_quant.auto_quantize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mtq.auto_qauntize</span></code></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lm_evaluation_harness</span></code> is fully integrated to modelopt backed by TensorRT-LLM.
+<code class="docutils literal notranslate"><span class="pre">lm_evaluation_harness</span></code> benchmarks are now available in the examples for LLM accuracy evaluation.</p></li>
+<li><p>A new <code class="docutils literal notranslate"><span class="pre">--perf</span></code> flag is introduced in the <code class="docutils literal notranslate"><span class="pre">modelopt_to_tensorrt_llm.py</span></code> example to build engines with max perf.</p></li>
+<li><p>Users can choose the execution provider to run the calibration in ONNX quantization.</p></li>
+<li><p>Added automatic detection of custom ops in ONNX models using TensorRT plugins.
+This requires the <code class="docutils literal notranslate"><span class="pre">tensorrt</span></code> python package to be installed.</p></li>
+<li><p>Replaced <code class="docutils literal notranslate"><span class="pre">jax</span></code> with <code class="docutils literal notranslate"><span class="pre">cupy</span></code> for faster INT4 ONNX quantization.</p></li>
+<li><p><a class="reference internal" href="generated/modelopt.torch.quantization.model_quant.html#modelopt.torch.quantization.model_quant.auto_quantize" title="modelopt.torch.quantization.model_quant.auto_quantize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mtq.auto_quantize</span></code></a> now supports search based automatic
+quantization for NeMo &amp; MCore models (in addition to HuggingFace models).</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">num_layers</span></code> and <code class="docutils literal notranslate"><span class="pre">hidden_size</span></code> pruning support for NeMo / Megatron-core models.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>0.17 (2024-09-11)<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <p><strong>Backward Breaking Changes</strong></p>
 <ul class="simple">
 <li><p>Deprecated <code class="docutils literal notranslate"><span class="pre">torch&lt;2.0</span></code> support.</p></li>
@@ -176,8 +196,8 @@ no longer needed for supporting distributed data and tensor parallelism in quant
 a future release.</p></li>
 </ul>
 </section>
-<section id="id2">
-<h3>0.15 (2024-07-25)<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<section id="id3">
+<h2>0.15 (2024-07-25)<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <p><strong>Backward Breaking Changes</strong></p>
 <ul class="simple">
 <li><p>Deprecated <code class="xref py py-class docutils literal notranslate"><span class="pre">QuantDescriptor</span></code>.
@@ -209,8 +229,8 @@ Hugging Face models with namings aligned with its original checkpoints.</p></li>
 <li><p>Added deprecation warning for <code class="docutils literal notranslate"><span class="pre">torch&lt;2.0</span></code>. Support will be dropped in next release.</p></li>
 </ul>
 </section>
-<section id="id3">
-<h3>0.13 (2024-06-14)<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<section id="id4">
+<h2>0.13 (2024-06-14)<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <p><strong>Backward Breaking Changes</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/NVIDIA/TensorRT-Model-Optimizer/tree/main/llm_ptq" rel="noopener noreferrer" target="_blank">PTQ examples</a> have been
@@ -227,8 +247,8 @@ upgraded to use TensorRT-LLM 0.10.</p></li>
 <li><p>(Experimental) Python 3.12 support added.</p></li>
 </ul>
 </section>
-<section id="id5">
-<h3>0.11 (2024-05-07)<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<section id="id6">
+<h2>0.11 (2024-05-07)<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
 <p><strong>Backward Breaking Changes</strong></p>
 <ul class="simple">
 <li><p>[!!!] The package was renamed from <code class="docutils literal notranslate"><span class="pre">ammo</span></code> to <code class="docutils literal notranslate"><span class="pre">modelopt</span></code>. The new full product
@@ -265,7 +285,6 @@ sparsity, quantization, and any other model modification &amp; optimization.</p>
 <li><p>Fixed allowing to accept <code class="docutils literal notranslate"><span class="pre">.pb</span></code> file for input file.</p></li>
 <li><p>Fixed copy extra data to tmp folder issue for ONNX PTQ.</p></li>
 </ul>
-</section>
 </section>
 </section>
 

@@ -42,4 +42,11 @@ base\_qtensor
    .. Overview table of available functions in the module
    
    
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      pack_real_quantize_weight
+   
    

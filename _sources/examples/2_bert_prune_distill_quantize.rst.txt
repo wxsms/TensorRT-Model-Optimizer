@@ -32,7 +32,7 @@ The source code and scripts are also available on `ModelOpt GitHub <https://gith
 
     .. literalinclude:: ../../../examples/public/chained_optimizations/bert_prune_distill_quantize.py
         :linenos:
-        :emphasize-lines: 73-77, 242-287, 871-884, 1040-1044, 1142-1155, 1157-1182, 1184-1204, 1207-1215, 1228-1232
+        :emphasize-lines: 74-78, 243-288, 872-884, 1040-1044, 1142-1155, 1157-1182, 1184-1204, 1207-1215, 1228-1232
         :caption: bert_prune_distill_quantize.py
 
 Commands

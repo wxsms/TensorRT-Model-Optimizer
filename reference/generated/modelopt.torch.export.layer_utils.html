@@ -1,39 +1,37 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>layer_utils &mdash; Model Optimizer 0.17.0</title>
+  <title>layer_utils &mdash; Model Optimizer 0.19.0</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
       <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
       <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=d10054b6" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=7a224f4b" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
-        <script src="../../_static/copybutton.js?v=20d3d275"></script>
-        <script src="../../_static/tabs.js?v=3ee01567"></script>
-        <script>let toggleHintShow = 'Click to show';</script>
-        <script>let toggleHintHide = 'Click to hide';</script>
-        <script>let toggleOpenOnPrint = 'true';</script>
-        <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
-        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=20d3d275"></script>
+      <script src="../../_static/tabs.js?v=3ee01567"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -52,9 +50,6 @@
           <a href="../../index.html" class="icon icon-home">
             TensorRT Model Optimizer
           </a>
-              <div class="version">
-                0.17.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -80,7 +75,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../guides/4_distillation.html">Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/5_sparsity.html">Sparsity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/6_save_load.html">Saving &amp; Restoring</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guides/6_speculative_decoding.html">Speculative Decoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/7_speculative_decoding.html">Speculative Decoding</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deployment</span></p>
 <ul>
@@ -94,7 +89,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">Model Optimizer Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../1_modelopt_api.html">modelopt API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelopt.deploy.html">deploy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modelopt.onnx.html">onnx</a></li>
@@ -208,71 +203,74 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.check_model_compatibility" title="modelopt.torch.export.layer_utils.check_model_compatibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_model_compatibility</span></code></a></p></td>
 <td><p>Returns whether the list of modules is compatible with the export logic.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_activation_scaling_factor" title="modelopt.torch.export.layer_utils.get_activation_scaling_factor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_activation_scaling_factor</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.dup_kv_weight" title="modelopt.torch.export.layer_utils.dup_kv_weight"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dup_kv_weight</span></code></a></p></td>
+<td><p>Repeat kv heads if tp_size &gt; num_kv_heads.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_activation_scaling_factor" title="modelopt.torch.export.layer_utils.get_activation_scaling_factor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_activation_scaling_factor</span></code></a></p></td>
 <td><p>Returns the activation scaling factor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_kv_cache_dtype" title="modelopt.torch.export.layer_utils.get_kv_cache_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_kv_cache_dtype</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_kv_cache_dtype" title="modelopt.torch.export.layer_utils.get_kv_cache_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_kv_cache_dtype</span></code></a></p></td>
 <td><p>Returns the kv_cache dtype.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_kv_cache_scaling_factor" title="modelopt.torch.export.layer_utils.get_kv_cache_scaling_factor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_kv_cache_scaling_factor</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_kv_cache_scaling_factor" title="modelopt.torch.export.layer_utils.get_kv_cache_scaling_factor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_kv_cache_scaling_factor</span></code></a></p></td>
 <td><p>Returns the kv_cache scaling factor if output quantizer is set.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_prequant_scaling_factor" title="modelopt.torch.export.layer_utils.get_prequant_scaling_factor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_prequant_scaling_factor</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_prequant_scaling_factor" title="modelopt.torch.export.layer_utils.get_prequant_scaling_factor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_prequant_scaling_factor</span></code></a></p></td>
 <td><p>Returns the prequant scaling factor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_qkv_and_avg_prequant_scale" title="modelopt.torch.export.layer_utils.get_qkv_and_avg_prequant_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_qkv_and_avg_prequant_scale</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_qkv_and_avg_prequant_scale" title="modelopt.torch.export.layer_utils.get_qkv_and_avg_prequant_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_qkv_and_avg_prequant_scale</span></code></a></p></td>
 <td><p>Get the qkv and average prequant scaling factor for the module.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_quantization_format" title="modelopt.torch.export.layer_utils.get_quantization_format"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_quantization_format</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_quantization_format" title="modelopt.torch.export.layer_utils.get_quantization_format"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_quantization_format</span></code></a></p></td>
 <td><p>Gets the quantization string.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_scaling_factor" title="modelopt.torch.export.layer_utils.get_scaling_factor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_scaling_factor</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_scaling_factor" title="modelopt.torch.export.layer_utils.get_scaling_factor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_scaling_factor</span></code></a></p></td>
 <td><p>Returns scaling factor from the quantizer as torch.Tensor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_transformer_layers" title="modelopt.torch.export.layer_utils.get_transformer_layers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_transformer_layers</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_transformer_layers" title="modelopt.torch.export.layer_utils.get_transformer_layers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_transformer_layers</span></code></a></p></td>
 <td><p>Returns the root module of the transformer model.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_weight_block_size" title="modelopt.torch.export.layer_utils.get_weight_block_size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_weight_block_size</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_weight_block_size" title="modelopt.torch.export.layer_utils.get_weight_block_size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_weight_block_size</span></code></a></p></td>
 <td><p>Returns the weight block size.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_weight_scaling_factor" title="modelopt.torch.export.layer_utils.get_weight_scaling_factor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_weight_scaling_factor</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_weight_scaling_factor" title="modelopt.torch.export.layer_utils.get_weight_scaling_factor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_weight_scaling_factor</span></code></a></p></td>
 <td><p>Returns the weight scaling factor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_weight_scaling_factor_2" title="modelopt.torch.export.layer_utils.get_weight_scaling_factor_2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_weight_scaling_factor_2</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.get_weight_scaling_factor_2" title="modelopt.torch.export.layer_utils.get_weight_scaling_factor_2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_weight_scaling_factor_2</span></code></a></p></td>
 <td><p>Returns the secondary weight scaling factor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.is_attention" title="modelopt.torch.export.layer_utils.is_attention"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_attention</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.is_attention" title="modelopt.torch.export.layer_utils.is_attention"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_attention</span></code></a></p></td>
 <td><p>Returns whether the module is an attention layer.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.is_decoder_list" title="modelopt.torch.export.layer_utils.is_decoder_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_decoder_list</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.is_decoder_list" title="modelopt.torch.export.layer_utils.is_decoder_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_decoder_list</span></code></a></p></td>
 <td><p>Returns whether the module is a decoder list.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.is_embedding" title="modelopt.torch.export.layer_utils.is_embedding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_embedding</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.is_embedding" title="modelopt.torch.export.layer_utils.is_embedding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_embedding</span></code></a></p></td>
 <td><p>Returns whether the module is an embedding layer.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.is_layernorm" title="modelopt.torch.export.layer_utils.is_layernorm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_layernorm</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.is_layernorm" title="modelopt.torch.export.layer_utils.is_layernorm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_layernorm</span></code></a></p></td>
 <td><p>Returns whether the module is a layernorm layer.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.is_linear" title="modelopt.torch.export.layer_utils.is_linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_linear</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.is_linear" title="modelopt.torch.export.layer_utils.is_linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_linear</span></code></a></p></td>
 <td><p>Returns whether the module is a linear layer.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.is_mlp" title="modelopt.torch.export.layer_utils.is_mlp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_mlp</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.is_mlp" title="modelopt.torch.export.layer_utils.is_mlp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_mlp</span></code></a></p></td>
 <td><p>Returns whether the module is an MLP layer.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.is_moe" title="modelopt.torch.export.layer_utils.is_moe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_moe</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.is_moe" title="modelopt.torch.export.layer_utils.is_moe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_moe</span></code></a></p></td>
 <td><p>Returns whether the module is an MOE layer.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.is_quantlinear" title="modelopt.torch.export.layer_utils.is_quantlinear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_quantlinear</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.is_quantlinear" title="modelopt.torch.export.layer_utils.is_quantlinear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_quantlinear</span></code></a></p></td>
 <td><p>Returns whether the module is a quantized linear layer.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.is_recurrent" title="modelopt.torch.export.layer_utils.is_recurrent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_recurrent</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.layer_utils.is_recurrent" title="modelopt.torch.export.layer_utils.is_recurrent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_recurrent</span></code></a></p></td>
 <td><p>Returns whether the module is a recurrent layer.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.export.layer_utils.build_attention_config">
-<span class="sig-name descname"><span class="pre">build_attention_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_metadata_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.export.layer_utils.build_attention_config" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">build_attention_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_metadata_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tp_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.export.layer_utils.build_attention_config" title="Link to this definition"></a></dt>
 <dd><p>Builds the attention config from the module.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -280,6 +278,7 @@
 <li><p><strong>module</strong> (<em>Module</em>) – </p></li>
 <li><p><strong>dtype</strong> (<em>dtype</em>) – </p></li>
 <li><p><strong>ext_config</strong> (<a class="reference internal" href="modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.DecoderLayerConfig" title="modelopt.torch.export.model_config.DecoderLayerConfig"><em>DecoderLayerConfig</em></a>) – </p></li>
+<li><p><strong>tp_size</strong> (<em>int</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -307,7 +306,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.export.layer_utils.build_decoder_config">
-<span class="sig-name descname"><span class="pre">build_decoder_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_metadata_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decoder_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.export.layer_utils.build_decoder_config" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">build_decoder_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_metadata_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decoder_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tp_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.export.layer_utils.build_decoder_config" title="Link to this definition"></a></dt>
 <dd><p>Builds the full decoder config from the module.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -315,6 +314,7 @@
 <li><p><strong>module</strong> (<em>Module</em>) – </p></li>
 <li><p><strong>decoder_type</strong> (<em>str</em>) – </p></li>
 <li><p><strong>dtype</strong> (<em>dtype</em>) – </p></li>
+<li><p><strong>tp_size</strong> (<em>int</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -434,7 +434,7 @@ column-parallel.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.export.layer_utils.build_qkv">
-<span class="sig-name descname"><span class="pre">build_qkv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qkv_modules</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_metadata_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.export.layer_utils.build_qkv" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">build_qkv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qkv_modules</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_metadata_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tp_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.export.layer_utils.build_qkv" title="Link to this definition"></a></dt>
 <dd><p>Converts the qkv modules to the config.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -442,6 +442,7 @@ column-parallel.</p>
 <li><p><strong>qkv_modules</strong> (<em>List</em><em>[</em><em>Module</em><em>]</em>) – </p></li>
 <li><p><strong>dtype</strong> (<em>dtype</em>) – </p></li>
 <li><p><strong>ext_config</strong> (<a class="reference internal" href="modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.DecoderLayerConfig" title="modelopt.torch.export.model_config.DecoderLayerConfig"><em>DecoderLayerConfig</em></a>) – </p></li>
+<li><p><strong>tp_size</strong> (<em>int</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -494,6 +495,25 @@ Otherwise it will not be supported.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Tuple</em>[<em>bool</em>, <em>bool</em>, <em>bool</em>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.torch.export.layer_utils.dup_kv_weight">
+<span class="sig-name descname"><span class="pre">dup_kv_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_head</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tp_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.export.layer_utils.dup_kv_weight" title="Link to this definition"></a></dt>
+<dd><p>Repeat kv heads if tp_size &gt; num_kv_heads.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v</strong> (<em>Tensor</em>) – </p></li>
+<li><p><strong>head_size</strong> (<em>int</em>) – </p></li>
+<li><p><strong>num_head</strong> (<em>int</em>) – </p></li>
+<li><p><strong>tp_size</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>Tensor</em></p>
 </dd>
 </dl>
 </dd></dl>

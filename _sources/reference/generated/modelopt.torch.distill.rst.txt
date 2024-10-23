@@ -32,6 +32,9 @@ distill
    modelopt.torch.distill.mode
 
 
+   modelopt.torch.distill.plugins
+
+
    modelopt.torch.distill.registry
 
 

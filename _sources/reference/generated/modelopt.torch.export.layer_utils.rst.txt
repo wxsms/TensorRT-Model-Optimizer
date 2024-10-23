@@ -52,6 +52,7 @@ layer\_utils
       build_recurrent_config
       build_stacked_experts
       check_model_compatibility
+      dup_kv_weight
       get_activation_scaling_factor
       get_kv_cache_dtype
       get_kv_cache_scaling_factor

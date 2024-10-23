@@ -10,7 +10,7 @@ div.wy-nav-content {
 }
 
 /* Show a `$` sign before bash code-blocks */
-div.highlight-bash pre::before, div.highlight-shell pre::before {
+div.highlight-bash pre::before {
     content: "$ ";
 }
 
@@ -24,7 +24,8 @@ a.reference.internal {
     padding-top: 0;
 }
 
-.wy-table-responsive table td, .wy-table-responsive table th {
+.wy-table-responsive table td,
+.wy-table-responsive table th {
     white-space: normal;
 }
 

@@ -33,6 +33,7 @@ tensor\_quant
    .. autosummary::
       :nosignatures:
    
+      DynamicBlockQuantizationFunction
       FakeAffineTensorQuantFunction
       FakeTensorQuantFunction
       LegacyFakeTensorQuantFunction

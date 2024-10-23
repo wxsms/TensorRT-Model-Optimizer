@@ -59,6 +59,7 @@ utils
       get_variable_inputs
       is_valid_onnx_model
       name_onnx_nodes
+      parse_shapes_spec
       randomize_weights
       randomize_weights_onnx_bytes
       remove_weights_data

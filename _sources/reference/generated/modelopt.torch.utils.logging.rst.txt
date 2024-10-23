@@ -42,5 +42,6 @@ logging
       num2hrb
       no_stdout
       print_rank_0
+      silence_matched_warnings
    
    

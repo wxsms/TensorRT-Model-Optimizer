@@ -50,13 +50,15 @@ int4
       dq_tensor
       find_scales
       get_act_scale
+      get_act_to_weight_map_and_act_to_wa_pack_map
       get_scale
       get_weight_scale
+      get_x_w_mean_for_subgraph
       quant_tensor
       quantize
-      quantize_awq_clip
-      quantize_awq_lite
       quantize_rtn
       rtn
+      run_awq_scale_search_per_node
+      run_awq_scale_search_per_subgraph
    
    

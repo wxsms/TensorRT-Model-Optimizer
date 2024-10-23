@@ -1,39 +1,37 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>int4 &mdash; Model Optimizer 0.17.0</title>
+  <title>int4 &mdash; Model Optimizer 0.19.0</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
       <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
       <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=d10054b6" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=7a224f4b" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
-        <script src="../../_static/copybutton.js?v=20d3d275"></script>
-        <script src="../../_static/tabs.js?v=3ee01567"></script>
-        <script>let toggleHintShow = 'Click to show';</script>
-        <script>let toggleHintHide = 'Click to hide';</script>
-        <script>let toggleOpenOnPrint = 'true';</script>
-        <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
-        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=20d3d275"></script>
+      <script src="../../_static/tabs.js?v=3ee01567"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -52,9 +50,6 @@
           <a href="../../index.html" class="icon icon-home">
             TensorRT Model Optimizer
           </a>
-              <div class="version">
-                0.17.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -80,7 +75,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../guides/4_distillation.html">Distillation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/5_sparsity.html">Sparsity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/6_save_load.html">Saving &amp; Restoring</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guides/6_speculative_decoding.html">Speculative Decoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/7_speculative_decoding.html">Speculative Decoding</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Deployment</span></p>
 <ul>
@@ -94,7 +89,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">Model Optimizer Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../1_modelopt_api.html">modelopt API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelopt.deploy.html">deploy</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="modelopt.onnx.html">onnx</a><ul class="current">
@@ -114,6 +109,7 @@
 <li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.quantization.qdq_utils.html">qdq_utils</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.quantization.quant_utils.html">quant_utils</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.quantization.quantize.html">modelopt.onnx.quantization.quantize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.quantization.trt_utils.html">trt_utils</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="modelopt.onnx.utils.html">utils</a></li>
@@ -182,11 +178,17 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.get_act_scale" title="modelopt.onnx.quantization.int4.get_act_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_act_scale</span></code></a></p></td>
 <td><p>Get scale tensors for inputs.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.get_scale" title="modelopt.onnx.quantization.int4.get_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_scale</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.get_act_to_weight_map_and_act_to_wa_pack_map" title="modelopt.onnx.quantization.int4.get_act_to_weight_map_and_act_to_wa_pack_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_act_to_weight_map_and_act_to_wa_pack_map</span></code></a></p></td>
+<td><p>Method to return subgraph related maps based on activation-name as key.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.get_scale" title="modelopt.onnx.quantization.int4.get_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_scale</span></code></a></p></td>
 <td><p>Get AWQ lite scales as described by 's' in the paper.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.get_weight_scale" title="modelopt.onnx.quantization.int4.get_weight_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_weight_scale</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.get_weight_scale" title="modelopt.onnx.quantization.int4.get_weight_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_weight_scale</span></code></a></p></td>
 <td><p>Get scale tensors for weights.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.get_x_w_mean_for_subgraph" title="modelopt.onnx.quantization.int4.get_x_w_mean_for_subgraph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_x_w_mean_for_subgraph</span></code></a></p></td>
+<td><p>This method returns x-mean and w-mean.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.quant_tensor" title="modelopt.onnx.quantization.int4.quant_tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quant_tensor</span></code></a></p></td>
 <td><p>Quantize a tensor using alpha etc.</p></td>
@@ -194,17 +196,17 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.quantize" title="modelopt.onnx.quantization.int4.quantize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantize</span></code></a></p></td>
 <td><p>Applies INT4 WoQ (Weight-Only-Quantization) to an ONNX file.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.quantize_awq_clip" title="modelopt.onnx.quantization.int4.quantize_awq_clip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantize_awq_clip</span></code></a></p></td>
-<td><p>Quantizes <cite>onnx_model</cite> using the Activation aware quantization a.k.a AWQ algorithm.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.quantize_awq_lite" title="modelopt.onnx.quantization.int4.quantize_awq_lite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantize_awq_lite</span></code></a></p></td>
-<td><p>Quantizes <cite>onnx_model</cite> using the Activation aware quantization a.k.a AWQ algorithm.</p></td>
-</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.quantize_rtn" title="modelopt.onnx.quantization.int4.quantize_rtn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantize_rtn</span></code></a></p></td>
 <td><p>Quantizes <cite>onnx_model</cite> using the RTN (Round-to-Nearest) algorithm.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.rtn" title="modelopt.onnx.quantization.int4.rtn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rtn</span></code></a></p></td>
 <td><p>Quantizes <cite>w</cite> with scale factors <cite>s</cite> via Round-to-Nearest.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.run_awq_scale_search_per_node" title="modelopt.onnx.quantization.int4.run_awq_scale_search_per_node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_awq_scale_search_per_node</span></code></a></p></td>
+<td><p>Method that iterates over each quantizable node for scale search.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.int4.run_awq_scale_search_per_subgraph" title="modelopt.onnx.quantization.int4.run_awq_scale_search_per_subgraph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_awq_scale_search_per_subgraph</span></code></a></p></td>
+<td><p>Method that iterates over each quantizable subgraph/siblings for scale search.</p></td>
 </tr>
 </tbody>
 </table>
@@ -215,7 +217,7 @@
 <p>AWQ calibration helper class.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.AWQClipHelper.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.AWQClipHelper.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.AWQClipHelper.__init__" title="Link to this definition"></a></dt>
 <dd><p>Initializes AWQClipHelper with a module weight.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -227,11 +229,6 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.AWQClipHelper.alpha_step">
 <span class="sig-name descname"><span class="pre">alpha_step</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.05</span></em><a class="headerlink" href="#modelopt.onnx.quantization.int4.AWQClipHelper.alpha_step" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.AWQClipHelper.alphas">
-<span class="sig-name descname"><span class="pre">alphas</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[0.5,</span> <span class="pre">0.55,</span> <span class="pre">0.6,</span> <span class="pre">0.65,</span> <span class="pre">0.7,</span> <span class="pre">0.75,</span> <span class="pre">0.8,</span> <span class="pre">0.85,</span> <span class="pre">0.9,</span> <span class="pre">0.95,</span> <span class="pre">1.0]</span></em><a class="headerlink" href="#modelopt.onnx.quantization.int4.AWQClipHelper.alphas" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -254,7 +251,7 @@
 <p>AWQ Lite calibration helper class.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.AWQLiteHelper.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.AWQLiteHelper.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.AWQLiteHelper.__init__" title="Link to this definition"></a></dt>
 <dd><p>Initializes AWQLiteHelper with a module weight.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -268,11 +265,17 @@
 <span class="sig-name descname"><span class="pre">alpha_step</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.1</span></em><a class="headerlink" href="#modelopt.onnx.quantization.int4.AWQLiteHelper.alpha_step" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.AWQLiteHelper.update_best_params">
+<span class="sig-name descname"><span class="pre">update_best_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.AWQLiteHelper.update_best_params" title="Link to this definition"></a></dt>
+<dd><p>Updates best-alpha and best-scale.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.dq_tensor">
-<span class="sig-name descname"><span class="pre">dq_tensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.dq_tensor" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">dq_tensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.dq_tensor" title="Link to this definition"></a></dt>
 <dd><p>Dequantizes <cite>w</cite> with scale factors <cite>s</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -280,6 +283,7 @@
 <li><p><strong>w</strong> (<em>ndarray</em>) – </p></li>
 <li><p><strong>s</strong> (<em>ndarray</em>) – </p></li>
 <li><p><strong>block_size</strong> (<em>int</em>) – </p></li>
+<li><p><strong>zp</strong> (<em>ndarray</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -290,7 +294,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.find_scales">
-<span class="sig-name descname"><span class="pre">find_scales</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.find_scales" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">find_scales</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_zero_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.find_scales" title="Link to this definition"></a></dt>
 <dd><p>Find scale factors for <cite>w</cite> via <cite>s = max(w.block(block_size)) / 7</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -298,10 +302,8 @@
 <li><p><strong>w</strong> (<em>ndarray</em>) – </p></li>
 <li><p><strong>block_size</strong> (<em>int</em>) – </p></li>
 <li><p><strong>alpha</strong> (<em>float</em>) – </p></li>
+<li><p><strong>use_zero_point</strong> (<em>bool</em>) – </p></li>
 </ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>ndarray</em></p>
 </dd>
 </dl>
 </dd></dl>
@@ -310,6 +312,20 @@
 <dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.get_act_scale">
 <span class="sig-name descname"><span class="pre">get_act_scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.get_act_scale" title="Link to this definition"></a></dt>
 <dd><p>Get scale tensors for inputs.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.get_act_to_weight_map_and_act_to_wa_pack_map">
+<span class="sig-name descname"><span class="pre">get_act_to_weight_map_and_act_to_wa_pack_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wa_pack</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.get_act_to_weight_map_and_act_to_wa_pack_map" title="Link to this definition"></a></dt>
+<dd><p>Method to return subgraph related maps based on activation-name as key.</p>
+<p>This method returns 2 maps:
+(a) map of act-name to input-node’s weights dimensions
+(b) map of act-name to wa_pack indices with same act-name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>wa_pack</strong> (<em>List</em><em>[</em><em>Tuple</em><em>[</em><em>Tensor</em><em>, </em><em>Tensor</em><em>, </em><em>bool</em><em>, </em><em>int</em><em>]</em><em>]</em>) – </p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -325,8 +341,19 @@
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.get_x_w_mean_for_subgraph">
+<span class="sig-name descname"><span class="pre">get_x_w_mean_for_subgraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wa_pack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wa_pack_idx_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">augmented_onnx_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.get_x_w_mean_for_subgraph" title="Link to this definition"></a></dt>
+<dd><p>This method returns x-mean and w-mean.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>wa_pack</strong> (<em>List</em><em>[</em><em>Tuple</em><em>[</em><em>Tensor</em><em>, </em><em>Tensor</em><em>, </em><em>bool</em><em>, </em><em>int</em><em>]</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.quant_tensor">
-<span class="sig-name descname"><span class="pre">quant_tensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.quant_tensor" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">quant_tensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_zero_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.quant_tensor" title="Link to this definition"></a></dt>
 <dd><p>Quantize a tensor using alpha etc. and return the quantized tensor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -334,6 +361,7 @@
 <li><p><strong>w</strong> (<em>ndarray</em>) – </p></li>
 <li><p><strong>block_size</strong> (<em>int</em>) – </p></li>
 <li><p><strong>alpha</strong> (<em>float</em>) – </p></li>
+<li><p><strong>use_zero_point</strong> (<em>bool</em>) – </p></li>
 </ul>
 </dd>
 </dl>
@@ -341,55 +369,33 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.quantize">
-<span class="sig-name descname"><span class="pre">quantize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">onnx_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calibration_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'awq_clip'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calibration_data_reader</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_external_data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.quantize" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">quantize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">onnx_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calibration_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'awq_clip'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calibration_data_reader</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calibration_eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['cuda:0',</span> <span class="pre">'cpu']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_external_data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_zero_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes_to_exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['/lm_head']</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.quantize" title="Link to this definition"></a></dt>
 <dd><p>Applies INT4 WoQ (Weight-Only-Quantization) to an ONNX file.</p>
 <p>Currently only GEMM quantization is supported.</p>
+<dl class="simple">
+<dt>use_zero_point:</dt><dd><p>Use zero-point based quantization, if True.</p>
+</dd>
+<dt>block_size:</dt><dd><p>Block size parameter for int4 quantization.</p>
+</dd>
+<dt>kwargs:</dt><dd><p>Additional keyword arguments for int4 quantization, including:
+- awqlite_alpha_step (float): Alpha step for lite, range [0, 1].
+- awqclip_alpha_step (float): Min alpha step for clip, range [awqclip_alpha_step, 1].
+- awqclip_alpha_min (float): Alpha step to find best alpha for clip.
+- awqclip_bsz_col (int): Batch size for processing the column dimension in clip.</p>
+</dd>
+</dl>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>onnx_path</strong> (<em>str</em>) – </p></li>
+<li><p><strong>onnx_path</strong> (<em>str</em><em> | </em><em>ModelProto</em>) – </p></li>
 <li><p><strong>calibration_method</strong> (<em>str</em>) – </p></li>
 <li><p><strong>calibration_data_reader</strong> (<em>CalibrationDataReader</em>) – </p></li>
+<li><p><strong>calibration_eps</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – </p></li>
 <li><p><strong>use_external_data_format</strong> (<em>bool</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>ModelProto</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.quantize_awq_clip">
-<span class="sig-name descname"><span class="pre">quantize_awq_clip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">onnx_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_reader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_external_data_format</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_fp16</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.quantize_awq_clip" title="Link to this definition"></a></dt>
-<dd><p>Quantizes <cite>onnx_model</cite> using the Activation aware quantization a.k.a AWQ algorithm.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>onnx_model</strong> (<em>ModelProto</em>) – </p></li>
-<li><p><strong>data_reader</strong> (<em>CalibrationDataReader</em>) – </p></li>
-<li><p><strong>use_external_data_format</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>force_fp16</strong> (<em>bool</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>ModelProto</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.quantize_awq_lite">
-<span class="sig-name descname"><span class="pre">quantize_awq_lite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">onnx_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_reader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_external_data_format</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_fp16</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_fast_path_using_high_sysram</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.quantize_awq_lite" title="Link to this definition"></a></dt>
-<dd><p>Quantizes <cite>onnx_model</cite> using the Activation aware quantization a.k.a AWQ algorithm.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>onnx_model</strong> (<em>ModelProto</em>) – </p></li>
-<li><p><strong>data_reader</strong> (<em>CalibrationDataReader</em>) – </p></li>
-<li><p><strong>use_external_data_format</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>force_fp16</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>enable_fast_path_using_high_sysram</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>use_zero_point</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>block_size</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>nodes_to_exclude</strong> (<em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Any</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -400,7 +406,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.quantize_rtn">
-<span class="sig-name descname"><span class="pre">quantize_rtn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">onnx_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gemm_io_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dq_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.quantize_rtn" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">quantize_rtn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">onnx_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gemm_io_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dq_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.quantize_rtn" title="Link to this definition"></a></dt>
 <dd><p>Quantizes <cite>onnx_model</cite> using the RTN (Round-to-Nearest) algorithm.</p>
 <p>This algorithm computes scale factors by computing s = max(abs(block)) / 8, for each block. The
 quantized weights are computed via Q(w) = round_to_even(w / s), where <cite>round_to_even</cite> denotes
@@ -411,7 +417,8 @@ dimension, and in ONNX, weights are always plugged into the RHS (i.e. y = x &#64
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>onnx_model</strong> (<em>ModelProto</em>) – </p></li>
-<li><p><strong>gemm_io_type</strong> (<em>&lt;google.protobuf.internal.enum_type_wrapper.EnumTypeWrapper object at 0x7f1c4f143170&gt;</em>) – </p></li>
+<li><p><strong>gemm_io_type</strong> (<em>&lt;google.protobuf.internal.enum_type_wrapper.EnumTypeWrapper object at 0x7f4d2fb110d0&gt;</em>) – </p></li>
+<li><p><strong>block_size</strong> (<em>int</em>) – </p></li>
 <li><p><strong>dq_only</strong> (<em>bool</em>) – </p></li>
 </ul>
 </dd>
@@ -423,7 +430,7 @@ dimension, and in ONNX, weights are always plugged into the RHS (i.e. y = x &#64
 
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.rtn">
-<span class="sig-name descname"><span class="pre">rtn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.rtn" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">rtn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.rtn" title="Link to this definition"></a></dt>
 <dd><p>Quantizes <cite>w</cite> with scale factors <cite>s</cite> via Round-to-Nearest.</p>
 <p>Ties are broken by rounding to the nearest even number.</p>
 <dl class="field-list simple">
@@ -432,10 +439,39 @@ dimension, and in ONNX, weights are always plugged into the RHS (i.e. y = x &#64
 <li><p><strong>w</strong> (<em>ndarray</em>) – </p></li>
 <li><p><strong>s</strong> (<em>ndarray</em>) – </p></li>
 <li><p><strong>block_size</strong> (<em>int</em>) – </p></li>
+<li><p><strong>zp</strong> (<em>ndarray</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>ndarray</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.run_awq_scale_search_per_node">
+<span class="sig-name descname"><span class="pre">run_awq_scale_search_per_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wa_pack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">augmented_onnx_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_zero_point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">awq_lite</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tqdm_msg_append_str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_weight_clipping</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_fast_path_using_high_sysram</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_alphas</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.run_awq_scale_search_per_node" title="Link to this definition"></a></dt>
+<dd><p>Method that iterates over each quantizable node for scale search.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wa_pack</strong> (<em>List</em><em>[</em><em>Tuple</em><em>[</em><em>Tensor</em><em>, </em><em>Tensor</em><em>, </em><em>bool</em><em>, </em><em>int</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Any</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.onnx.quantization.int4.run_awq_scale_search_per_subgraph">
+<span class="sig-name descname"><span class="pre">run_awq_scale_search_per_subgraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wa_pack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">augmented_onnx_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_zero_point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">awq_lite</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tqdm_msg_append_str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.int4.run_awq_scale_search_per_subgraph" title="Link to this definition"></a></dt>
+<dd><p>Method that iterates over each quantizable subgraph/siblings for scale search.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wa_pack</strong> (<em>List</em><em>[</em><em>Tuple</em><em>[</em><em>Tensor</em><em>, </em><em>Tensor</em><em>, </em><em>bool</em><em>, </em><em>int</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Any</em>) – </p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
