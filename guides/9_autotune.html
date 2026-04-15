@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Autotune (ONNX) &mdash; Model Optimizer 0.0.1.dev1+g952a62bf6</title>
+  <title>Autotune (ONNX) &mdash; Model Optimizer 0.0.1.dev1+g361f7e391</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -95,6 +95,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#import-patterns-from-existing-qdq-models">Import Patterns from Existing QDQ Models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#resume-after-interruption">Resume After Interruption</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#custom-tensorrt-plugins">Custom TensorRT Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remote-autotuning">Remote Autotuning</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#low-level-api-usage">Low-Level API Usage</a><ul>
@@ -219,60 +220,61 @@
 <li><p><a class="reference internal" href="#import-patterns-from-existing-qdq-models" id="id9">Import Patterns from Existing QDQ Models</a></p></li>
 <li><p><a class="reference internal" href="#resume-after-interruption" id="id10">Resume After Interruption</a></p></li>
 <li><p><a class="reference internal" href="#custom-tensorrt-plugins" id="id11">Custom TensorRT Plugins</a></p></li>
+<li><p><a class="reference internal" href="#remote-autotuning" id="id12">Remote Autotuning</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#low-level-api-usage" id="id12">Low-Level API Usage</a></p>
+<li><p><a class="reference internal" href="#low-level-api-usage" id="id13">Low-Level API Usage</a></p>
 <ul>
-<li><p><a class="reference internal" href="#basic-workflow" id="id13">Basic Workflow</a></p></li>
-<li><p><a class="reference internal" href="#state-management" id="id14">State Management</a></p></li>
-<li><p><a class="reference internal" href="#pattern-cache-management" id="id15">Pattern Cache Management</a></p></li>
-<li><p><a class="reference internal" href="#import-from-a-q-dq-baseline" id="id16">Import from a Q/DQ Baseline</a></p></li>
+<li><p><a class="reference internal" href="#basic-workflow" id="id14">Basic Workflow</a></p></li>
+<li><p><a class="reference internal" href="#state-management" id="id15">State Management</a></p></li>
+<li><p><a class="reference internal" href="#pattern-cache-management" id="id16">Pattern Cache Management</a></p></li>
+<li><p><a class="reference internal" href="#import-from-a-q-dq-baseline" id="id17">Import from a Q/DQ Baseline</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#configuration-options" id="id17">Configuration Options</a></p>
+<li><p><a class="reference internal" href="#configuration-options" id="id18">Configuration Options</a></p>
 <ul>
-<li><p><a class="reference internal" href="#config-class" id="id18">Config Class</a></p></li>
-<li><p><a class="reference internal" href="#command-line-arguments" id="id19">Command-Line Arguments</a></p></li>
+<li><p><a class="reference internal" href="#config-class" id="id19">Config Class</a></p></li>
+<li><p><a class="reference internal" href="#command-line-arguments" id="id20">Command-Line Arguments</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#best-practices" id="id20">Best Practices</a></p>
+<li><p><a class="reference internal" href="#best-practices" id="id21">Best Practices</a></p>
 <ul>
-<li><p><a class="reference internal" href="#choosing-scheme-count" id="id21">Choosing Scheme Count</a></p></li>
-<li><p><a class="reference internal" href="#managing-optimization-time" id="id22">Managing Optimization Time</a></p></li>
-<li><p><a class="reference internal" href="#using-the-pattern-cache-effectively" id="id23">Using the Pattern Cache Effectively</a></p></li>
-<li><p><a class="reference internal" href="#interpreting-results" id="id24">Interpreting Results</a></p></li>
+<li><p><a class="reference internal" href="#choosing-scheme-count" id="id22">Choosing Scheme Count</a></p></li>
+<li><p><a class="reference internal" href="#managing-optimization-time" id="id23">Managing Optimization Time</a></p></li>
+<li><p><a class="reference internal" href="#using-the-pattern-cache-effectively" id="id24">Using the Pattern Cache Effectively</a></p></li>
+<li><p><a class="reference internal" href="#interpreting-results" id="id25">Interpreting Results</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#deploying-optimized-models" id="id25">Deploying Optimized Models</a></p>
+<li><p><a class="reference internal" href="#deploying-optimized-models" id="id26">Deploying Optimized Models</a></p>
 <ul>
-<li><p><a class="reference internal" href="#using-trtexec" id="id26">Using Trtexec</a></p></li>
-<li><p><a class="reference internal" href="#using-tensorrt-python-api" id="id27">Using TensorRT Python API</a></p></li>
+<li><p><a class="reference internal" href="#using-trtexec" id="id27">Using Trtexec</a></p></li>
+<li><p><a class="reference internal" href="#using-tensorrt-python-api" id="id28">Using TensorRT Python API</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#troubleshooting" id="id28">Troubleshooting</a></p>
+<li><p><a class="reference internal" href="#troubleshooting" id="id29">Troubleshooting</a></p>
 <ul>
-<li><p><a class="reference internal" href="#common-issues" id="id29">Common Issues</a></p></li>
-<li><p><a class="reference internal" href="#debugging" id="id30">Debugging</a></p></li>
+<li><p><a class="reference internal" href="#common-issues" id="id30">Common Issues</a></p></li>
+<li><p><a class="reference internal" href="#debugging" id="id31">Debugging</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#architecture-and-workflow" id="id31">Architecture and Workflow</a></p>
+<li><p><a class="reference internal" href="#architecture-and-workflow" id="id32">Architecture and Workflow</a></p>
 <ul>
-<li><p><a class="reference internal" href="#design-rationale" id="id32">Design Rationale</a></p></li>
+<li><p><a class="reference internal" href="#design-rationale" id="id33">Design Rationale</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#limitations-and-future-work" id="id33">Limitations and Future Work</a></p></li>
-<li><p><a class="reference internal" href="#glossary" id="id34">Glossary</a></p></li>
-<li><p><a class="reference internal" href="#references" id="id35">References</a></p></li>
-<li><p><a class="reference internal" href="#frequently-asked-questions" id="id36">Frequently Asked Questions</a></p></li>
-<li><p><a class="reference internal" href="#examples" id="id37">Examples</a></p>
+<li><p><a class="reference internal" href="#limitations-and-future-work" id="id34">Limitations and Future Work</a></p></li>
+<li><p><a class="reference internal" href="#glossary" id="id35">Glossary</a></p></li>
+<li><p><a class="reference internal" href="#references" id="id36">References</a></p></li>
+<li><p><a class="reference internal" href="#frequently-asked-questions" id="id37">Frequently Asked Questions</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id38">Examples</a></p>
 <ul>
-<li><p><a class="reference internal" href="#example-1-basic-optimization" id="id38">Example 1: Basic Optimization</a></p></li>
-<li><p><a class="reference internal" href="#example-2-transfer-learning-with-pattern-cache" id="id39">Example 2: Transfer Learning with Pattern Cache</a></p></li>
-<li><p><a class="reference internal" href="#example-3-import-from-manual-baseline" id="id40">Example 3: Import from Manual Baseline</a></p></li>
-<li><p><a class="reference internal" href="#example-4-full-python-workflow" id="id41">Example 4: Full Python Workflow</a></p></li>
+<li><p><a class="reference internal" href="#example-1-basic-optimization" id="id39">Example 1: Basic Optimization</a></p></li>
+<li><p><a class="reference internal" href="#example-2-transfer-learning-with-pattern-cache" id="id40">Example 2: Transfer Learning with Pattern Cache</a></p></li>
+<li><p><a class="reference internal" href="#example-3-import-from-manual-baseline" id="id41">Example 3: Import from Manual Baseline</a></p></li>
+<li><p><a class="reference internal" href="#example-4-full-python-workflow" id="id42">Example 4: Full Python Workflow</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#conclusion" id="id42">Conclusion</a></p></li>
+<li><p><a class="reference internal" href="#conclusion" id="id43">Conclusion</a></p></li>
 </ul>
 </nav>
 <section id="overview">
@@ -465,12 +467,33 @@ python<span class="w"> </span>-m<span class="w"> </span>modelopt.onnx.quantizati
 </pre></div>
 </div>
 </section>
+<section id="remote-autotuning">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Remote Autotuning</a><a class="headerlink" href="#remote-autotuning" title="Link to this heading"></a></h3>
+<p>TensorRT 10.15+ supports remote autotuning in safety mode (<code class="docutils literal notranslate"><span class="pre">--safe</span></code>), which allows TensorRT’s optimization process to be offloaded to a remote hardware. This is useful when optimizing models for different target GPUs without having direct access to them.</p>
+<p>To use remote autotuning during Q/DQ placement optimization, run with <code class="docutils literal notranslate"><span class="pre">trtexec</span></code> and pass extra args:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>modelopt.onnx.quantization.autotune<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--onnx_path<span class="w"> </span>model.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output_dir<span class="w"> </span>./model_remote_autotuned<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--schemes_per_region<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--use_trtexec<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--trtexec_benchmark_args<span class="w"> </span><span class="s2">&quot;--remoteAutoTuningConfig=\&quot;&lt;remote autotuning config&gt;\&quot; --safe --skipInference&quot;</span>
+</pre></div>
+</div>
+<p><strong>Requirements:</strong></p>
+<ul class="simple">
+<li><p>TensorRT 10.15 or later</p></li>
+<li><p>Valid remote autotuning configuration</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--use_trtexec</span></code> must be set (benchmarking uses <code class="docutils literal notranslate"><span class="pre">trtexec</span></code> instead of the TensorRT Python API)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--safe</span> <span class="pre">--skipInference</span></code> must be enabled via <code class="docutils literal notranslate"><span class="pre">--trtexec_benchmark_args</span></code></p></li>
+</ul>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;remote</span> <span class="pre">autotuning</span> <span class="pre">config&gt;</span></code> with an actual remote autotuning configuration string (see <code class="docutils literal notranslate"><span class="pre">trtexec</span> <span class="pre">--help</span></code> for more details). Other TensorRT benchmark options (e.g. <code class="docutils literal notranslate"><span class="pre">--timing_cache</span></code>, <code class="docutils literal notranslate"><span class="pre">--warmup_runs</span></code>, <code class="docutils literal notranslate"><span class="pre">--timing_runs</span></code>, <code class="docutils literal notranslate"><span class="pre">--plugin_libraries</span></code>) are also available; run <code class="docutils literal notranslate"><span class="pre">--help</span></code> for details.</p>
+</section>
 </section>
 <section id="low-level-api-usage">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">Low-Level API Usage</a><a class="headerlink" href="#low-level-api-usage" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Low-Level API Usage</a><a class="headerlink" href="#low-level-api-usage" title="Link to this heading"></a></h2>
 <p>For fine-grained control over the autotune process (e.g. driving it step-by-step or customizing regions and schemes), use the autotuner classes directly:</p>
 <section id="basic-workflow">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">Basic Workflow</a><a class="headerlink" href="#basic-workflow" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Basic Workflow</a><a class="headerlink" href="#basic-workflow" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">onnx</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">modelopt.onnx.quantization.autotune</span><span class="w"> </span><span class="kn">import</span> <span class="n">QDQAutotuner</span><span class="p">,</span> <span class="n">Config</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">modelopt.onnx.quantization.autotune.workflows</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
@@ -552,7 +575,7 @@ python<span class="w"> </span>-m<span class="w"> </span>modelopt.onnx.quantizati
 </div>
 </section>
 <section id="state-management">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">State Management</a><a class="headerlink" href="#state-management" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">State Management</a><a class="headerlink" href="#state-management" title="Link to this heading"></a></h3>
 <p>Save and load optimization state for crash recovery:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save state after each region</span>
 <span class="n">autotuner</span><span class="o">.</span><span class="n">save_state</span><span class="p">(</span><span class="s2">&quot;autotuner_state.yaml&quot;</span><span class="p">)</span>
@@ -568,7 +591,7 @@ python<span class="w"> </span>-m<span class="w"> </span>modelopt.onnx.quantizati
 </div>
 </section>
 <section id="pattern-cache-management">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">Pattern Cache Management</a><a class="headerlink" href="#pattern-cache-management" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Pattern Cache Management</a><a class="headerlink" href="#pattern-cache-management" title="Link to this heading"></a></h3>
 <p>Create and use pattern caches:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">modelopt.onnx.quantization.autotune</span><span class="w"> </span><span class="kn">import</span> <span class="n">PatternCache</span>
 
@@ -588,7 +611,7 @@ python<span class="w"> </span>-m<span class="w"> </span>modelopt.onnx.quantizati
 </div>
 </section>
 <section id="import-from-a-q-dq-baseline">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink">Import from a Q/DQ Baseline</a><a class="headerlink" href="#import-from-a-q-dq-baseline" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Import from a Q/DQ Baseline</a><a class="headerlink" href="#import-from-a-q-dq-baseline" title="Link to this heading"></a></h3>
 <p>To seed the autotuner from a pre-quantized model (e.g. from another tool or manual tuning), extract quantized tensor names and pass them in:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">onnx</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">modelopt.onnx.quantization.qdq_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_quantized_tensors</span>
@@ -611,9 +634,9 @@ python<span class="w"> </span>-m<span class="w"> </span>modelopt.onnx.quantizati
 </section>
 </section>
 <section id="configuration-options">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">Configuration Options</a><a class="headerlink" href="#configuration-options" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Configuration Options</a><a class="headerlink" href="#configuration-options" title="Link to this heading"></a></h2>
 <section id="config-class">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink">Config Class</a><a class="headerlink" href="#config-class" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Config Class</a><a class="headerlink" href="#config-class" title="Link to this heading"></a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">Config</span></code> class controls autotuner behavior:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">modelopt.onnx.quantization.autotune</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span>
 
@@ -636,7 +659,7 @@ python<span class="w"> </span>-m<span class="w"> </span>modelopt.onnx.quantizati
 </div>
 </section>
 <section id="command-line-arguments">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink">Command-Line Arguments</a><a class="headerlink" href="#command-line-arguments" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Command-Line Arguments</a><a class="headerlink" href="#command-line-arguments" title="Link to this heading"></a></h3>
 <p>Arguments use underscores. Short options: <code class="docutils literal notranslate"><span class="pre">-m</span></code> (onnx_path), <code class="docutils literal notranslate"><span class="pre">-o</span></code> (output_dir), <code class="docutils literal notranslate"><span class="pre">-s</span></code> (schemes_per_region), <code class="docutils literal notranslate"><span class="pre">-v</span></code> (verbose). Run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">modelopt.onnx.quantization.autotune</span> <span class="pre">--help</span></code> for full help.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">modelopt</span><span class="o">.</span><span class="n">onnx</span><span class="o">.</span><span class="n">quantization</span><span class="o">.</span><span class="n">autotune</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="o">--</span><span class="n">onnx_path</span>
                                                      <span class="n">ONNX_PATH</span>
@@ -750,9 +773,9 @@ python<span class="w"> </span>-m<span class="w"> </span>modelopt.onnx.quantizati
 </section>
 </section>
 <section id="best-practices">
-<h2><a class="toc-backref" href="#id20" role="doc-backlink">Best Practices</a><a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Best Practices</a><a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
 <section id="choosing-scheme-count">
-<h3><a class="toc-backref" href="#id21" role="doc-backlink">Choosing Scheme Count</a><a class="headerlink" href="#choosing-scheme-count" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Choosing Scheme Count</a><a class="headerlink" href="#choosing-scheme-count" title="Link to this heading"></a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">--schemes_per_region</span></code> (or <code class="docutils literal notranslate"><span class="pre">-s</span></code>) parameter controls exploration depth. Typical values:</p>
 <ul class="simple">
 <li><p><strong>15–30 schemes</strong> (e.g. <code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">30</span></code>): Quick exploration; good for trying the tool or small models</p></li>
@@ -762,7 +785,7 @@ python<span class="w"> </span>-m<span class="w"> </span>modelopt.onnx.quantizati
 <p>Use fewer schemes when there are many small regions or limited time; use more for large or critical regions.</p>
 </section>
 <section id="managing-optimization-time">
-<span id="id1"></span><h3><a class="toc-backref" href="#id22" role="doc-backlink">Managing Optimization Time</a><a class="headerlink" href="#managing-optimization-time" title="Link to this heading"></a></h3>
+<span id="id1"></span><h3><a class="toc-backref" href="#id23" role="doc-backlink">Managing Optimization Time</a><a class="headerlink" href="#managing-optimization-time" title="Link to this heading"></a></h3>
 <p>Optimization time depends on:</p>
 <ul class="simple">
 <li><p><strong>Number of unique patterns</strong> (not total regions)</p></li>
@@ -786,7 +809,7 @@ python<span class="w"> </span>-m<span class="w"> </span>modelopt.onnx.quantizati
 <p><strong>Ways to reduce time:</strong> Use a pattern cache from a similar model (warm-start), use fewer schemes per region for initial runs, or rely on checkpoint/resume to split work across sessions.</p>
 </section>
 <section id="using-the-pattern-cache-effectively">
-<h3><a class="toc-backref" href="#id23" role="doc-backlink">Using the Pattern Cache Effectively</a><a class="headerlink" href="#using-the-pattern-cache-effectively" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">Using the Pattern Cache Effectively</a><a class="headerlink" href="#using-the-pattern-cache-effectively" title="Link to this heading"></a></h3>
 <p>The pattern cache helps most when models share structure (e.g. BERT → RoBERTa), when iterating on the same model (v1 → v2), or when optimizing a family of models.</p>
 <p><strong>Example: building a pattern library</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optimize first model and save patterns</span>
@@ -809,7 +832,7 @@ python<span class="w"> </span>-m<span class="w"> </span>modelopt.onnx.quantizati
 </div>
 </section>
 <section id="interpreting-results">
-<h3><a class="toc-backref" href="#id24" role="doc-backlink">Interpreting Results</a><a class="headerlink" href="#interpreting-results" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">Interpreting Results</a><a class="headerlink" href="#interpreting-results" title="Link to this heading"></a></h3>
 <p>The autotuner reports speedup ratios:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Baseline: 12.50 ms
 Final: 9.80 ms (1.276x speedup)
@@ -826,10 +849,10 @@ Final: 9.80 ms (1.276x speedup)
 </section>
 </section>
 <section id="deploying-optimized-models">
-<h2><a class="toc-backref" href="#id25" role="doc-backlink">Deploying Optimized Models</a><a class="headerlink" href="#deploying-optimized-models" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">Deploying Optimized Models</a><a class="headerlink" href="#deploying-optimized-models" title="Link to this heading"></a></h2>
 <p>The optimized ONNX model includes Q/DQ nodes and can be used with TensorRT as follows.</p>
 <section id="using-trtexec">
-<h3><a class="toc-backref" href="#id26" role="doc-backlink">Using Trtexec</a><a class="headerlink" href="#using-trtexec" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">Using Trtexec</a><a class="headerlink" href="#using-trtexec" title="Link to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build TensorRT engine from optimized ONNX</span>
 trtexec<span class="w"> </span>--onnx<span class="o">=</span>optimized_final.onnx<span class="w"> </span><span class="se">\</span>
 <span class="w">        </span>--saveEngine<span class="o">=</span>model.engine<span class="w"> </span><span class="se">\</span>
@@ -841,7 +864,7 @@ trtexec<span class="w"> </span>--loadEngine<span class="o">=</span>model.engine
 </div>
 </section>
 <section id="using-tensorrt-python-api">
-<h3><a class="toc-backref" href="#id27" role="doc-backlink">Using TensorRT Python API</a><a class="headerlink" href="#using-tensorrt-python-api" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">Using TensorRT Python API</a><a class="headerlink" href="#using-tensorrt-python-api" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">tensorrt</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">trt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -877,9 +900,9 @@ trtexec<span class="w"> </span>--loadEngine<span class="o">=</span>model.engine
 </section>
 </section>
 <section id="troubleshooting">
-<h2><a class="toc-backref" href="#id28" role="doc-backlink">Troubleshooting</a><a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id29" role="doc-backlink">Troubleshooting</a><a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
 <section id="common-issues">
-<h3><a class="toc-backref" href="#id29" role="doc-backlink">Common Issues</a><a class="headerlink" href="#common-issues" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id30" role="doc-backlink">Common Issues</a><a class="headerlink" href="#common-issues" title="Link to this heading"></a></h3>
 <p><strong>Issue: “Benchmark instance not initialized”</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution: Initialize benchmark before running workflow</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">modelopt.onnx.quantization.autotune.workflows</span><span class="w"> </span><span class="kn">import</span> <span class="n">init_benchmark_instance</span>
@@ -935,7 +958,7 @@ python<span class="w"> </span>-m<span class="w"> </span>modelopt.onnx.quantizati
 </ul>
 </section>
 <section id="debugging">
-<h3><a class="toc-backref" href="#id30" role="doc-backlink">Debugging</a><a class="headerlink" href="#debugging" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id31" role="doc-backlink">Debugging</a><a class="headerlink" href="#debugging" title="Link to this heading"></a></h3>
 <p>Enable verbose logging to see detailed information:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>modelopt.onnx.quantization.autotune<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--onnx_path<span class="w"> </span>model.onnx<span class="w"> </span><span class="se">\</span>
@@ -1009,7 +1032,7 @@ LEAF region sizes: min=1, max=15, avg=3.9
 </section>
 </section>
 <section id="architecture-and-workflow">
-<h2><a class="toc-backref" href="#id31" role="doc-backlink">Architecture and Workflow</a><a class="headerlink" href="#architecture-and-workflow" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id32" role="doc-backlink">Architecture and Workflow</a><a class="headerlink" href="#architecture-and-workflow" title="Link to this heading"></a></h2>
 <p>The autotuner partitions the ONNX graph into regions, groups regions by structural pattern, and for each pattern tests multiple Q/DQ insertion schemes via TensorRT benchmarking. The following diagram summarizes the end-to-end process:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>┌─────────────────────────────────────────────────────────────┐
 │ 1. Model Loading &amp; Initialization                           │
@@ -1044,7 +1067,7 @@ LEAF region sizes: min=1, max=15, avg=3.9
 </pre></div>
 </div>
 <section id="design-rationale">
-<h3><a class="toc-backref" href="#id32" role="doc-backlink">Design Rationale</a><a class="headerlink" href="#design-rationale" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">Design Rationale</a><a class="headerlink" href="#design-rationale" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><strong>Pattern-based</strong>: One optimization per pattern; the chosen scheme applies to every matching region, reducing work and keeping behavior consistent.</p></li>
 <li><p><strong>Hierarchical regions</strong>: LEAF (single ops or short sequences) and COMPOSITE (nested subgraphs) allow tuning at different granularities.</p></li>
@@ -1053,7 +1076,7 @@ LEAF region sizes: min=1, max=15, avg=3.9
 </section>
 </section>
 <section id="limitations-and-future-work">
-<h2><a class="toc-backref" href="#id33" role="doc-backlink">Limitations and Future Work</a><a class="headerlink" href="#limitations-and-future-work" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id34" role="doc-backlink">Limitations and Future Work</a><a class="headerlink" href="#limitations-and-future-work" title="Link to this heading"></a></h2>
 <p><strong>Current limitations:</strong></p>
 <ul class="simple">
 <li><p>Random scheme sampling may miss optimal configurations; number of schemes per region is fixed.</p></li>
@@ -1070,7 +1093,7 @@ LEAF region sizes: min=1, max=15, avg=3.9
 </ul>
 </section>
 <section id="glossary">
-<h2><a class="toc-backref" href="#id34" role="doc-backlink">Glossary</a><a class="headerlink" href="#glossary" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id35" role="doc-backlink">Glossary</a><a class="headerlink" href="#glossary" title="Link to this heading"></a></h2>
 <dl class="simple glossary">
 <dt id="term-Q-DQ-Nodes">Q/DQ Nodes<a class="headerlink" href="#term-Q-DQ-Nodes" title="Link to this term"></a></dt><dd><p>QuantizeLinear (Q) and DequantizeLinear (DQ) nodes in ONNX that convert between
 floating-point and quantized integer representations.</p>
@@ -1093,7 +1116,7 @@ warm-start optimization on similar models.</p>
 </dl>
 </section>
 <section id="references">
-<h2><a class="toc-backref" href="#id35" role="doc-backlink">References</a><a class="headerlink" href="#references" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id36" role="doc-backlink">References</a><a class="headerlink" href="#references" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><strong>ONNX</strong>: <a class="reference external" href="https://onnx.ai/" rel="noopener noreferrer" target="_blank">https://onnx.ai/</a></p></li>
 <li><p><strong>ONNX Technical Details</strong>: <a class="reference external" href="https://onnx.ai/onnx/technical/index.html" rel="noopener noreferrer" target="_blank">https://onnx.ai/onnx/technical/index.html</a></p></li>
@@ -1103,7 +1126,7 @@ warm-start optimization on similar models.</p>
 </ul>
 </section>
 <section id="frequently-asked-questions">
-<h2><a class="toc-backref" href="#id36" role="doc-backlink">Frequently Asked Questions</a><a class="headerlink" href="#frequently-asked-questions" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id37" role="doc-backlink">Frequently Asked Questions</a><a class="headerlink" href="#frequently-asked-questions" title="Link to this heading"></a></h2>
 <p><strong>Q: How long does optimization take?</strong></p>
 <p>A: Time ≈ (unique patterns) × (schemes per region) × (time per benchmark). See <a class="reference internal" href="#managing-optimization-time"><span class="std std-ref">Managing Optimization Time</span></a> for a formula and examples. Use a pattern cache when re-running on similar models to reduce time.</p>
 <p><strong>Q: Can I stop optimization early?</strong></p>
@@ -1133,9 +1156,9 @@ warm-start optimization on similar models.</p>
 <p>A: Currently, the autotuner optimizes for latency only.</p>
 </section>
 <section id="examples">
-<h2><a class="toc-backref" href="#id37" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id38" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
 <section id="example-1-basic-optimization">
-<h3><a class="toc-backref" href="#id38" role="doc-backlink">Example 1: Basic Optimization</a><a class="headerlink" href="#example-1-basic-optimization" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id39" role="doc-backlink">Example 1: Basic Optimization</a><a class="headerlink" href="#example-1-basic-optimization" title="Link to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optimize a ResNet model with INT8 quantization</span>
 python<span class="w"> </span>-m<span class="w"> </span>modelopt.onnx.quantization.autotune<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--onnx_path<span class="w"> </span>resnet50.onnx<span class="w"> </span><span class="se">\</span>
@@ -1146,7 +1169,7 @@ python<span class="w"> </span>-m<span class="w"> </span>modelopt.onnx.quantizati
 </div>
 </section>
 <section id="example-2-transfer-learning-with-pattern-cache">
-<h3><a class="toc-backref" href="#id39" role="doc-backlink">Example 2: Transfer Learning with Pattern Cache</a><a class="headerlink" href="#example-2-transfer-learning-with-pattern-cache" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id40" role="doc-backlink">Example 2: Transfer Learning with Pattern Cache</a><a class="headerlink" href="#example-2-transfer-learning-with-pattern-cache" title="Link to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optimize GPT-2 small</span>
 python<span class="w"> </span>-m<span class="w"> </span>modelopt.onnx.quantization.autotune<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--onnx_path<span class="w"> </span>gpt2_small.onnx<span class="w"> </span><span class="se">\</span>
@@ -1164,7 +1187,7 @@ python<span class="w"> </span>-m<span class="w"> </span>modelopt.onnx.quantizati
 </div>
 </section>
 <section id="example-3-import-from-manual-baseline">
-<h3><a class="toc-backref" href="#id40" role="doc-backlink">Example 3: Import from Manual Baseline</a><a class="headerlink" href="#example-3-import-from-manual-baseline" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id41" role="doc-backlink">Example 3: Import from Manual Baseline</a><a class="headerlink" href="#example-3-import-from-manual-baseline" title="Link to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># With a manually quantized baseline</span>
 <span class="c1"># Import its patterns as starting point</span>
 python<span class="w"> </span>-m<span class="w"> </span>modelopt.onnx.quantization.autotune<span class="w"> </span><span class="se">\</span>
@@ -1176,7 +1199,7 @@ python<span class="w"> </span>-m<span class="w"> </span>modelopt.onnx.quantizati
 </div>
 </section>
 <section id="example-4-full-python-workflow">
-<h3><a class="toc-backref" href="#id41" role="doc-backlink">Example 4: Full Python Workflow</a><a class="headerlink" href="#example-4-full-python-workflow" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id42" role="doc-backlink">Example 4: Full Python Workflow</a><a class="headerlink" href="#example-4-full-python-workflow" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">modelopt.onnx.quantization.autotune.workflows</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">region_pattern_autotuning_workflow</span><span class="p">,</span>
@@ -1210,7 +1233,7 @@ python<span class="w"> </span>-m<span class="w"> </span>modelopt.onnx.quantizati
 </section>
 </section>
 <section id="conclusion">
-<h2><a class="toc-backref" href="#id42" role="doc-backlink">Conclusion</a><a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id43" role="doc-backlink">Conclusion</a><a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">modelopt.onnx.quantization.autotune</span></code> module provides a powerful automated approach to Q/DQ placement optimization. By combining automatic region discovery, pattern-based optimization, and TensorRT performance measurement, it finds optimal quantization strategies without manual tuning.</p>
 <p><strong>Next steps:</strong> Run the quick start on a model, try different <code class="docutils literal notranslate"><span class="pre">--schemes_per_region</span></code> values, build a pattern cache for the model family, then integrate the optimized model into the deployment pipeline.</p>
 </section>

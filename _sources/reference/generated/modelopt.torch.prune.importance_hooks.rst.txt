@@ -25,6 +25,10 @@ importance\_hooks
 
 
 
+   modelopt.torch.prune.importance_hooks.expert_removal_hooks
+
+
+
    modelopt.torch.prune.importance_hooks.plugins
 
 

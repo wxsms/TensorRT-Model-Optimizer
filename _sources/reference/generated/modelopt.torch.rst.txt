@@ -41,6 +41,10 @@
 
 
 
+   modelopt.torch.puzzletron
+
+
+
    modelopt.torch.quantization
 
 
