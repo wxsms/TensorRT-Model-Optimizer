@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>serialization &mdash; Model Optimizer 0.0.1.dev1+g04fcf2422</title>
+  <title>serialization &mdash; Model Optimizer 0.0.1.dev1+g7e82a5cb0</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -181,7 +181,7 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.utils.serialization.safe_load" title="modelopt.torch.utils.serialization.safe_load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">safe_load</span></code></a></p></td>
-<td><p>Load a checkpoint securely using weights_only=True by default.</p></td>
+<td><p>Load a checkpoint securely using <code class="docutils literal notranslate"><span class="pre">weights_only=True</span></code> by default.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.utils.serialization.safe_save" title="modelopt.torch.utils.serialization.safe_save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">safe_save</span></code></a></p></td>
 <td><p>Save a checkpoint after sanitizing known types for <code class="docutils literal notranslate"><span class="pre">weights_only=True</span></code> compatibility.</p></td>
@@ -191,7 +191,9 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.utils.serialization.safe_load">
 <span class="sig-name descname"><span class="pre">safe_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.utils.serialization.safe_load" title="Link to this definition"></a></dt>
-<dd><p>Load a checkpoint securely using weights_only=True by default.</p>
+<dd><p>Load a checkpoint securely using <code class="docutils literal notranslate"><span class="pre">weights_only=True</span></code> by default.</p>
+<p>NOTE: We dont set default <code class="docutils literal notranslate"><span class="pre">weights_only</span></code> (interpret as True for torch&gt;=2.6) so you can override it with
+<code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD=1</span></code> if you see <code class="docutils literal notranslate"><span class="pre">pickle.UnpicklingError</span></code> and trust the checkpoint.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>f</strong> (<em>str</em><em> | </em><em>PathLike</em><em> | </em><em>BinaryIO</em><em> | </em><em>bytes</em>)</p>
