@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>export &mdash; Model Optimizer 0.0.1.dev1+g92622a9aa</title>
+  <title>export &mdash; Model Optimizer 0.0.1.dev1+g760c98072</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -224,9 +224,9 @@ weights in the output model. TRT custom ops are converted to native ONNX Dequant
 <dt class="sig sig-object py" id="modelopt.onnx.export.FP8QuantExporter.post_process">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">post_process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">onnx_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.export.FP8QuantExporter.post_process" title="Link to this definition"></a></dt>
 <dd><p>Post-processes the ONNX model for FP8 quantization.</p>
-<p>Converts TRT_FP8 QDQ ops to native ONNX QuantizeLinear/DequantizeLinear:
-- TRT_FP8QuantizeLinear -&gt; QuantizeLinear with FP8E4M3FN zero_point and saturate=1
-- TRT_FP8DequantizeLinear -&gt; DequantizeLinear</p>
+<p>Converts TRT_FP8 QDQ ops to native ONNX QuantizeLinear/DequantizeLinear and
+adds FP8 weight DQ for Conv layers whose weight quantizers were disabled during
+TorchScript export.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>onnx_model</strong> (<em>ModelProto</em>) – The ONNX model containing TRT_FP8 quantization nodes.</p>

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>utils &mdash; Model Optimizer 0.0.1.dev1+g92622a9aa</title>
+  <title>utils &mdash; Model Optimizer 0.0.1.dev1+g760c98072</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -114,6 +114,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#modelopt.onnx.utils.check_model_uses_external_data"><code class="docutils literal notranslate"><span class="pre">check_model_uses_external_data()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#modelopt.onnx.utils.duplicate_shared_constants"><code class="docutils literal notranslate"><span class="pre">duplicate_shared_constants()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#modelopt.onnx.utils.find_lowest_common_ancestor"><code class="docutils literal notranslate"><span class="pre">find_lowest_common_ancestor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelopt.onnx.utils.fold_dq_fp32_to_fp16_casts"><code class="docutils literal notranslate"><span class="pre">fold_dq_fp32_to_fp16_casts()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelopt.onnx.utils.fold_qdq_scale_fp16_to_fp32_casts"><code class="docutils literal notranslate"><span class="pre">fold_qdq_scale_fp16_to_fp32_casts()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#modelopt.onnx.utils.gen_random_inputs"><code class="docutils literal notranslate"><span class="pre">gen_random_inputs()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#modelopt.onnx.utils.get_all_input_names"><code class="docutils literal notranslate"><span class="pre">get_all_input_names()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#modelopt.onnx.utils.get_attribute"><code class="docutils literal notranslate"><span class="pre">get_attribute()</span></code></a></li>
@@ -220,6 +222,12 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.utils.find_lowest_common_ancestor" title="modelopt.onnx.utils.find_lowest_common_ancestor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_lowest_common_ancestor</span></code></a></p></td>
 <td><p>Function to find the lowest common ancestor of two nodes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.utils.fold_dq_fp32_to_fp16_casts" title="modelopt.onnx.utils.fold_dq_fp32_to_fp16_casts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fold_dq_fp32_to_fp16_casts</span></code></a></p></td>
+<td><p>Remove Cast(FP32-&gt;FP16) nodes after DequantizeLinear by setting DQ output to FP16.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.utils.fold_qdq_scale_fp16_to_fp32_casts" title="modelopt.onnx.utils.fold_qdq_scale_fp16_to_fp32_casts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fold_qdq_scale_fp16_to_fp32_casts</span></code></a></p></td>
+<td><p>Remove Cast(FP16-&gt;FP32) nodes feeding into Q/DQ scale inputs.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.utils.gen_random_inputs" title="modelopt.onnx.utils.gen_random_inputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen_random_inputs</span></code></a></p></td>
 <td><p>This function generates random inputs for an onnx model.</p></td>
@@ -439,6 +447,54 @@ Distance from second node.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><em>tuple</em>[<em>str</em> | <em>None</em>, <em>int</em>, <em>int</em>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.onnx.utils.fold_dq_fp32_to_fp16_casts">
+<span class="sig-name descname"><span class="pre">fold_dq_fp32_to_fp16_casts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">onnx_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.utils.fold_dq_fp32_to_fp16_casts" title="Link to this definition"></a></dt>
+<dd><p>Remove Cast(FP32-&gt;FP16) nodes after DequantizeLinear by setting DQ output to FP16.</p>
+<p>When convert_float_to_float16 blocks DequantizeLinear, it inserts Cast nodes to bridge
+the FP32 DQ output to the FP16 graph. This function removes those Cast nodes by:
+1. Converting the DQ scale initializer from FP32 to FP16
+2. Updating the DQ output type to FP16 in value_info
+3. Bypassing and removing the Cast node</p>
+<p>NVFP4 uses a nested DQ chain (scale is itself a DQ output). When the outer DQ’s scale
+is produced by another DQ, recursively retype the inner DQ’s chain so the whole
+chain produces FP16 tensors under strongly-typed TRT parsing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>onnx_model</strong> (<em>ModelProto</em>) – The ONNX model with DQ -&gt; Cast(FP32-&gt;FP16) patterns.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The ONNX model with Cast nodes removed and DQ outputs set to FP16.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>ModelProto</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.onnx.utils.fold_qdq_scale_fp16_to_fp32_casts">
+<span class="sig-name descname"><span class="pre">fold_qdq_scale_fp16_to_fp32_casts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">onnx_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.utils.fold_qdq_scale_fp16_to_fp32_casts" title="Link to this definition"></a></dt>
+<dd><p>Remove Cast(FP16-&gt;FP32) nodes feeding into Q/DQ scale inputs.</p>
+<p>When convert_float_to_float16 blocks QuantizeLinear/DequantizeLinear, it inserts
+Cast(FP16-&gt;FP32) nodes before every scale input. In opset &gt;=20 Q/DQ natively accept
+FP16 scales, and leaving the cast in place forces DQ outputs to FP32, breaking
+downstream FP16 matmul/add operations under strongly-typed TRT parsing.</p>
+<p>This function bypasses each such Cast and, when the upstream Constant is FP16,
+wires the DQ output to FP16 in value_info so shape inference stays consistent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>onnx_model</strong> (<em>ModelProto</em>) – The ONNX model with Cast(FP16-&gt;FP32) -&gt; Q/DQ.scale patterns.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The ONNX model with redundant scale-path casts removed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>ModelProto</em></p>
 </dd>
 </dl>
 </dd></dl>

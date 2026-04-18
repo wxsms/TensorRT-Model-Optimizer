@@ -43,6 +43,8 @@ utils
       check_model_uses_external_data
       duplicate_shared_constants
       find_lowest_common_ancestor
+      fold_dq_fp32_to_fp16_casts
+      fold_qdq_scale_fp16_to_fp32_casts
       gen_random_inputs
       get_all_input_names
       get_attribute
