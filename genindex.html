@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; Model Optimizer 0.0.1.dev1+g2d868d3f1</title>
+  <title>Index &mdash; Model Optimizer 0.0.1.dev1+g92622a9aa</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -2230,6 +2230,8 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.puzzletron.pruning.pruning_utils.html#modelopt.torch.puzzletron.pruning.pruning_utils.GQAInitMode.FirstKV">FirstKV (GQAInitMode attribute)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.CalibrationConfig.fit_logspace">fit_logspace (CalibrationConfig attribute)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.puzzletron.block_config.html#modelopt.torch.puzzletron.block_config.Llama4AttentionConfig.floor_scale">floor_scale (Llama4AttentionConfig attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.algorithms.html#modelopt.torch.quantization.algorithms.QuantRecipe.fold_pqs_to_weights">fold_pqs_to_weights() (QuantRecipe static method)</a>
@@ -2248,10 +2250,10 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.puzzletron.utils.parsing.html#modelopt.torch.puzzletron.utils.parsing.format_stitched_losses">format_stitched_losses() (in module modelopt.torch.puzzletron.utils.parsing)</a>
 </li>
-      <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.RegionPattern.format_tree">format_tree() (RegionPattern method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.RegionPattern.format_tree">format_tree() (RegionPattern method)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.functional.html#modelopt.torch.quantization.nn.functional.ClipFunction.forward">forward() (ClipFunction static method)</a>
 
       <ul>
@@ -2753,6 +2755,8 @@
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.RegionPattern.get_short_signature">get_short_signature() (RegionPattern method)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.Region.get_size_of_region_and_descendants">get_size_of_region_and_descendants() (Region method)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.kernels.html#modelopt.torch.sparsity.attention_sparsity.kernels.get_skip_softmax_context">get_skip_softmax_context() (in module modelopt.torch.sparsity.attention_sparsity.kernels)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.partitioning.html#modelopt.onnx.quantization.partitioning.get_skipped_output_layers">get_skipped_output_layers() (in module modelopt.onnx.quantization.partitioning)</a>
 </li>
@@ -8124,11 +8128,15 @@
       </ul></li>
       <li><a href="reference/generated/modelopt.torch.opt.config.html#modelopt.torch.opt.config.ModeloptBaseRuleConfig.register_default">register_default() (ModeloptBaseRuleConfig class method)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.kernels.html#modelopt.torch.sparsity.attention_sparsity.kernels.register_diffusers_triton_attention">register_diffusers_triton_attention() (in module modelopt.torch.sparsity.attention_sparsity.kernels)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.puzzletron.tools.hydra_utils.html#modelopt.torch.puzzletron.tools.hydra_utils.register_hydra_resolvers">register_hydra_resolvers() (in module modelopt.torch.puzzletron.tools.hydra_utils)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.opt.hparam.html#modelopt.torch.opt.hparam.Hparam.register_importance">register_importance() (Hparam method)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.trace.tracer.html#modelopt.torch.trace.tracer.RobustTracer.register_leaf">register_leaf() (RobustTracer class method)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.kernels.html#modelopt.torch.sparsity.attention_sparsity.kernels.register_ltx_triton_attention">register_ltx_triton_attention() (in module modelopt.torch.sparsity.attention_sparsity.kernels)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.register_quant_backend">register_quant_backend() (in module modelopt.torch.quantization.nn.modules.tensor_quantizer)</a>
 </li>
@@ -8606,8 +8614,12 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.SequentialQuantizer">SequentialQuantizer (class in modelopt.torch.quantization.nn.modules.tensor_quantizer)</a>
 </li>
-      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.stats_manager.html#modelopt.torch.sparsity.attention_sparsity.stats_manager.SparseAttentionStatsManager.set_calibration_mode">set_calibration_mode() (SparseAttentionStatsManager method)</a>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.methods.html#modelopt.torch.sparsity.attention_sparsity.methods.SparseAttentionMethod.set_calibration_mode">set_calibration_mode() (SparseAttentionMethod method)</a>
+
+      <ul>
+        <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.stats_manager.html#modelopt.torch.sparsity.attention_sparsity.stats_manager.SparseAttentionStatsManager.set_calibration_mode">(SparseAttentionStatsManager method)</a>
 </li>
+      </ul></li>
       <li><a href="reference/generated/modelopt.torch.export.layer_utils.html#modelopt.torch.export.layer_utils.set_expert_quantizer_amax">set_expert_quantizer_amax() (in module modelopt.torch.export.layer_utils)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.SequentialQuantizer.set_from_attribute_config">set_from_attribute_config() (SequentialQuantizer method)</a>
@@ -8637,6 +8649,8 @@
       <li><a href="reference/generated/modelopt.torch.quantization.conversion.html#modelopt.torch.quantization.conversion.set_quantizer_by_cfg_context">set_quantizer_by_cfg_context() (in module modelopt.torch.quantization.conversion)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.TensorRTPyBenchmark.set_shapes">set_shapes() (TensorRTPyBenchmark method)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.kernels.html#modelopt.torch.sparsity.attention_sparsity.kernels.set_skip_softmax_context">set_skip_softmax_context() (in module modelopt.torch.sparsity.attention_sparsity.kernels)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.trace.modules.nn.html#modelopt.torch.trace.modules.nn.SymDepth.set_skippable">set_skippable() (SymDepth method)</a>
 </li>
@@ -8695,6 +8709,8 @@
       <li><a href="reference/generated/modelopt.torch.puzzletron.utils.misc.html#modelopt.torch.puzzletron.utils.misc.sizeof_dtype">sizeof_dtype() (in module modelopt.torch.puzzletron.utils.misc)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.puzzletron.tools.checkpoint_utils.html#modelopt.torch.puzzletron.tools.checkpoint_utils.skip_init">skip_init() (in module modelopt.torch.puzzletron.tools.checkpoint_utils)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.SparseAttentionAttributeConfig.skip_softmax_raw_threshold">skip_softmax_raw_threshold (SparseAttentionAttributeConfig attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.SparseAttentionAttributeConfig.skip_softmax_threshold">skip_softmax_threshold (SparseAttentionAttributeConfig attribute)</a>
 </li>
