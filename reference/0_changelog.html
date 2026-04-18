@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Changelog &mdash; Model Optimizer 0.0.1.dev1+ge4b054bf3</title>
+  <title>Changelog &mdash; Model Optimizer 0.0.1.dev1+g2d868d3f1</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -166,6 +166,7 @@
 <li><p>Enable PTQ workflow for the Step3.5-Flash MoE model with NVFP4 W4A4 + FP8 KV cache quantization. See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/blob/main/modelopt_recipes/models/Step3.5-Flash/nvfp4-mlp-only.yaml" rel="noopener noreferrer" target="_blank">modelopt_recipes/models/Step3.5-Flash/nvfp4-mlp-only.yaml</a> for more details.</p></li>
 <li><p>Add support for vLLM fakequant reload using ModelOpt state for HF models. See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/vllm_serve#load-qatptq-model-and-serve-in-vllm-wip" rel="noopener noreferrer" target="_blank">examples/vllm_serve/README.md</a> for more details.</p></li>
 <li><p>[Early Testing] Add Claude Code PTQ skill (<code class="docutils literal notranslate"><span class="pre">.claude/skills/ptq/</span></code>) for agent-assisted post-training quantization. The skill guides the agent through environment detection, model support checking, format selection, and execution via the launcher or manual SLURM/Docker/bare GPU paths. Includes handling for unlisted models with custom module patching. This feature is in early testing — use with caution.</p></li>
+<li><p>Add performant layerwise calibration for large models that don’t fit on GPU (e.g. DeepSeek-R1, Kimi-K2). See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/blob/main/modelopt_recipes/general/ptq/nvfp4_experts_only-fp8_kv.yaml" rel="noopener noreferrer" target="_blank">modelopt_recipes/general/ptq/nvfp4_experts_only-fp8_kv.yaml</a> for usage. Layerwise calibration also supports PTQ with intermediate progress saving — useful when long PTQ runs get hit with Slurm timeouts. See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/blob/main/modelopt_recipes/general/ptq/nvfp4_default-none_kv_gptq.yaml" rel="noopener noreferrer" target="_blank">modelopt_recipes/general/ptq/nvfp4_default-none_kv_gptq.yaml</a> for usage.</p></li>
 </ul>
 <p><strong>Backward Breaking Changes</strong></p>
 <ul class="simple">

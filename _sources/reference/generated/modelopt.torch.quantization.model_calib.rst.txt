@@ -38,9 +38,9 @@ model\_calib
       :nosignatures:
    
       awq
+      layerwise_calibrate
       local_hessian_calibrate
       max_calibrate
-      sequential_calibrate
       smoothquant
       svdquant
    

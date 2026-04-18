@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>network &mdash; Model Optimizer 0.0.1.dev1+ge4b054bf3</title>
+  <title>network &mdash; Model Optimizer 0.0.1.dev1+g2d868d3f1</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -288,6 +288,9 @@ Important: For this to work, <code class="docutils literal notranslate"><span cl
 <dt class="sig sig-object py" id="modelopt.torch.utils.network.get_module_device">
 <span class="sig-name descname"><span class="pre">get_module_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.utils.network.get_module_device" title="Link to this definition"></a></dt>
 <dd><p>Get the device of a PyTorch module.</p>
+<p>For modules managed by accelerate (<code class="docutils literal notranslate"><span class="pre">_hf_hook</span></code>), returns the hook’s
+<code class="docutils literal notranslate"><span class="pre">execution_device</span></code> which is the authoritative device even when
+parameters are offloaded to CPU/meta between forward calls.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>module</strong> (<em>Module</em>)</p>

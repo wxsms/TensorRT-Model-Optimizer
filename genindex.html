@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; Model Optimizer 0.0.1.dev1+ge4b054bf3</title>
+  <title>Index &mdash; Model Optimizer 0.0.1.dev1+g2d868d3f1</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -3571,6 +3571,12 @@
       <li><a href="reference/generated/modelopt.torch.export.tensorrt_llm_type.html#modelopt.torch.export.tensorrt_llm_type.LayerNormType">LayerNormType (class in modelopt.torch.export.tensorrt_llm_type)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.ModelConfig.layers">layers (ModelConfig attribute)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizeAlgorithmConfig.layerwise">layerwise (QuantizeAlgorithmConfig attribute)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.quantization.model_calib.html#modelopt.torch.quantization.model_calib.layerwise_calibrate">layerwise_calibrate() (in module modelopt.torch.quantization.model_calib)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizeAlgorithmConfig.layerwise_checkpoint_dir">layerwise_checkpoint_dir (QuantizeAlgorithmConfig attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.distill.layerwise_distillation_model.html#modelopt.torch.distill.layerwise_distillation_model.LayerwiseDistillationModel">LayerwiseDistillationModel (class in modelopt.torch.distill.layerwise_distillation_model)</a>
 </li>
@@ -8598,8 +8604,6 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.DecoderLayerConfig.seq_length">seq_length (DecoderLayerConfig attribute)</a>
 </li>
-      <li><a href="reference/generated/modelopt.torch.quantization.model_calib.html#modelopt.torch.quantization.model_calib.sequential_calibrate">sequential_calibrate() (in module modelopt.torch.quantization.model_calib)</a>
-</li>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.SequentialQuantizer">SequentialQuantizer (class in modelopt.torch.quantization.nn.modules.tensor_quantizer)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.stats_manager.html#modelopt.torch.sparsity.attention_sparsity.stats_manager.SparseAttentionStatsManager.set_calibration_mode">set_calibration_mode() (SparseAttentionStatsManager method)</a>
@@ -9149,8 +9153,6 @@
       <li><a href="reference/generated/modelopt.torch.puzzletron.block_config.html#modelopt.torch.puzzletron.block_config.Llama4AttentionConfig.use_qk_norm">use_qk_norm (Llama4AttentionConfig attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.puzzletron.block_config.html#modelopt.torch.puzzletron.block_config.Llama4AttentionConfig.use_rope">use_rope (Llama4AttentionConfig attribute)</a>
-</li>
-      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizeAlgorithmConfig.use_sequential">use_sequential (QuantizeAlgorithmConfig attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.qdq_utils.html#modelopt.onnx.quantization.qdq_utils.use_trt_qdq_ops">use_trt_qdq_ops() (in module modelopt.onnx.quantization.qdq_utils)</a>
 </li>
