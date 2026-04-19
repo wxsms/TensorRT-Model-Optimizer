@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Changelog &mdash; Model Optimizer 0.0.1.dev1+ge9a49890f</title>
+  <title>Changelog &mdash; Model Optimizer 0.0.1.dev1+g26ae8da51</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -167,6 +167,7 @@
 <li><p>Add support for vLLM fakequant reload using ModelOpt state for HF models. See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/vllm_serve#load-qatptq-model-and-serve-in-vllm-wip" rel="noopener noreferrer" target="_blank">examples/vllm_serve/README.md</a> for more details.</p></li>
 <li><p>[Early Testing] Add Claude Code PTQ skill (<code class="docutils literal notranslate"><span class="pre">.claude/skills/ptq/</span></code>) for agent-assisted post-training quantization. The skill guides the agent through environment detection, model support checking, format selection, and execution via the launcher or manual SLURM/Docker/bare GPU paths. Includes handling for unlisted models with custom module patching. This feature is in early testing — use with caution.</p></li>
 <li><p>Add performant layerwise calibration for large models that don’t fit on GPU (e.g. DeepSeek-R1, Kimi-K2). See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/blob/main/modelopt_recipes/general/ptq/nvfp4_experts_only-fp8_kv.yaml" rel="noopener noreferrer" target="_blank">modelopt_recipes/general/ptq/nvfp4_experts_only-fp8_kv.yaml</a> for usage. Layerwise calibration also supports PTQ with intermediate progress saving — useful when long PTQ runs get hit with Slurm timeouts. See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/blob/main/modelopt_recipes/general/ptq/nvfp4_default-none_kv_gptq.yaml" rel="noopener noreferrer" target="_blank">modelopt_recipes/general/ptq/nvfp4_default-none_kv_gptq.yaml</a> for usage.</p></li>
+<li><p>Add implicit GEMM CUDA kernel for Conv3D with fused NVFP4 fake quantization (<code class="docutils literal notranslate"><span class="pre">modelopt.torch.quantization.src.conv</span></code>). When NVFP4 quantization is applied to an <code class="docutils literal notranslate"><span class="pre">nn.Conv3d</span></code> layer via ModelOpt PTQ, the implicit GEMM path is used automatically instead of cuDNN. Uses BF16 WMMA tensor cores (SM80+) with FP32 accumulation and in-kernel FP4 (E2M1) activation quantization. Grouped convolution (<code class="docutils literal notranslate"><span class="pre">groups</span> <span class="pre">&gt;</span> <span class="pre">1</span></code>) falls back to the default cuDNN path. Inference only — training mode falls back to cuDNN with a warning.</p></li>
 </ul>
 <p><strong>Backward Breaking Changes</strong></p>
 <ul class="simple">
