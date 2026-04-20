@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>layer_utils &mdash; Model Optimizer 0.0.1.dev1+g26ae8da51</title>
+  <title>layer_utils &mdash; Model Optimizer 0.0.1.dev1+g010b220dc</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -596,8 +596,8 @@ Otherwise it will not be supported.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>module</strong> (<em>Module</em>)</p></li>
-<li><p><strong>model_type</strong> (<em>str</em>)</p></li>
+<li><p><strong>module</strong> (<em>Module</em>) – MoE block (e.g. MixtralSparseMoeBlock, NemotronHMOE).</p></li>
+<li><p><strong>model_type</strong> (<em>str</em>) – <cite>type(root_model).__name__.lower()</cite> (may change after ModelOpt quantize).</p></li>
 </ul>
 </dd>
 </dl>
