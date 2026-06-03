@@ -41,6 +41,8 @@
 # parallelism.
 #   nel run --config ... -o ++evaluation.nemo_evaluator_config.config.params.limit_samples=2
 defaults:
+  # slurm/default works anywhere; if your install ships a predefined
+  # internal/slurm/<cluster> config, prefer it (see SKILL.md Step 4).
   - execution: slurm/default
   - deployment: vllm
   - _self_

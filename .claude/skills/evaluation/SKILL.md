@@ -197,6 +197,17 @@ Reasoning models: prefer reasoning mode (highest scores). For lower variance / c
 
 ### Step 4 — Fill remaining ??? values
 
+**Predefined per-cluster execution config (check FIRST).** Some installs ship `internal/slurm/<cluster>` execution groups (optional `nemo_evaluator_launcher_internal` pkg) that pre-fill hostname/partition/gres — leaving only account/output_dir/walltime. Discover at runtime (nothing cluster-specific hardcoded):
+
+```bash
+python3 -c 'import nemo_evaluator_launcher_internal' 2>/dev/null && \
+PKG=$(python3 -c 'import nemo_evaluator_launcher_internal as m,os;print(os.path.dirname(m.__file__))') && \
+for f in "$PKG"/configs/execution/internal/slurm/*.yaml; do \
+  echo "$(basename "$f" .yaml) -> $(grep -E '^hostname:' "$f" | awk '{print $2}')"; done
+```
+
+Hostname match → set `defaults: - execution: internal/slurm/<cluster>`, drop the redundant `execution.hostname` (keep account/output_dir/walltime), verify with `--dry-run`. Else keep `slurm/default` and fill hostname/account/output_dir manually.
+
 - Find every `???` left. Ask the user only for what can't be inferred (SLURM hostname/account/output_dir, MLflow tracking URI, etc.). Don't propose defaults; let them give plain text.
 - **`parallelism`** — size it yourself from the run shape (total requests = `dataset_size × repeats` vs GPU serving capacity), and set `--max-num-seqs` to match. Read `references/parallelism.md` for the decision rule and worked examples; only ask the user if a non-GPU cap (e.g. judge rate limit) is unknown.
 - Ask about other defaults they may want to change (partition, walltime, MLflow tags).
