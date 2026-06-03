@@ -15,26 +15,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# HuggingFace backend for offline hidden-states dump. Sibling of
-# dump_offline_data.sh (TRT-LLM backend). Use this when the downstream training
-# needs --answer-only-loss / --chat-template and a loss_mask in the dump,
-# which the TRT-LLM backend does not produce.
-
-
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 
 source ${SCRIPT_DIR}/../service_utils.sh
 
 ###################################################################################################
-# HF-based hidden state dumping for models not supported by TRT-LLM.
-# Uses compute_hidden_states_hf.py with device_map="auto" (no TP/EP flags needed).
-# Suitable for: VLMs, models with custom code, architectures not yet in TRT-LLM.
+# vLLM-based hidden state dumping using vLLM's native hidden-state extractor.
+# Uses compute_hidden_states_vllm.py, which drives vLLM's built-in
+# `extract_hidden_states` speculative method + ExampleHiddenStatesConnector. No
+# third-party data-generation dependency (e.g. speculators) is required.
+# Suitable for: any model supported by vLLM (broader coverage than TRT-LLM or HF device_map).
 #
 # Required environment:
 #   HF_MODEL_CKPT   Path to the HF model checkpoint
 #
-# Args passed through to compute_hidden_states_hf.py:
-#   --input-data, --output-dir, --max-seq-len, etc.
+# Args passed through to compute_hidden_states_vllm.py:
+#   --input-data, --output-dir, --max-seq-len, --aux-layers, etc.
 ###################################################################################################
 
 pip install datasets
@@ -58,7 +54,7 @@ else
     TASK_COUNT="${SLURM_ARRAY_TASK_COUNT}"
 fi
 
-python3 modules/Model-Optimizer/examples/speculative_decoding/collect_hidden_states/compute_hidden_states_hf.py \
+python3 modules/Model-Optimizer/examples/speculative_decoding/collect_hidden_states/compute_hidden_states_vllm.py \
     --model "${HF_MODEL_CKPT}" \
     --dp-rank "${TASK_ID}" \
     --dp-world-size "${TASK_COUNT}" \
