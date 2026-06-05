@@ -60,31 +60,16 @@ import torch
 import modelopt.torch.quantization as mtq
 import modelopt.torch.utils.distributed as dist
 from modelopt.recipe import ModelOptPTQRecipe, load_recipe
+from modelopt.recipe.presets import KV_CACHE_NONE, KV_QUANT_CFG_CHOICES, QUANT_CFG_CHOICES
 from modelopt.torch.utils import print_args, print_rank_0, warn_rank_0
 from modelopt.torch.utils.plugins.mbridge import load_mbridge_model_from_hf
 from modelopt.torch.utils.plugins.megatron_calibration import get_megatron_calibration_forward_loop
 from modelopt.torch.utils.plugins.megatron_generate import megatron_generate
 
-# Curated short-name aliases for the most common quantization configs. Any other config exposed by
-# ``mtq.config.choices`` (e.g. ``FP8_DEFAULT_CFG``) can also be passed by its full name.
-QUANT_CFG_CHOICES = {
-    "int8": mtq.INT8_DEFAULT_CFG,
-    "int8_sq": mtq.INT8_SMOOTHQUANT_CFG,
-    "fp8": mtq.FP8_DEFAULT_CFG,
-    "fp8_blockwise": mtq.FP8_2D_BLOCKWISE_WEIGHT_ONLY_CFG,
-    "int4_awq": mtq.INT4_AWQ_CFG,
-    "w4a8_awq": mtq.W4A8_AWQ_BETA_CFG,
-    "nvfp4": mtq.NVFP4_DEFAULT_CFG,
-    "nvfp4_awq": mtq.NVFP4_AWQ_LITE_CFG,
-}
-
-# KV-cache quantization configs (applied on top of the weight/activation quant config).
-KV_QUANT_CFG_CHOICES = {
-    "none": "none",
-    "fp8": "FP8_KV_CFG",
-    "nvfp4": "NVFP4_KV_CFG",
-    "nvfp4_affine": "NVFP4_AFFINE_KV_CFG",
-}
+# The --quant_cfg / --kv_cache_quant CLI vocabularies are discovered from the preset
+# YAMLs (shared with the llm_ptq examples via modelopt.recipe.presets). --quant_cfg
+# additionally accepts any full config name from ``mtq.config.choices`` (e.g.
+# ``FP8_DEFAULT_CFG``); see get_quant_config below.
 
 # TODO: Add AutoQuantize (mtq.auto_quantize) support to automatically search a per-layer mix of
 # quantization formats that meets a target compression / accuracy constraint, instead of applying a
@@ -123,7 +108,7 @@ def get_args() -> argparse.Namespace:
         type=str,
         default="fp8",
         help=(
-            f"Quantization config. Short aliases: {', '.join(QUANT_CFG_CHOICES)}. "
+            f"Quantization config. Preset names / short aliases: {', '.join(QUANT_CFG_CHOICES)}. "
             "You can also pass any full config name exposed by modelopt (e.g. FP8_DEFAULT_CFG). "
             "Ignored when --recipe is set."
         ),
@@ -131,8 +116,8 @@ def get_args() -> argparse.Namespace:
     parser.add_argument(
         "--kv_cache_quant",
         type=str,
-        default="none",
-        choices=list(KV_QUANT_CFG_CHOICES),
+        default=KV_CACHE_NONE,
+        choices=[KV_CACHE_NONE, *KV_QUANT_CFG_CHOICES],
         help="KV-cache quantization config to apply on top of --quant_cfg. Ignored when --recipe is set.",
     )
     parser.add_argument(
@@ -205,7 +190,7 @@ def get_quant_config(args: argparse.Namespace) -> dict:
         # customizations below are skipped.
         print_rank_0(f"Using recipe {args.recipe} for quantization")
         if (
-            args.kv_cache_quant != "none"
+            args.kv_cache_quant != KV_CACHE_NONE
             or args.weight_only
             or args.moe_calib_experts_ratio is not None
         ):
@@ -226,20 +211,21 @@ def get_quant_config(args: argparse.Namespace) -> dict:
         mtq_config = getattr(mtq, args.quant_cfg)
     else:
         raise ValueError(
-            f"Unsupported --quant_cfg '{args.quant_cfg}'. Choose one of the short aliases "
+            f"Unsupported --quant_cfg '{args.quant_cfg}'. Choose a preset name / short alias "
             f"({', '.join(QUANT_CFG_CHOICES)}) or a full config name from {mtq.config.choices}."
         )
 
-    # Deepcopy so we don't mutate the shared module-level config, and normalize the inner quant_cfg
-    # to the list format so we can safely append customizations below.
+    # Deepcopy so we don't mutate a shared module-level config (the ``mtq.config.choices``
+    # full-name branch returns one; QUANT_CFG_CHOICES already hands back a fresh copy), and
+    # normalize the inner quant_cfg to the list format so we can safely append customizations below.
     mtq_config = copy.deepcopy(mtq_config)
     mtq_config["quant_cfg"] = mtq.normalize_quant_cfg_list(mtq_config["quant_cfg"])
 
     if args.weight_only:
         mtq_config["quant_cfg"].append({"quantizer_name": "*input_quantizer", "enable": False})
 
-    if args.kv_cache_quant != "none":
-        kv_cache_quant_cfg = getattr(mtq, KV_QUANT_CFG_CHOICES[args.kv_cache_quant])["quant_cfg"]
+    if args.kv_cache_quant != KV_CACHE_NONE:
+        kv_cache_quant_cfg = KV_QUANT_CFG_CHOICES[args.kv_cache_quant]["quant_cfg"]
         mtq_config = mtq.utils.update_quant_cfg_with_kv_cache_quant(mtq_config, kv_cache_quant_cfg)
 
     # For MoE models, optionally calibrate only a fraction of experts per forward pass for speed.
