@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.46 (2026-xx-xx)
+^^^^^^^^^^^^^^^^^
+
+**New Features**
+
+- Add the ``day0-release`` agent skill (``.agents/skills/day0-release/``), a deterministic end-to-end driver that chains the PTQ → evaluation → comparison skills (the evaluation stage deploys the checkpoint itself) with an enforced gate after each stage and returns a publish decision (ACCEPT / REGRESSION / ANOMALOUS / INFEASIBLE). Ships three GPU-free, unit-tested gate scripts (``gate_ptq.py``, ``gate_run.py``, ``gate_compare.py``) that validate checkpoint coverage, evaluation-run completeness, and baseline-vs-candidate accuracy threshold. v1 reports and stops on regression; the recipe-search loop is deferred.
+
 0.45 (2026-06-xx)
 ^^^^^^^^^^^^^^^^^
 
@@ -23,6 +30,7 @@ Changelog
 
 **New Features**
 
+- Make ``.agents/skills/`` the canonical location for agent skills; agent-specific directories (``.claude/skills/``, etc.) are now relative symlinks into ``.agents/``, so one skill suite serves multiple coding agents (Claude Code, Codex). See ``.agents/README.md``.
 - Extend Claude Code agent skills for PTQ, deployment, evaluation, monitoring, and baseline-vs-quantized result comparison. Adds evaluation task references for additional benchmarks, stronger PTQ checkpoint validation gates, and session-scoped workspace/job tracking.
 - Add ``examples/alpamayo`` showing FP8, NVFP4, and AutoQuantize (mixed-precision) quantization of the Alpamayo (formerly Alpamayo-R1) ~10B vision-language-action model, with a joint VLM + diffusion calibration loop and both fake-quant and ``--real-quant`` packed-checkpoint export. See `examples/alpamayo/README.md <https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/alpamayo>`_ for details.
 - Add SLURM Quality of Service (QoS) support to the ModelOpt launcher. Users can set QoS via ``slurm_config.qos`` or ``SLURM_QOS`` and the value is forwarded to ``nemo_run.SlurmExecutor``.
