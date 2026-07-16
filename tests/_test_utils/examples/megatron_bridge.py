@@ -12,18 +12,17 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+"""Shared helpers for Megatron-Bridge example tests."""
 
-"""Handles nas plugins for third-party modules."""
 
-from modelopt.torch.utils import import_plugin
+def qwen35_moe_bridge_supported() -> bool:
+    """Whether MBridge supports Qwen3.5-MoE per-expert weight assembly, i.e. nemo:26.08+.
 
-from .torch import *
+    Mount an updated MBridge to run these on 26.06.
+    """
+    try:
+        from megatron.bridge.models.conversion import model_bridge
 
-with import_plugin("megatron"):
-    from .megatron import *
-    from .megatron_model_stats import *
-
-# NOTE: Megatron-Bridge plugin is intentionally NOT auto-imported here to avoid a circular import.
-# It is imported from the pruning entrypoint (examples/megatron_bridge/prune_minitron.py)
-# with import_plugin("megatron.bridge"):
-#     from .mbridge import *
+        return hasattr(model_bridge, "_fuse_per_expert_hf_weight")
+    except Exception:
+        return False
