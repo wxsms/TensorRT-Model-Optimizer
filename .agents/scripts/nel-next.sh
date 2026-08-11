@@ -14,13 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# nel-next.sh — run NeMo Evaluator "next" (nel 0.3.x) via uvx, isolated from 0.2.6.
+# nel-next.sh — run NeMo Evaluator "next" (nel 0.4.x) via uvx, isolated from 0.2.6.
 #
 # A few AA benchmarks (Terminal-Bench 2.x, SWE-bench) run on `nemo-evaluator`
-# 0.3.x + `harbor` extra — a different package/CLI/config-schema from the eval
+# 0.4.x + `harbor` extra — a different package/CLI/config-schema from the eval
 # skill's default `nemo-evaluator-launcher` 0.2.6 (CLI `nel eval run X.yaml`,
 # overrides `-O a.b.c=v`, schema services/benchmarks/cluster/output). Installing
-# it into the 0.2.6 env would clobber `nel`, so this runs 0.3.x in a throwaway
+# it into the 0.2.6 env would clobber `nel`, so this runs 0.4.x in a throwaway
 # `uvx` environment (uv resolves + caches + reuses it) and forwards to its `nel`.
 #
 # Usage (source .env FIRST so the config's ${VAR}s resolve; this never reads secrets):
@@ -32,25 +32,31 @@
 #     using the config's export_config.mlflow (resolves ${MLFLOW_TRACKING_URI}, forces
 #     emit_traces=false to avoid the per-sample hang). Run after `source .env`.
 #
-# Install source (env overrides): NEL_NEXT_SPEC (PyPI default, "nemo-evaluator[harbor,export]==0.3.*"
-# — [export] pulls mlflow for mlflow-push; pin an exact 0.3.x here for reproducibility), or
-# NEL_NEXT_ORIGIN [+ NEL_NEXT_REF] for the internal git build. uv caches the resolved env and
-# refreshes it when the spec changes.
+# Install source: NEL_NEXT_ORIGIN + NEL_NEXT_REF git build (default), or NEL_NEXT_SPEC
+# to force a PyPI release. Upstream `main` is 0.4.0 and ships the vendored TB 2.1 registry
+# override; PyPI stops at 0.3.0, so a 0.4.x pin there resolves to nothing. No v0.4.0 tag
+# exists, so NEL_NEXT_REF defaults to a commit SHA — an unpinned branch HEAD would install
+# a different harness for the baseline and the candidate run, folding a harness change into
+# the pass@1 delta. NEL_NEXT_REF=main tracks HEAD (dev/canary only); bump the default below
+# after re-validating a canary. Override NEL_NEXT_ORIGIN in `.env` to build from a mirror.
+# `--version` prints the resolved spec — record it alongside scored results.
 set -euo pipefail
 
 # [harbor] = agentic/sandbox deps; [export] pulls mlflow for `mlflow-push`.
-NEL_NEXT_SPEC="${NEL_NEXT_SPEC:-nemo-evaluator[harbor,export]==0.3.*}"
-NEL_NEXT_ORIGIN="${NEL_NEXT_ORIGIN:-}"
-NEL_NEXT_REF="${NEL_NEXT_REF:-}"
+NEL_NEXT_SPEC="${NEL_NEXT_SPEC:-}"
+NEL_NEXT_ORIGIN="${NEL_NEXT_ORIGIN:-git+https://github.com/NVIDIA-NeMo/Evaluator.git}"
+# Reproducibility pin — NVIDIA-NeMo/Evaluator main @ 2026-08-04 (nemo-evaluator 0.4.0).
+NEL_NEXT_REF="${NEL_NEXT_REF:-4d081325170aababd0c8f27c58bed31a81ce82ac}"
 
-if [[ -n "$NEL_NEXT_ORIGIN" ]]; then
-  INSTALL_SPEC="nemo-evaluator[harbor,export] @ ${NEL_NEXT_ORIGIN}${NEL_NEXT_REF:+@${NEL_NEXT_REF}}"
-else
+# NEL_NEXT_SPEC wins when explicitly set (PyPI escape hatch); otherwise use the git origin.
+if [[ -n "$NEL_NEXT_SPEC" ]]; then
   INSTALL_SPEC="$NEL_NEXT_SPEC"
+else
+  INSTALL_SPEC="nemo-evaluator[harbor,export] @ ${NEL_NEXT_ORIGIN}${NEL_NEXT_REF:+@${NEL_NEXT_REF}}"
 fi
 
 _log() { printf '\033[2m  %s\033[0m\n' "$*" >&2; }
-# Run a command (nel, python, …) from the uvx-managed 0.3.x environment.
+# Run a command (nel, python, …) from the uvx-managed 0.4.x environment.
 _uvx() { uvx --python 3.12 --from "$INSTALL_SPEC" "$@"; }
 
 # Post-run MLflow push. SLURM runs don't auto-export; this stages each merged
@@ -128,7 +134,7 @@ command -v uvx >/dev/null 2>&1 || { echo "ERROR: 'uvx' not found (curl -LsSf htt
 case "${1:-}" in
   --setup-only) _uvx nel --version >/dev/null 2>&1 && _log "nel-next ready — ${INSTALL_SPEC}"; exit 0 ;;
   --which)      echo "uvx --python 3.12 --from \"${INSTALL_SPEC}\" nel"; exit 0 ;;
-  --version)    _uvx python -c 'import nemo_evaluator; print(nemo_evaluator.__version__)'; exit 0 ;;
+  --version)    _uvx python -c 'import nemo_evaluator; print(nemo_evaluator.__version__)'; _log "from ${INSTALL_SPEC}"; exit 0 ;;
   mlflow-push)  _mlflow_push "${@:2}"; exit $? ;;
   "")           echo "ERROR: no args. Try: nel-next.sh eval run <config.yaml> [--dry-run]  (or --help)" >&2; exit 2 ;;
 esac
