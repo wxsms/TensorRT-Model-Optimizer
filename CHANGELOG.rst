@@ -45,6 +45,8 @@ Changelog
 - Fix ``training.gradient_checkpointing`` to reach the DFlash draft. Previously the flag applied only to the frozen target model, saving no activations; the draft now honours it in its decoder-layer loop.
 - Add optional **grouped sublayer convolutions for LiLiCorr**, reusing DFlash2's ``DFlashGroupedConv``; enabled by ``conv_kernel_size`` and ``conv_group_size`` in ``dflash_architecture_config``. Requires the DFlash2 branch. Recipe at ``modelopt_recipes/general/speculative_decoding/lilicorr_conv.yaml``.
 
+- Add PTQ support for Step-3.7 (``stepfun-ai/Step-3.7-Flash``), whose routed experts were previously left unquantized. Quantize with the new ``huggingface/step3p7/ptq/nvfp4_experts_only-kv_fp8_cast`` or ``huggingface/step3p7/ptq/nvfp4_mlp_only-kv_fp8`` recipes rather than the general ones, which select experts by module names Step does not use.
+
 *Megatron Framework (M-LM / M-Bridge)*
 
 - Add ``clamp_kv_cache_scales`` to ``export_mcore_gpt_to_hf``. Set it to ``False`` when exporting a QAT Megatron-Core model to preserve its learned FP8 KV-cache scales; the default retains the existing minimum scale of 1.0.
