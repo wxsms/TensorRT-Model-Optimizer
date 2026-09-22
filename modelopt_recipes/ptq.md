@@ -28,7 +28,7 @@ supported combinations.
 ### The shipped recipes
 
 <details>
-<summary>All 26 <code>general/ptq/</code> recipes (click to expand)</summary>
+<summary>All 28 <code>general/ptq/</code> recipes (click to expand)</summary>
 
 | Recipe | Model body | KV cache | Calibration |
 |--------|-----------|----------|-------------|
@@ -58,6 +58,8 @@ supported combinations.
 | `int4_blockwise_weight_only` | INT4 W4A16, block 128, weights only | none | max |
 | `nvfp4_mlp_weight_only` | NVFP4 W4A16 (block 32), MLP + MoE weights only | none | max |
 | `mxfp4_mlp_weight_only` | MXFP4 W4A16, MLP + MoE weights only | none | none (no calibration) |
+| `iq1_s` | IQ1_S W1A16, eligible linears | none | none (no calibration) |
+| `iq2_xs` | IQ2_XS W2A16, eligible linears | none | none (no calibration) |
 
 </details>
 
@@ -113,7 +115,7 @@ activations are quantized too** (W4A4/W8A8 vs weight-only W4A16).
 > keeps that sensitive path at a safer precision than NVFP4 while still halving those
 > weights vs. BF16.
 
-#### Weight-only schemes (W4A16 — activations stay BF16)
+#### Weight-only schemes (activations stay BF16)
 
 Quantize weights only; activations run in BF16. This shrinks the model
 (memory-bound decode win) with much lower accuracy risk than W4A4, and **needs no
@@ -136,6 +138,13 @@ activations and tensor-core math are what deliver the throughput.
 - **`mxfp4_mlp_weight_only`** — MXFP4 weights on MLP/MoE layers only, BF16
   activations. Needs no calibration forward pass; the QAT starting point for the
   GPT-OSS family (see `examples/gpt-oss`).
+- **`iq1_s` / `iq2_xs`** — GGML-compatible IQ1_S or IQ2_XS weights on the eligible
+  linear layers, with BF16 activations; `lm_head`, MoE routers, `conv1d` and the
+  vision branch stay in BF16 like every other preset. No calibration data is
+  required. Quantized weights must have a final dimension divisible by 256.
+  Unified HF export writes the packed GGML blocks; Megatron export additionally
+  requires tensor and pipeline parallel sizes of 1, and does not support
+  fused-MoE experts.
 
 ---
 
